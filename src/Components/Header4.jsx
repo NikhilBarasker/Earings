@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import '../App.css';
 export default function Header4() {
 
@@ -107,6 +107,7 @@ export default function Header4() {
           </div>
           <ul
             id="collapseMenu"
+            style={{display:menuOpen ? "block":"none"}}
             className={`lg:!flex lg:space-x-10 max-lg:space-y-3 max-lg:hidden max-lg:w-full max-lg:my-4 ${
               menuOpen ? "block" : "hidden"
             }`}
@@ -124,7 +125,7 @@ export default function Header4() {
                 href="javascript:void(0)"
                 className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
-                Store
+                Shop
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16px"
@@ -243,22 +244,6 @@ export default function Header4() {
                 href="javascript:void(0)"
                 className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
-                Feature
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href="javascript:void(0)"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
-              >
-                Blog
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href="javascript:void(0)"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
-              >
                 About
               </a>
             </li>
@@ -268,30 +253,6 @@ export default function Header4() {
                 className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
                 Contact
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href="javascript:void(0)"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
-              >
-                Source
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href="javascript:void(0)"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
-              >
-                Partner
-              </a>
-            </li>
-            <li className="max-lg:border-b max-lg:py-2">
-              <a
-                href="javascript:void(0)"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
-              >
-                More
               </a>
             </li>
           </ul>
