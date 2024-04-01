@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
+import '../App.css';
 export default function Header4() {
 
-  const [showMenu, setshowMenu] = useState(false);
- 
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div>
+    <>
       <header className="shadow-md bg-white font-[sans-serif]">
         <section className="flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]">
           <div className="left-10 absolute z-50 bg-gray-100 flex px-4 py-3 rounded max-lg:hidden">
@@ -85,13 +90,12 @@ export default function Header4() {
             id="toggle"
             className="flex ml-auto lg:order-1 lg:hidden relative z-50"
           >
-            <button className="ml-7">
+            <button className="ml-7 btn" onClick={() => toggleMenu()}>
               <svg
                 className="w-7 h-7"
                 fill="#000"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
-                onClick={() => setshowMenu(!showMenu)}
               >
                 <path
                   fill-rule="evenodd"
@@ -103,11 +107,9 @@ export default function Header4() {
           </div>
           <ul
             id="collapseMenu"
-            className={
-              showMenu
-                ? "humburger-menu"
-                : "lg:!flex lg:space-x-10 max-lg:space-y-3 max-lg:hidden max-lg:w-full max-lg:my-4"
-            }
+            className={`lg:!flex lg:space-x-10 max-lg:space-y-3 max-lg:hidden max-lg:w-full max-lg:my-4 ${
+              menuOpen ? "block" : "hidden"
+            }`}
           >
             <li className="max-lg:border-b max-lg:py-2">
               <a
@@ -295,6 +297,6 @@ export default function Header4() {
           </ul>
         </div>
       </header>
-    </div>
+    </>
   );
 }
