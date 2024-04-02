@@ -1,5 +1,9 @@
 import React, { useState} from "react";
 import '../App.css';
+import { useNavigate } from 'react-router-dom'
+import Logo from "../Photoes/Logo.png";
+import { IoPerson } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 export default function Header4() {
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -7,6 +11,10 @@ export default function Header4() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  let navigate = useNavigate();
+
+
 
   return (
     <>
@@ -28,11 +36,7 @@ export default function Header4() {
             />
           </div>
           <a href="javascript:void(0)">
-            <img
-              src="https://readymadeui.com/readymadeui.svg"
-              alt="logo"
-              className="md:w-[170px] w-36"
-            />
+            <img src={Logo} alt="logo" className="md:w-[auto] w-20 ml-[20px] logo" />
           </a>
           <div className="absolute sm:right-10 right-4 flex items-center">
             <span className="relative sm:mr-8 mr-6">
@@ -69,19 +73,21 @@ export default function Header4() {
               </span>
             </span>
             <div className="inline-block cursor-pointer border-gray-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                className="hover:fill-[#007bff]"
-              >
-                <circle cx="10" cy="7" r="6" data-original="#000000" />
-                <path
-                  d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
-                  data-original="#000000"
-                />
-              </svg>
+              <abbr title="Login">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  className="hover:fill-[#007bff]"
+                >
+                  <circle cx="10" cy="7" r="6" data-original="#000000" />
+                  <path
+                    d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                    data-original="#000000"
+                  />
+                </svg>
+              </abbr>
             </div>
           </div>
         </section>
@@ -107,7 +113,7 @@ export default function Header4() {
           </div>
           <ul
             id="collapseMenu"
-            style={{display:menuOpen ? "block":"none"}}
+            style={{ display: menuOpen ? "block" : "none" }}
             className={`lg:!flex lg:space-x-10 max-lg:space-y-3 max-lg:hidden max-lg:w-full max-lg:my-4 ${
               menuOpen ? "block" : "hidden"
             }`}
@@ -158,7 +164,7 @@ export default function Header4() {
                         data-original="#000000"
                       />
                     </svg>
-                    Furniture Store
+                    Sarees
                   </a>
                 </li>
                 <li className="border-b py-3">
@@ -185,16 +191,8 @@ export default function Header4() {
                         d="M424.1 1358.8H128.4c-25.6 0-46.4-20.8-46.4-46.4V761.1c0-25.6 20.8-46.4 46.4-46.4h295.7c25.6 0 46.4 20.8 46.4 46.4v551.3c0 25.6-20.8 46.4-46.4 46.4zm-294.1-48h292.5V762.7H130z"
                         data-original="#000000"
                       />
-                      <path
-                        d="M446.5 853.6H106c-13.3 0-24-10.7-24-24s10.7-24 24-24h340.5c13.3 0 24 10.7 24 24s-10.7 24-24 24zm0 414.4H106c-13.3 0-24-10.7-24-24s10.7-24 24-24h340.5c13.3 0 24 10.7 24 24s-10.7 24-24 24zm1125.1 90.8h-368.3c-25.6 0-46.4-20.8-46.4-46.4V715.2c0-25.6 20.8-46.4 46.4-46.4h368.3c25.6 0 46.4 20.8 46.4 46.4v597.2c0 25.6-20.8 46.4-46.4 46.4zm-366.7-48H1570v-594h-365.1z"
-                        data-original="#000000"
-                      />
-                      <path
-                        d="M1594 811.8h-413.1c-13.3 0-24-10.7-24-24s10.7-24 24-24H1594c13.3 0 24 10.7 24 24s-10.7 24-24 24zm0 452h-413.1c-13.3 0-24-10.7-24-24s10.7-24 24-24H1594c13.3 0 24 10.7 24 24s-10.7 24-24 24z"
-                        data-original="#000000"
-                      />
                     </svg>
-                    Electronic Store
+                    Others
                   </a>
                 </li>
                 <li className="border-b py-3">
@@ -214,7 +212,7 @@ export default function Header4() {
                         data-original="#000000"
                       />
                     </svg>
-                    Fashion Store
+                    Jewellary
                   </a>
                 </li>
                 <li className="border-b py-3">
@@ -234,7 +232,7 @@ export default function Header4() {
                         data-original="#000000"
                       />
                     </svg>
-                    Shoes Store
+                    Offers
                   </a>
                 </li>
               </ul>

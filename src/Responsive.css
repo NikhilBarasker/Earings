@@ -1,8 +1,10 @@
 @media only screen and (max-width: 767px) {
-  #search {
-    display: none;
+  .uperheader{
+    display: flex;
+    flex-direction: column;
   }
-  .content-container{
-    display: none;
+  .logo{
+    margin: 0 0 0 130px;
+    width: auto;
   }
 }
