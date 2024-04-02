@@ -1,17 +1,10 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Photoes/Logo.png";
-=======
-import React, { useState} from "react";
-import '../App.css';
-import { Link } from "react-router-dom";
 import { useContext } from 'react'
 import IconContext from "../Context/IconContext";
 
-
->>>>>>> b8136826c1c140c0c2039da5eec4380b7bc2927a
 export default function Header4() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { setCartValue, cartValue, likeValue, setlikeValue } = useContext(IconContext);
@@ -67,7 +60,6 @@ export default function Header4() {
             />
           </a>
           <div className="absolute sm:right-10 right-4 flex items-center">
-<<<<<<< HEAD
             <abbr title="Wishlist">
               <span className="relative sm:mr-8 mr-6">
                 <svg
@@ -87,8 +79,6 @@ export default function Header4() {
               </span>
             </abbr>
             <span className="relative sm:mr-8 mr-6">
-=======
-            <span className="relative sm:mr-8 mr-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20px"
@@ -107,7 +97,6 @@ export default function Header4() {
 
             <Link to={'/cart'}>
             <span className="relative sm:mr-8 mr-6 ">
->>>>>>> b8136826c1c140c0c2039da5eec4380b7bc2927a
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20px"

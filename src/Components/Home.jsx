@@ -9,7 +9,6 @@ import Featured from './Featured'
 const Home = () => {
   return (
     <>
-<<<<<<< HEAD
       <Carousel />
       <div className="Home">
        <Testimonals />
@@ -24,7 +23,6 @@ const Home = () => {
       {/* <img className='HomeBG' src={HomeBG} /> */}
       {/* <img style={{height:'200px', width:'250px'}} src={KaanKiBalli} /> */}
     </div>
->>>>>>> b8136826c1c140c0c2039da5eec4380b7bc2927a
     </>
   );
 }
