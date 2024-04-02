@@ -12,6 +12,7 @@ import Vision from './Components/Vision.jsx';
 import WhyUs from './Components/WhyUs.jsx';
 import Error from './Components/Error.jsx';
 import Scrolup from './Components/Scrolup.jsx';
+import Cart from './Components/Cart.jsx';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/vision" element={<Vision />} />
         <Route path="/whyus" element={<WhyUs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/error" element={<Error />} />
       </Routes>
       <Scrolup />

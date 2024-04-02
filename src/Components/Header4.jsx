@@ -1,15 +1,21 @@
 import React, { useState} from "react";
 import '../App.css';
+import { Link } from "react-router-dom";
+import { useContext } from 'react'
+import IconContext from "../Context/IconContext";
+
+
 export default function Header4() {
 
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { setCartValue, cartValue, likeValue, setlikeValue } = useContext(IconContext);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
     <>
+    <div className="w-[100%] h-auto" style={{position:'fixed', zIndex:'1000', top:'0',boxShadow:'0px 10px 10px -5px rgba(0,0,0,0.5)'}}>
       <header className="shadow-md bg-white font-[sans-serif]">
         <section className="flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]">
           <div className="left-10 absolute z-50 bg-gray-100 flex px-4 py-3 rounded max-lg:hidden">
@@ -48,10 +54,12 @@ export default function Header4() {
                 />
               </svg>
               <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                1
+                {likeValue}
               </span>
             </span>
-            <span className="relative sm:mr-8 mr-6">
+
+            <Link to={'/cart'}>
+            <span className="relative sm:mr-8 mr-6 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20px"
@@ -65,9 +73,11 @@ export default function Header4() {
                 ></path>
               </svg>
               <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                4
+                {cartValue}
               </span>
             </span>
+            </Link>
+
             <div className="inline-block cursor-pointer border-gray-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -258,6 +268,7 @@ export default function Header4() {
           </ul>
         </div>
       </header>
+    </div>
     </>
   );
 }
