@@ -18,8 +18,8 @@ const Carousel = () => {
         cssMode={true}
         navigation={true}
         pagination={true}
-        mousewheel={true}
-        keyboard={true}
+        // mousewheel={true}
+        // keyboard={true}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
@@ -40,6 +40,8 @@ const Carousel = () => {
 export default Carousel
 
 const DIV = styled.div`
+margin-top: 100px;
+
 #app {
   height: 100%;
 }

@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Photoes/Logo.png";
+=======
+import React, { useState} from "react";
+import '../App.css';
+import { Link } from "react-router-dom";
+import { useContext } from 'react'
+import IconContext from "../Context/IconContext";
+
+
+>>>>>>> b8136826c1c140c0c2039da5eec4380b7bc2927a
 export default function Header4() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { setCartValue, cartValue, likeValue, setlikeValue } = useContext(IconContext);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -29,6 +39,7 @@ export default function Header4() {
 
   return (
     <>
+    <div className="w-[100%] h-auto" style={{position:'fixed', zIndex:'1000', top:'0',boxShadow:'0px 10px 10px -5px rgba(0,0,0,0.5)'}}>
       <header className="shadow-md bg-white font-[sans-serif]">
         <section className="flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]">
           <div className="left-10 absolute z-50 bg-gray-100 flex px-4 py-3 rounded max-lg:hidden">
@@ -56,6 +67,7 @@ export default function Header4() {
             />
           </a>
           <div className="absolute sm:right-10 right-4 flex items-center">
+<<<<<<< HEAD
             <abbr title="Wishlist">
               <span className="relative sm:mr-8 mr-6">
                 <svg
@@ -75,6 +87,27 @@ export default function Header4() {
               </span>
             </abbr>
             <span className="relative sm:mr-8 mr-6">
+=======
+            <span className="relative sm:mr-8 mr-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20px"
+                className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
+                viewBox="0 0 64 64"
+              >
+                <path
+                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                  data-original="#000000"
+                />
+              </svg>
+              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
+                {likeValue}
+              </span>
+            </span>
+
+            <Link to={'/cart'}>
+            <span className="relative sm:mr-8 mr-6 ">
+>>>>>>> b8136826c1c140c0c2039da5eec4380b7bc2927a
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20px"
@@ -88,9 +121,11 @@ export default function Header4() {
                 ></path>
               </svg>
               <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                4
+                {cartValue}
               </span>
             </span>
+            </Link>
+
             <div className="inline-block cursor-pointer border-gray-300">
               <abbr title="Login">
                 <svg
@@ -275,6 +310,7 @@ export default function Header4() {
           </ul>
         </div>
       </header>
+    </div>
     </>
   );
 }
