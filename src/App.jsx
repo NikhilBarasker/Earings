@@ -1,20 +1,19 @@
-import React from 'react'
-import './App.css'
-import Header4 from './Components/Header4';
-import { Routes, Route } from 'react-router-dom';
-import Footer from './Components/Footer.jsx'
-import Home from './Components/Home.jsx';
-import Contact from './Components/Contact.jsx';
-import About from './Components/About.jsx';
-import Management from './Components/Management.jsx'
-import Quality from './Components/Quality.jsx';
-import Vision from './Components/Vision.jsx';
-import WhyUs from './Components/WhyUs.jsx';
-import Error from './Components/Error.jsx';
-import Scrolup from './Components/Scrolup.jsx';
+import React from "react";
+import "./App.css";
+import Header4 from "./Components/Header4";
+import { Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer.jsx";
+import Home from "./Components/Home.jsx";
+import Contact from "./Components/Contact.jsx";
+import About from "./Components/About.jsx";
+import Management from "./Components/Management.jsx";
+import Quality from "./Components/Quality.jsx";
+import Vision from "./Components/Vision.jsx";
+import WhyUs from "./Components/WhyUs.jsx";
+import Error from "./Components/Error.jsx";
+import Scrolup from "./Components/Scrolup.jsx";
 
 function App() {
-
   return (
     <div>
       <Header4 />
@@ -35,4 +34,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

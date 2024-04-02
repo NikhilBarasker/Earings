@@ -34,12 +34,6 @@
 }
 
 
-/* .search button[type="submit"]:hover {
-  transform: scale(1.1);
-  color: rgb(255, 255, 255);
-} */
-
-
 .uperheader{
   width: 100%;
   display: flex;
@@ -61,4 +55,10 @@
 }
 .login:active{
   color: lightgreen;
+}
+
+
+
+.pic{
+  display: none;
 }

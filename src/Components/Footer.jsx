@@ -4,6 +4,7 @@ import { AiOutlineYoutube } from "react-icons/ai";
 import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { FaLinkedin } from "react-icons/fa";
+import Logo from "../Photoes/Footerimg.png";
 
 const Footer = () => {
   return (
@@ -100,7 +101,7 @@ const Footer = () => {
           <div className="flex items-center lg:justify-center">
             <a href="javascript:void(0)">
               <img
-                src="https://readymadeui.com/readymadeui-light.svg"
+                src={Logo}
                 alt="logo"
                 className="w-60"
               />
