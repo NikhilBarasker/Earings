@@ -5,27 +5,18 @@ import Carousel from './Carousel'
 import styled from 'styled-components'
 import TopDealProducts from './TopDealProducts'
 import Featured from './Featured'
-import Advantages from './Advantages.jsx'
 
-const Home = () => {
+const Home2 = () => {
   return (
     <>
-      <Carousel />
-      <Container>
-        <TopDealProducts />
-        <Featured />
-      </Container>
-      <div className="Home">
-        <Testimonals />
-      </div>
+      {/* <Carousel /> */}
       {/* <div className="Home">
        <Testimonals />
       </div>
     <Carousel/> */}
     <Container>
-      <TopDealProducts/>
-      <Advantages/>
       <Featured/>
+      <TopDealProducts/>
     </Container>
     <div className='Home' >
       {/* <img className='HomeBG' src={HomeBG} /> */}
@@ -35,7 +26,7 @@ const Home = () => {
   );
 }
 
-export default Home
+export default Home2
 
 const Container = styled.div `
 width: 90vw;

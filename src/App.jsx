@@ -13,16 +13,21 @@ import WhyUs from './Components/WhyUs.jsx';
 import Error from './Components/Error.jsx';
 import Scrolup from './Components/Scrolup.jsx';
 import Cart from './Components/Cart.jsx';
+<<<<<<< HEAD
 import Login from './Components/Login.jsx';
 import Registration from './Components/Registration.jsx'
+=======
+import Home2 from './Components/Home2.jsx';
+>>>>>>> ff623953975832af4769adde10918c76be8f766c
 
 function App() {
   return (
     <div>
       <Header4 />
       <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/management" element={<Management />} />
         <Route path="/about" element={<About />} />
         <Route path="/quality" element={<Quality />} />
