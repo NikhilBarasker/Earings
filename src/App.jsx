@@ -14,6 +14,7 @@ import Error from './Components/Error.jsx';
 import Scrolup from './Components/Scrolup.jsx';
 import Cart from './Components/Cart.jsx';
 import Home2 from './Components/Home2.jsx';
+import ProductDetails from './Components/ProductDetails.jsx';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/whyus" element={<WhyUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/ProductDetail" element={<ProductDetails />} />
         <Route path="/error" element={<Error />} />
       </Routes>
       <Scrolup />

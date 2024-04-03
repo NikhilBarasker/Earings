@@ -30,9 +30,13 @@ export default function Header4() {
     document.getElementById("search").value = "";
   };
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+};
+
   return (
     <>
-    <div className="w-[100%] h-auto" style={{position:'fixed', zIndex:'1000', top:'0',boxShadow:'0px 10px 10px -5px rgba(0,0,0,0.5)'}}>
+    <div className="w-[100%] h-auto" style={{position:'fixed', zIndex:'1000', top:'0',boxShadow:'0px 5px 5px -5px rgba(0,0,0,0.5)'}}>
       <header className="shadow-md bg-white font-[sans-serif]">
         <section className="flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]">
           <div className="left-10 absolute z-50 bg-gray-100 flex px-4 py-3 rounded max-lg:hidden">
@@ -95,7 +99,7 @@ export default function Header4() {
               </span>
             </span>
 
-            <Link to={'/cart'}>
+            <Link to={'/cart'} onClick={handleLinkClick}>
             <span className="relative sm:mr-8 mr-6 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -163,6 +167,7 @@ export default function Header4() {
           >
             <li className="max-lg:border-b max-lg:py-2">
               <NavLink
+              onClick={handleLinkClick}
                 to='/'
                 activeClassName="active"
                 className="hover:text-[#007bff] text-[#007bff] font-semibold block text-[15px]"
@@ -173,6 +178,7 @@ export default function Header4() {
             <li className="group max-lg:border-b max-lg:py-2 relative">
               <NavLink
               to={'/Shop'}
+              onClick={handleLinkClick}
               activeClassName="active"
                 className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
@@ -195,6 +201,7 @@ export default function Header4() {
                 <li className="border-b py-3">
                   <NavLink
                   to={'/Sarees'}
+                  onClick={handleLinkClick}
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -215,6 +222,7 @@ export default function Header4() {
                 <li className="border-b py-3">
                   <NavLink
                   to={'/Others'}
+                  onClick={handleLinkClick}
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -243,6 +251,7 @@ export default function Header4() {
                 <li className="border-b py-3">
                   <NavLink
                   to="/Jewellary"
+                  onClick={handleLinkClick}
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -263,6 +272,7 @@ export default function Header4() {
                 <li className="border-b py-3">
                   <NavLink
                   to={'/Offers'}
+                  onClick={handleLinkClick}
                   activeClassName="active"
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
@@ -286,6 +296,7 @@ export default function Header4() {
             <li className="max-lg:border-b max-lg:py-2">
               <NavLink
                 to="/about"
+                onClick={handleLinkClick}
                 activeClassName="active"
                 className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
@@ -295,6 +306,7 @@ export default function Header4() {
             <li className="max-lg:border-b max-lg:py-2">
               <NavLink
                 to='/contact'
+                onClick={handleLinkClick}
                 activeClassName="active"
                 className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
