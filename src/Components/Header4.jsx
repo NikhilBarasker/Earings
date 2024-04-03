@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../Photoes/Logo.png";
 import { useContext } from 'react'
 import IconContext from "../Context/IconContext";
@@ -60,7 +60,7 @@ export default function Header4() {
             />
           </a>
           <div className="absolute sm:right-10 right-4 flex items-center">
-            <abbr title="Wishlist">
+            {/* <abbr title="Wishlist">
               <span className="relative sm:mr-8 mr-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ export default function Header4() {
                   1
                 </span>
               </span>
-            </abbr>
+            </abbr> */}
             <span className="relative sm:mr-8 mr-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,16 +162,18 @@ export default function Header4() {
             }`}
           >
             <li className="max-lg:border-b max-lg:py-2">
-              <Link
-                to='/home'
+              <NavLink
+                to='/'
+                activeClassName="active"
                 className="hover:text-[#007bff] text-[#007bff] font-semibold block text-[15px]"
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="group max-lg:border-b max-lg:py-2 relative">
-              <a
-                href="javascript:void(0)"
+              <NavLink
+              to={'/Shop'}
+              activeClassName="active"
                 className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
                 Shop
@@ -188,11 +190,11 @@ export default function Header4() {
                     data-original="#000000"
                   />
                 </svg>
-              </a>
+              </NavLink>
               <ul className="absolute hidden group-hover:block shadow-lg bg-white space-y-2 px-6 pb-4 pt-6 lg:top-5 max-lg:top-8 left-0 min-w-[250px] z-50">
                 <li className="border-b py-3">
-                  <a
-                    href="javascript:void(0)"
+                  <NavLink
+                  to={'/Sarees'}
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -208,11 +210,11 @@ export default function Header4() {
                       />
                     </svg>
                     Sarees
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-b py-3">
-                  <a
-                    href="javascript:void(0)"
+                  <NavLink
+                  to={'/Others'}
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -236,11 +238,11 @@ export default function Header4() {
                       />
                     </svg>
                     Others
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-b py-3">
-                  <a
-                    href="javascript:void(0)"
+                  <NavLink
+                  to="/Jewellary"
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -256,11 +258,12 @@ export default function Header4() {
                       />
                     </svg>
                     Jewellary
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-b py-3">
-                  <a
-                    href="javascript:void(0)"
+                  <NavLink
+                  to={'/Offers'}
+                  activeClassName="active"
                     className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
@@ -276,25 +279,27 @@ export default function Header4() {
                       />
                     </svg>
                     Offers
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link
+              <NavLink
                 to="/about"
+                activeClassName="active"
                 className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
                 About
-              </Link>
+              </NavLink>
             </li>
             <li className="max-lg:border-b max-lg:py-2">
-              <Link
+              <NavLink
                 to='/contact'
+                activeClassName="active"
                 className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
               >
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import IconContext from '../Context/IconContext';
 
@@ -6,7 +6,13 @@ const WishlistBtn = () => {
     const {likeValue, setlikeValue } = useContext(IconContext);
     const handleIncrement = () => {
         setlikeValue(likeValue +1)
+        handleClick();
     }
+    const [isOn, setIsOn] = useState(false);
+
+  const handleClick = () => {
+    setIsOn((prevState) => !prevState);
+  };
   return (
     <div>
       <button
@@ -17,7 +23,7 @@ const WishlistBtn = () => {
 
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
+      fill={isOn ? 'red' : 'none'}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"

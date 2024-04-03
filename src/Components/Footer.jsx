@@ -5,6 +5,7 @@ import { CiFacebook } from "react-icons/ci";
 import { CiInstagram } from "react-icons/ci";
 import { FaLinkedin } from "react-icons/fa";
 import Logo from "../Photoes/Footerimg.png";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -15,28 +16,25 @@ const Footer = () => {
             <h2 className="text-white text-lg font-bold mb-4">Quick Links</h2>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Contact US
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Quality Assurance
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Management Team
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -44,28 +42,25 @@ const Footer = () => {
             <h2 className="text-white text-lg font-bold mb-4">Follow Us</h2>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
-                  Github
-                </a>
+                  Instagram
+                </Link>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
-                  linkedin
-                </a>
+                  Youtube
+                </Link>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Twitter
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -73,39 +68,36 @@ const Footer = () => {
             <h2 className="text-white text-lg font-bold mb-4">Company</h2>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Why Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="javascript:void(0)"
+                <Link
                   className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Vision & Mission
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className="flex items-center lg:justify-center">
-            <a href="javascript:void(0)">
+            <Link>
               <img
                 src={Logo}
                 alt="logo"
                 className="w-60"
               />
-            </a>
+            </Link>
           </div>
         </div>
         <hr className="my-8 border-gray-700" />

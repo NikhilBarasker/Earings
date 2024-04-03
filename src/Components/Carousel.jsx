@@ -15,13 +15,13 @@ const Carousel = () => {
     <DIV>
      
       <Swiper
-        cssMode={true}
+        cssMode={false}
         navigation={true}
         pagination={true}
         // mousewheel={true}
         // keyboard={true}
         autoplay={{
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
@@ -41,6 +41,15 @@ export default Carousel
 
 const DIV = styled.div`
 margin-top: 100px;
+/* 
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+  color: white;
+  --swiper-theme-color:'white';
+}
+.swiper-pagination-bullet:active{
+  color: white;
+  background-color: white;
+} */
 
 #app {
   height: 100%;
