@@ -46,8 +46,8 @@
   width: 70px;
 }
 
-.login{
-  margin: 40px 0 0 0;
+.loginfrm{
+  margin: 200px 0 50px 0;
 }
 
 .login:hover{
@@ -57,10 +57,20 @@
 .login:active{
   color: lightgreen;
 }
-
-
-
 .pic{
   display: none;
 }
+
+/* .newAdminLink{
+  color: blue;
+} */
+.newAdminLink:hover{
+color: blue;
+}
+
+.newAdminLink:active{
+color: lightseagreen;
+}
+
+
 

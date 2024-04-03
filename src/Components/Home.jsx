@@ -10,19 +10,13 @@ const Home = () => {
   return (
     <>
       <Carousel />
+      <Container>
+        <TopDealProducts />
+        <Featured />
+      </Container>
       <div className="Home">
-       <Testimonals />
+        <Testimonals />
       </div>
-=======
-    <Carousel/>
-    <Container>
-      <TopDealProducts/>
-      <Featured/>
-    </Container>
-    <div className='Home' >
-      {/* <img className='HomeBG' src={HomeBG} /> */}
-      {/* <img style={{height:'200px', width:'250px'}} src={KaanKiBalli} /> */}
-    </div>
     </>
   );
 }

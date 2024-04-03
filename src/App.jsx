@@ -13,6 +13,8 @@ import WhyUs from './Components/WhyUs.jsx';
 import Error from './Components/Error.jsx';
 import Scrolup from './Components/Scrolup.jsx';
 import Cart from './Components/Cart.jsx';
+import Login from './Components/Login.jsx';
+import Registration from './Components/Registration.jsx'
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/error" element={<Error />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
       </Routes>
       <Scrolup />
       <Footer />
