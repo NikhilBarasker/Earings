@@ -86,7 +86,7 @@ export default function Header4() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20px"
-                className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
+                className="cursor-pointer fill-[#333] hover:fill-[black] inline-block"
                 viewBox="0 0 64 64"
               >
                 <path
@@ -94,7 +94,7 @@ export default function Header4() {
                   data-original="#000000"
                 />
               </svg>
-              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
+              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-gray-600 px-1 py-0 text-xs text-white">
                 {likeValue}
               </span>
             </span>
@@ -105,7 +105,7 @@ export default function Header4() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="20px"
                 height="20px"
-                className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
+                className="cursor-pointer fill-[#333] hover:fill-[black] inline-block"
                 viewBox="0 0 512 512"
               >
                 <path
@@ -113,20 +113,20 @@ export default function Header4() {
                   data-original="#000000"
                 ></path>
               </svg>
-              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
+              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-gray-600 px-1 py-0 text-xs text-white">
                 {cartValue}
               </span>
             </span>
             </Link>
 
-            <div className="inline-block cursor-pointer border-gray-300">
+            <div className="inline-block cursor-pointer border-gray-600">
               <abbr title="Login">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
                   height="20px"
                   viewBox="0 0 24 24"
-                  className="hover:fill-[#007bff]"
+                  className="fill-[#333333b7] hover:fill-[black]"
                 >
                   <circle cx="10" cy="7" r="6" data-original="#000000" />
                   <path
@@ -165,12 +165,12 @@ export default function Header4() {
               menuOpen ? "block" : "hidden"
             }`}
           >
-            <li className="max-lg:border-b max-lg:py-2">
+            <li className="max-lg:border-b max-lg:py-2 ">
               <NavLink
               onClick={handleLinkClick}
                 to='/'
                 activeClassName="active"
-                className="hover:text-[#007bff] text-[#007bff] font-semibold block text-[15px]"
+                className="hover:fill-[black] hover:text-[black] font-semibold block text-[15px] border border-b border-transparent  hover:border-b-gray-900"
               >
                 Home
               </NavLink>
@@ -180,7 +180,7 @@ export default function Header4() {
               to={'/Shop'}
               onClick={handleLinkClick}
               activeClassName="active"
-                className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block border border-b border-transparent  hover:border-b-gray-900"
               >
                 Shop
                 <svg
@@ -202,7 +202,7 @@ export default function Header4() {
                   <NavLink
                   to={'/Sarees'}
                   onClick={handleLinkClick}
-                    className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                    className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +223,7 @@ export default function Header4() {
                   <NavLink
                   to={'/Others'}
                   onClick={handleLinkClick}
-                    className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                    className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +252,7 @@ export default function Header4() {
                   <NavLink
                   to="/Jewellary"
                   onClick={handleLinkClick}
-                    className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                    className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -274,14 +274,14 @@ export default function Header4() {
                   to={'/Offers'}
                   onClick={handleLinkClick}
                   activeClassName="active"
-                    className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                    className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20px"
                       height="20px"
                       className="mr-4 inline-block"
-                      viewBox="0 0 512 512"
+                      viewBox="0 0 512 512 "
                     >
                       <path
                         d="M434.1 243.904h-5.955a95.572 95.572 0 0 1-61.022-22.072l-117.812-98.055a49.716 49.716 0 0 0-31.743-11.481c-27.361 0-49.621 22.26-49.621 49.621v11.586c0 22.572-18.364 40.937-40.937 40.937-15.844 0-30.407-9.279-37.102-23.639l-3.261-6.995c-7.434-15.944-23.604-26.246-41.195-26.246C20.39 157.56 0 177.949 0 203.012v118.792c0 42.954 34.946 77.9 77.9 77.9h356.2c42.954 0 77.9-34.946 77.9-77.9 0-42.954-34.946-77.9-77.9-77.9zm0 125.8H77.9c-17.829 0-33.403-9.799-41.65-24.287h439.5c-8.247 14.488-23.821 24.287-41.65 24.287zM30 315.419V203.012c0-8.521 6.932-15.452 15.452-15.452 5.98 0 11.478 3.503 14.005 8.923l3.261 6.994c11.601 24.884 36.837 40.963 64.293 40.963 39.115 0 70.937-31.822 70.937-70.937v-11.586c0-10.819 8.802-19.621 19.621-19.621a19.66 19.66 0 0 1 12.552 4.54l28.901 24.055-32.93 32.93 21.213 21.213 34.872-34.871 13.031 10.846-31.444 31.444 21.213 21.213 33.386-33.385 13.031 10.846-29.958 29.958 21.213 21.213 32.115-32.115c21.284 15.35 47.024 23.723 73.383 23.723h5.955c24.246 0 44.328 18.112 47.461 41.513H30z"
@@ -298,7 +298,7 @@ export default function Header4() {
                 to="/about"
                 onClick={handleLinkClick}
                 activeClassName="active"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block border border-b border-transparent  hover:border-b-gray-900"
               >
                 About
               </NavLink>
@@ -308,7 +308,7 @@ export default function Header4() {
                 to='/contact'
                 onClick={handleLinkClick}
                 activeClassName="active"
-                className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                className="hover:text-[black] hover:fill-[black] text-gray-600 font-semibold text-[15px] block border border-b border-transparent  hover:border-b-gray-900"
               >
                 Contact
               </NavLink>

@@ -7,31 +7,33 @@ import { FaLinkedin } from "react-icons/fa";
 import Logo from "../Photoes/Footerimg.png";
 import { Link } from 'react-router-dom';
 
+import { face } from './data';
+
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-gray-900 py-12 px-16 font-[sans-serif]">
+      <footer className="bg-whhite py-12 px-16 font-[sans-serif]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h2 className="text-white text-lg font-bold mb-4">Quick Links</h2>
+            <h2 className="text-black text-lg font-bold mb-4">Quick Links</h2>
             <ul className="space-y-3">
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Contact US
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Quality Assurance
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Management Team
                 </Link>
@@ -39,25 +41,25 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-white text-lg font-bold mb-4">Follow Us</h2>
+            <h2 className="text-black text-lg font-bold mb-4">Follow Us</h2>
             <ul className="space-y-3">
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Instagram
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Youtube
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Twitter
                 </Link>
@@ -65,25 +67,25 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-white text-lg font-bold mb-4">Company</h2>
+            <h2 className="text-black text-lg font-bold mb-4">Company</h2>
             <ul className="space-y-3">
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   About
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Why Us
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
+                  className="text-gray-400 hover:text-black text-base transition-all"
                 >
                   Vision & Mission
                 </Link>
@@ -114,13 +116,14 @@ const Footer = () => {
             All Rights Reserved.
           </p>
           <div className="flex space-x-5 max-sm:mt-4"
-          style={{color:'white'}}
+          style={{color:'black'}}
           >
             <a href="">
               <AiOutlineYoutube className="media"/>
             </a>
             <a>
-              <CiFacebook className="media"/>
+              {/* <CiFacebook className="media"/> */}
+              <img src={face} title='facebook' alt="" style={{width:'25px', cursor:'pointer'}}/>
             </a>
             <a href="https://www.instagram.com/maheshpatangwala/">
               <CiInstagram className="media"/>

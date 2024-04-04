@@ -40,7 +40,7 @@ const Carousel = () => {
 export default Carousel
 
 const DIV = styled.div`
-margin-top: 100px;
+margin-top: 120px;
 /* 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
   color: white;
@@ -88,13 +88,13 @@ body {
 .swiper-slide .img {
 overflow: hidden;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   object-fit: cover;
-  filter: brightness(70%);
+  /* filter: brightness(70%); */
 }
 .mySwiper{
     width: 100%;
-    height: 80vh;
+    height: 90vh;
 }
 
 .swiper-button-prev:after, .swiper-button-next:after{
@@ -103,7 +103,7 @@ overflow: hidden;
 }
 
 .swiper-wrapper{
-    max-height: 80vh;
+    max-height: 90vh;
     /* border: 1px solid red; */
     object-fit: cover;
 }

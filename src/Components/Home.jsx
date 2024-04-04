@@ -6,6 +6,10 @@ import styled from 'styled-components'
 import TopDealProducts from './TopDealProducts'
 import Featured from './Featured'
 import Advantages from './Advantages.jsx'
+import Newslater from './Newslater.jsx'
+import Banner from './Banner.jsx'
+import Discover from './Discover.jsx'
+// import Discover from './Discover.jsx'
 
 const Home = () => {
   return (
@@ -19,6 +23,9 @@ const Home = () => {
       <TopDealProducts/>
       <Advantages/>
       <Featured/>
+      <Banner/>
+      <Discover />
+      <Newslater/>
     </Container>
     <div className='Home' >
       {/* <img className='HomeBG' src={HomeBG} /> */}
