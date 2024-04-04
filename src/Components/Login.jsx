@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-  import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import {varifyUser} from './BackendConnection.js'
   import '../App.css'
 
   export default function Login() {
@@ -19,9 +20,14 @@ import React, { useState } from 'react'
       setpassword(e.target.value)
       console.log(e.target.value)
     }
-    const handleclick = (e) => {
-      let info = { email, password }
-     console.log(info) 
+    const handleclick = async() => {
+      if (email === '' || password === '') {
+        alert(`Any of the fields is empty`)
+      }
+      else {
+        let info = { email, password };
+      await  varifyUser(info)
+      } 
   }
     return (
       <div>

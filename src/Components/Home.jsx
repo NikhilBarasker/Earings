@@ -15,22 +15,10 @@ const Home = () => {
         <TopDealProducts />
         <Featured />
       </Container>
+      <Advantages />
       <div className="Home">
         <Testimonals />
       </div>
-      {/* <div className="Home">
-       <Testimonals />
-      </div>
-    <Carousel/> */}
-    <Container>
-      <TopDealProducts/>
-      <Advantages/>
-      <Featured/>
-    </Container>
-    <div className='Home' >
-      {/* <img className='HomeBG' src={HomeBG} /> */}
-      {/* <img style={{height:'200px', width:'250px'}} src={KaanKiBalli} /> */}
-    </div>
     </>
   );
 }

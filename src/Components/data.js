@@ -1,4 +1,3 @@
-
 import top1 from '../Photoes/Jhumki Borders.jpg'
 import top2 from '../Photoes/Square Stud.jpg'
 import top3 from '../Photoes/Sapphire.jpg'

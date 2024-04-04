@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import '../App.css'
-import '../Responsive.css'
+import "../App.css";
+import "../Responsive.css";
 import styled from "styled-components";
 
-const Scrolup=()=> {
+const Scrolup = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
@@ -20,7 +20,7 @@ const Scrolup=()=> {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", 
+      behavior: "smooth",
     });
   };
 
@@ -33,49 +33,49 @@ const Scrolup=()=> {
 
   return (
     <>
-      {isVisible && <Container onClick={scrollToTop}>
-    <div className="content-container">
-      <div className="scroll-to-top">
-          <button>
-            <FaArrowUp />
-          </button>
-      </div>
-    </div>
-    </Container>}
+      {isVisible && (
+        <Container onClick={scrollToTop}>
+          <div className="content-container">
+            <div className="scroll-to-top">
+              <button>
+                <FaArrowUp />
+              </button>
+            </div>
+          </div>
+        </Container>
+      )}
     </>
   );
-}
+};
 
 export default Scrolup;
 
-const Container = styled.div `
-width: 50px;
-height: 50px;
-position: fixed;
-bottom: 10px;
-right: 10px;
-z-index: 99;
-cursor: pointer;
+const Container = styled.div`
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 99;
+  cursor: pointer;
 
-
-.content-container{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-.scroll-to-top{
-  background-color: black;
-color: white;
-font-size: 20px;
-border-radius: 50%;
-width: 100%;
-height: 100%;
-display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 1px 36px -1px rgba(0,0,0,0.5);
-}
+  .content-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .scroll-to-top {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 36px -1px rgba(0, 0, 0, 0.5);
+  }
 `;

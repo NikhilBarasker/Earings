@@ -22,20 +22,6 @@ const Footer = () => {
                   Contact US
                 </Link>
               </li>
-              <li>
-                <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
-                >
-                  Quality Assurance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-400 hover:text-white text-base transition-all"
-                >
-                  Management Team
-                </Link>
-              </li>
             </ul>
           </div>
           <div>

@@ -61,13 +61,20 @@
   display: none;
 }
 
-/* .newAdminLink{
-  color: blue;
-} */
+.newAdminLink{
+  margin: 4px 0 0 0;
+}
 .newAdminLink:hover{
 color: blue;
 }
-
+.headerFont{
+    font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.group{
+  display: none;
+}
 .newAdminLink:active{
 color: lightseagreen;
 }

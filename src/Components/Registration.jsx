@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import '../App.css'; 
 
+import { addUser } from "./BackendConnection.js";
+
 function Registration() {
 
   const [name,setname]=useState('')
@@ -27,11 +29,18 @@ function Registration() {
     e.preventDefault();
     setpassword(e.target.value);
   }
-  const handleClick = () => {
-    let newAdmin = {
-      name,email,number,password
+  const handleClick = async () => {
+    if (name === '' || number === '' || email === "" || password === "") {
+      alert(`Any of the fields is empty`)
+    } else {
+      let newAdmin = {
+        name,
+        email,
+        number,
+        password,
+      };
+    await addUser(newAdmin);
     }
-    console.log(newAdmin);
   }
 
   return (
