@@ -14,11 +14,8 @@ import Cart from './Components/Cart.jsx';
 import Login from './Components/Login.jsx';
 import Registration from './Components/Registration.jsx'
 import Home2 from './Components/Home2.jsx';
-<<<<<<< HEAD
-=======
 import ProductDetails from './Components/ProductDetails.jsx';
 
->>>>>>> 5c61aee7e31f224943e8eea7fbc294137e65ed32
 function App() {
   return (
     <div>
