@@ -2,8 +2,69 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className='mt-[120px]'>
-      <h3>About</h3>
+    <div>
+      <div className="ApoutPage">
+        <h1>About Us</h1>
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        <div
+          className="container1"
+          id="history"
+          style={{alignItems: "left" }}
+        >
+          <h3 style={{fontSize:'30px',margin:'0 0 0 20px'}} >History</h3>
+          <br />
+
+          <p className='Info'>
+            &nbsp; &nbsp;Established in 1978 by a group of passionate cricket
+            enthusiasts, Sahas Cricket Club was born out of a shared vision to
+            create a nurturing environment where cricketing talent could
+            flourish. Named after the Sanskrit word "Sahas," meaning courage and
+            determination, the club set out on a journey to become a beacon of
+            excellence in the world of cricket. <br />
+            <br />
+            &nbsp; &nbsp;In its early years, Sahas Cricket Club started
+            modestly, with makeshift facilities and limited resources. However,
+            fueled by the dedication and commitment of its founders, the club
+            quickly gained recognition for its emphasis on skill development and
+            sportsmanship. Throughout the 1980s and 1990s, Sahas Cricket Club
+            emerged as a dominant force in local cricketing circles,
+            consistently producing talented players who showcased their prowess
+            on the field. The club's focus on youth development became its
+            hallmark, with a strong emphasis on providing opportunities for
+            young cricketers to hone their skills and realize their potential.{" "}
+            <br />
+            <br />
+            &nbsp; &nbsp;As Sahas Cricket Club continued to grow in stature, it
+            expanded its reach beyond just training and coaching. The club
+            became deeply involved in community initiatives, organizing
+            cricketing events and tournaments to promote the sport at the
+            grassroots level. Additionally, Sahas Cricket Club was at the
+            forefront of advocating for gender inclusivity in cricket, actively
+            supporting the growth of women's cricket and providing equal
+            opportunities for female players. <br />
+            <br />
+            &nbsp; &nbsp;In the new millennium, Sahas Cricket Club entered a
+            phase of modernization, investing in state-of-the-art facilities and
+            technology to further enhance its training programs. Under the
+            guidance of experienced coaches and mentors, the club adopted
+            innovative training methodologies aimed at nurturing well-rounded
+            cricketers equipped with both technical skills and a strong sense of
+            sportsmanship. <br />
+            <br />
+            &nbsp; &nbsp;Today, Sahas Cricket Club stands as a symbol of
+            excellence and inclusivity in the cricketing world. With a rich
+            legacy spanning over four decades, the club continues to inspire
+            generations of cricketers to pursue their dreams with courage and
+            determination, embodying the spirit of Sahas both on and off the
+            cricket pitch.
+          </p>
+        </div>
+                
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import ProductCard from './ProductCard';
 
 const Discover = () => {
   return (
-    <Container>
+    <Container1>
     <div className="mx-auto max-w-screen-xl  sm:px-6 sm:py-12 lg:px-8 ">
         <h2 className="text-center text-xl font-bold text-gray-900 sm:text-3xl my-[20px]">New Collection</h2>
 
@@ -18,14 +18,14 @@ const Discover = () => {
             ))}
         </div>
     </div>
-</Container>
+</Container1>
   )
 }
 
 export default Discover
 
 
-const Container = styled.div `
+const Container1 = styled.div `
 width: 90vw;
 height: auto;
 margin: auto;

@@ -27,10 +27,10 @@ const Carousel = () => {
         modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide><img className='img' src={img1} alt=""/></SwiperSlide>
         <SwiperSlide><img className='img' src={img2} alt=""/></SwiperSlide>
         <SwiperSlide><img className='img' src={img1} alt=""/></SwiperSlide>
         <SwiperSlide><img className='img' src={img2} alt=""/></SwiperSlide>
+        <SwiperSlide><img className='img' src={img1} alt=""/></SwiperSlide>
       </Swiper>
    
     </DIV>
@@ -88,13 +88,13 @@ body {
 .swiper-slide .img {
 overflow: hidden;
   width: 100%;
-  height: 90vh;
+  height: 79vh;
   object-fit: cover;
   /* filter: brightness(70%); */
 }
 .mySwiper{
     width: 100%;
-    height: 90vh;
+    height: 79vh;
 }
 
 .swiper-button-prev:after, .swiper-button-next:after{
@@ -103,7 +103,7 @@ overflow: hidden;
 }
 
 .swiper-wrapper{
-    max-height: 90vh;
+    max-height: 79vh;
     /* border: 1px solid red; */
     object-fit: cover;
 }

@@ -13,7 +13,7 @@ export const varifyUser = async (info)=>{
 export const addUser = async (info)=>{
   try {
     console.log(info);
-    return await axios.post(`${URL}/varify`, info);
+    return await axios.post(`${URL}/add`, info);
   } catch (error) {
     console.log(`Occured error while varifing ${error}`)
   }
