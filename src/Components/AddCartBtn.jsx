@@ -4,46 +4,50 @@ import IconContext from '../Context/IconContext';
 
 
 
-const AddCartBtn = (product) => {
-    const { setCartValue, cartValue, cartItems, setCartItems } = useContext(IconContext);
-    const handleIncrement = () => {
-        setCartValue(cartValue +1)
-        
-        
-        const updatedCartItems = [...cartItems, product];
-        // Set the new cart items
-        setCartItems(updatedCartItems);
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-        console.log(updatedCartItems);
+const AddCartBtn = (product) => {
+    const item = product.product;
+    console.log('ass',item);
+    const { setCartValue, cartValue, cartItems, setCartItems } = useContext(IconContext);
+    
+    const handleIncrement = () => {
+        setCartValue(cartValue + 1);
+        // handleToast(item);
+        alert(`Product ${item.productName} added to cart!`)
+        const updatedCartItems = [...cartItems, product];
+        setCartItems(updatedCartItems);
     }
 
-    // const handleToast = () => {
-    //     toast.success('🦄 Wow so easy!', {
-    //         position: "top-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //         theme: "light",
-    //         transition: Bounce,
-    //         });
-    // }
+    const handleToast = (item) => {
+        toast.success(`Product ${item.productName} added to cart!`, { // Use product.productName for specific product
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        });
+    }
+
   return (
     <>
     <div >
       <form className="mt-4">
       <button 
         onClick={handleIncrement}
-        className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+        className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105" style={{background:'#2e2d3d', color:'white'}}
       >
         Add to Cart
       </button>
     </form>
     </div>
 
-    {/* <ToastContainer
+    <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -55,7 +59,7 @@ const AddCartBtn = (product) => {
         pauseOnHover
         theme="light"
         transition={Bounce}
-      /> */}
+      />
     </>
   )
 }

@@ -11,7 +11,7 @@ const ProductCard = (product) => {
 };  
     console.log(product.product.productName);
   return (
-    <div className='w-[350px] border-[2px] border-gray-100'>
+    <div className='w-[350px] border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px'}}>
       <Link className="group relative block overflow-hidden">
   <WishlistBtn/>
 
@@ -20,10 +20,11 @@ const ProductCard = (product) => {
     src={product.product.imageUrl}
     alt=""
     className="h-[65px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+    style={{ borderRadius:'10px'}}
   />
     </Link>
 
-  <div className="relative border border-gray-100 bg-white p-6">
+  <div className="relative border border-gray-100 bg-white p-6" style={{ borderRadius:'10px'}}>
     <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> New </span>
 
     <Link to={'/ProductDetail'} onClick={handleLinkClick}><h3 className="mt-4 text-lg font-medium text-gray-900">{product.product.productName}</h3></Link>

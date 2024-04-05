@@ -46,8 +46,8 @@
   width: 70px;
 }
 
-.login{
-  margin: 40px 0 0 0;
+.loginfrm{
+  margin: 200px 0 50px 0;
 }
 
 .login:hover{
@@ -57,10 +57,27 @@
 .login:active{
   color: lightgreen;
 }
-
-
-
 .pic{
   display: none;
 }
+
+.newAdminLink{
+  margin: 4px 0 0 0;
+}
+.newAdminLink:hover{
+color: blue;
+}
+.headerFont{
+    font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.group{
+  display: none;
+}
+.newAdminLink:active{
+color: lightseagreen;
+}
+
+
 

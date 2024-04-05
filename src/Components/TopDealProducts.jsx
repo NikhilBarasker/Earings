@@ -14,6 +14,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 const TopDealProducts = () => {
     const [swiperRef, setSwiperRef] = useState(null);
   return (
+    <div style={{backgroundColor:'#e3d6c5;'}}>
     <Product_Container>
         <div className='container'>
             <h1>Top Fetured Products</h1>
@@ -66,6 +67,7 @@ const TopDealProducts = () => {
             
         </div>
     </Product_Container>
+    </div>
   )
 }
 
@@ -73,6 +75,9 @@ export default TopDealProducts
 
 const Product_Container = styled.div `
 width: 100%;
+display: flex;
+  justify-content: center;
+
 /* border: 2px solid yellow; */
 .container h1{
     font-family: sans-serif;
@@ -114,6 +119,7 @@ body {
   text-align: center;
   font-size: 18px;
   background: #fff;
+  width: fit-content;
 
   /* Center slide text vertically */
   display: flex;

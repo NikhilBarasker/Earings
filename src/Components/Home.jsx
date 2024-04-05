@@ -9,6 +9,7 @@ import Advantages from './Advantages.jsx'
 import Newslater from './Newslater.jsx'
 import Banner from './Banner.jsx'
 import Discover from './Discover.jsx'
+import Phone from './Phone.jsx'
 // import Discover from './Discover.jsx'
 
 const Home = () => {
@@ -24,7 +25,8 @@ const Home = () => {
       <Advantages/>
       <Featured/>
       <Banner/>
-      <Discover />
+      <Discover/>
+      {/* <Phone/> */}
       <Newslater/>
     </Container>
     <div className='Home' >

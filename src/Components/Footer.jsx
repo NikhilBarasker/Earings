@@ -26,14 +26,14 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-black text-base transition-all"
+                  className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Quality Assurance
                 </Link>
               </li>
               <li>
                 <Link
-                  className="text-gray-400 hover:text-black text-base transition-all"
+                  className="text-gray-400 hover:text-white text-base transition-all"
                 >
                   Management Team
                 </Link>
