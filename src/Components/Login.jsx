@@ -13,12 +13,10 @@ import {varifyUser} from './BackendConnection.js'
     const handleEmail = (e) => {
        e.preventDefault();
       setEmail(e.target.value);
-      console.log(e.target.value)
     }
     const handlePassword = (e) => {
       e.preventDefault();
       setpassword(e.target.value)
-      console.log(e.target.value)
     }
     const handleclick = async() => {
       if (email === '' || password === '') {
