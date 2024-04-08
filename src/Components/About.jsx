@@ -1,24 +1,28 @@
 import React from 'react'
+import styled from 'styled-components';
 
 export default function About() {
   return (
     <div>
       <div className="ApoutPage">
         <h1>About Us</h1>
+        <p><Link to={'/'} >Home</Link></p>
       </div>
       <div
         data-aos="fade-up"
         data-aos-duration="2000"
       >
+    <Container1>
         <div
           className="container1"
+          style={{background: 'linear-gradient(90deg, rgb(255 255 255) 0%, rgb(168 126 111 / 39%) 35%, rgb(255 255 255 / 5%) 100%)'}}
           id="history"
-          style={{alignItems: "left" }}
+          // style={{alignItems: "left" }}
         >
           <h3 style={{fontSize:'30px',margin:'0 0 0 20px'}} >History</h3>
           <br />
 
-          <p className='Info'>
+          <p className='Info1 text-justify' style={{margin:'0 0 0 20px'}}>
             &nbsp; &nbsp;Established in 1978 by a group of passionate cricket
             enthusiasts, Sahas Cricket Club was born out of a shared vision to
             create a nurturing environment where cricketing talent could
@@ -63,8 +67,22 @@ export default function About() {
             cricket pitch.
           </p>
         </div>
+    </Container1>
                 
       </div>
     </div>
   );
 }
+
+
+
+const Container1 = styled.div `
+width: 90vw;
+height: auto;
+margin: auto;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+/* border: 2px solid red; */
+`;

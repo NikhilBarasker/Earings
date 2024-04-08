@@ -445,6 +445,7 @@ export default function Header4() {
                 </span>
               </span>
             </abbr> */}
+            <Link to={'/wishlists'}>
             <span className="relative sm:mr-8 mr-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -461,6 +462,7 @@ export default function Header4() {
                 {likeValue}
               </span>
             </span>
+            </Link>
 
             <Link to={'/cart'} onClick={handleLinkClick}>
             <span className="relative sm:mr-8 mr-6 ">

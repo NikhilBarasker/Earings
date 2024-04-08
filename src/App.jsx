@@ -15,6 +15,8 @@ import Login from './Components/Login.jsx';
 import Registration from './Components/Registration.jsx'
 import Home2 from './Components/Home2.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
+import SeeDiscover from './Components/SeeDiscover.jsx';
+import Wishlists from './Components/Wishlists.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
@@ -34,6 +36,9 @@ function App() {
         <Route path="/error" element={<Error />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/NewColections" element={<SeeDiscover />} />
+        <Route path="/wishlists" element={<Wishlists />} />
+
       </Routes>
       <Scrolup />
       <Footer />

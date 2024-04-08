@@ -81,6 +81,7 @@ color: lightseagreen;
 
 .ApoutPage{
   background-image: url('./Photoes/Aboutpagebg.jpg');
+  filter: brightness(60%);
   margin: 120px 0 0 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -99,7 +100,8 @@ color: lightseagreen;
 }
 
 .container1{
-  background-image: url(../src/Photoes/AboutBodyBG.jpg);
+  /* background-image: url(../src/Photoes/AboutBodyBG.jpg); */
+  
   padding: 50px 0 50px 0;
 }
 .Info{

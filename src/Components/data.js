@@ -16,7 +16,9 @@ import img4 from '../Photoes/shield.png'
 import img5 from '../Photoes/BG_Adv.jpg'
 import face from '../Photoes/facebook.png'
 
-export {face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage };
+import smallC from '../Photoes/smallCarousel.jpg'
+
+export {face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
 
 export const productCard = [
     {
@@ -29,7 +31,8 @@ export const productCard = [
       material: "18k Gold",
       diamondCut: "Round Brilliant",
       diamondWeight: "0.5 carats",
-      color: "Yellow Gold"
+      color: "Yellow Gold",
+      longDescription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit a tenetur quasi quidem aliquam debitis aperiam reiciendis harum fugit sequi nihil ullam corporis corrupti cumque, delectus commodi labore veritatis error. Magni obcaecati quae soluta quia cumque quasi nam velit, voluptas voluptates, quaerat vel recusandae expedita omnis quis quas dolor qui deleniti, eos alias dolores distinctio nemo animi beatae sequi. Quisquam cupiditate quo nemo corporis facilis nulla nisi maxime. Odit itaque, quasi deserunt architecto explicabo voluptatem suscipit, provident minus amet quia dicta perspiciatis asperiores non maiores? Enim consequatur commodi esse, itaque repellendus laudantium vitae quo molestias maxime ea, culpa ex facilis illum dolore obcaecati nulla in sequi quis optio recusandae sunt, repudiandae fuga cupiditate modi? Cupiditate, quasi non repellendus expedita blanditiis asperiores repellat exercitationem quaerat, iusto, quas perferendis veniam sapiente explicabo sint temporibus consequatur sit consectetur a dicta minima. Illum, excepturi quam. Architecto aliquid pariatur quisquam! Et vero obcaecati eius perspiciatis tempora odit consequatur enim fuga debitis a quisquam dolorum molestias at ut repellendus, facilis aperiam corrupti dolor porro omnis in minima ipsum, neque qui! Totam alias rerum enim possimus sit sapiente fugiat, est consequatur recusandae unde natus ipsa! In quas corporis libero atque temporibus incidunt nam veritatis a. Nobis, odit."
     },
     {
       productName: "Sapphire Necklace",
@@ -41,7 +44,9 @@ export const productCard = [
       material: "White Gold",
       gemstone: "Sapphire",
       length: "18 inches",
-      color: "White Gold"
+      color: "White Gold",
+      longDescription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit a tenetur quasi quidem aliquam debitis aperiam reiciendis harum fugit sequi nihil ullam corporis corrupti cumque, delectus commodi labore veritatis error. Magni obcaecati quae soluta quia cumque quasi nam velit, voluptas voluptates, quaerat vel recusandae expedita omnis quis quas dolor qui deleniti, eos alias dolores distinctio nemo animi beatae sequi. Quisquam cupiditate quo nemo corporis facilis nulla nisi maxime. Odit itaque, quasi deserunt architecto explicabo voluptatem suscipit, provident minus amet quia dicta perspiciatis asperiores non maiores? Enim consequatur commodi esse, itaque repellendus laudantium vitae quo molestias maxime ea, culpa ex facilis illum dolore obcaecati nulla in sequi quis optio recusandae sunt, repudiandae fuga cupiditate modi? Cupiditate, quasi non repellendus expedita blanditiis asperiores repellat exercitationem quaerat, iusto, quas perferendis veniam sapiente explicabo sint temporibus consequatur sit consectetur a dicta minima. Illum, excepturi quam. Architecto aliquid pariatur quisquam! Et vero obcaecati eius perspiciatis tempora odit consequatur enim fuga debitis a quisquam dolorum molestias at ut repellendus, facilis aperiam corrupti dolor porro omnis in minima ipsum, neque qui! Totam alias rerum enim possimus sit sapiente fugiat, est consequatur recusandae unde natus ipsa! In quas corporis libero atque temporibus incidunt nam veritatis a. Nobis, odit."
+
     },
     {
       productName: "Pearl Bracelet",
@@ -53,7 +58,9 @@ export const productCard = [
       material: "Sterling Silver",
       gemstone: "Pearl",
       length: "7.5 inches",
-      color: "Silver"
+      color: "Silver",
+      longDescription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit a tenetur quasi quidem aliquam debitis aperiam reiciendis harum fugit sequi nihil ullam corporis corrupti cumque, delectus commodi labore veritatis error. Magni obcaecati quae soluta quia cumque quasi nam velit, voluptas voluptates, quaerat vel recusandae expedita omnis quis quas dolor qui deleniti, eos alias dolores distinctio nemo animi beatae sequi. Quisquam cupiditate quo nemo corporis facilis nulla nisi maxime. Odit itaque, quasi deserunt architecto explicabo voluptatem suscipit, provident minus amet quia dicta perspiciatis asperiores non maiores? Enim consequatur commodi esse, itaque repellendus laudantium vitae quo molestias maxime ea, culpa ex facilis illum dolore obcaecati nulla in sequi quis optio recusandae sunt, repudiandae fuga cupiditate modi? Cupiditate, quasi non repellendus expedita blanditiis asperiores repellat exercitationem quaerat, iusto, quas perferendis veniam sapiente explicabo sint temporibus consequatur sit consectetur a dicta minima. Illum, excepturi quam. Architecto aliquid pariatur quisquam! Et vero obcaecati eius perspiciatis tempora odit consequatur enim fuga debitis a quisquam dolorum molestias at ut repellendus, facilis aperiam corrupti dolor porro omnis in minima ipsum, neque qui! Totam alias rerum enim possimus sit sapiente fugiat, est consequatur recusandae unde natus ipsa! In quas corporis libero atque temporibus incidunt nam veritatis a. Nobis, odit."
+
     },
     {
       productName: "Emerald Ring",
@@ -65,7 +72,9 @@ export const productCard = [
       material: "Yellow Gold",
       gemstone: "Emerald",
       size: "7",
-      color: "Yellow Gold"
+      color: "Yellow Gold",
+      longDescription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit a tenetur quasi quidem aliquam debitis aperiam reiciendis harum fugit sequi nihil ullam corporis corrupti cumque, delectus commodi labore veritatis error. Magni obcaecati quae soluta quia cumque quasi nam velit, voluptas voluptates, quaerat vel recusandae expedita omnis quis quas dolor qui deleniti, eos alias dolores distinctio nemo animi beatae sequi. Quisquam cupiditate quo nemo corporis facilis nulla nisi maxime. Odit itaque, quasi deserunt architecto explicabo voluptatem suscipit, provident minus amet quia dicta perspiciatis asperiores non maiores? Enim consequatur commodi esse, itaque repellendus laudantium vitae quo molestias maxime ea, culpa ex facilis illum dolore obcaecati nulla in sequi quis optio recusandae sunt, repudiandae fuga cupiditate modi? Cupiditate, quasi non repellendus expedita blanditiis asperiores repellat exercitationem quaerat, iusto, quas perferendis veniam sapiente explicabo sint temporibus consequatur sit consectetur a dicta minima. Illum, excepturi quam. Architecto aliquid pariatur quisquam! Et vero obcaecati eius perspiciatis tempora odit consequatur enim fuga debitis a quisquam dolorum molestias at ut repellendus, facilis aperiam corrupti dolor porro omnis in minima ipsum, neque qui! Totam alias rerum enim possimus sit sapiente fugiat, est consequatur recusandae unde natus ipsa! In quas corporis libero atque temporibus incidunt nam veritatis a. Nobis, odit."
+
     },
     {
       productName: "Ruby Pendant",
@@ -77,7 +86,9 @@ export const productCard = [
       material: "Yellow Gold",
       gemstone: "Ruby",
       length: "20 inches",
-      color: "Yellow Gold"
+      color: "Yellow Gold",
+      longDescription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit a tenetur quasi quidem aliquam debitis aperiam reiciendis harum fugit sequi nihil ullam corporis corrupti cumque, delectus commodi labore veritatis error. Magni obcaecati quae soluta quia cumque quasi nam velit, voluptas voluptates, quaerat vel recusandae expedita omnis quis quas dolor qui deleniti, eos alias dolores distinctio nemo animi beatae sequi. Quisquam cupiditate quo nemo corporis facilis nulla nisi maxime. Odit itaque, quasi deserunt architecto explicabo voluptatem suscipit, provident minus amet quia dicta perspiciatis asperiores non maiores? Enim consequatur commodi esse, itaque repellendus laudantium vitae quo molestias maxime ea, culpa ex facilis illum dolore obcaecati nulla in sequi quis optio recusandae sunt, repudiandae fuga cupiditate modi? Cupiditate, quasi non repellendus expedita blanditiis asperiores repellat exercitationem quaerat, iusto, quas perferendis veniam sapiente explicabo sint temporibus consequatur sit consectetur a dicta minima. Illum, excepturi quam. Architecto aliquid pariatur quisquam! Et vero obcaecati eius perspiciatis tempora odit consequatur enim fuga debitis a quisquam dolorum molestias at ut repellendus, facilis aperiam corrupti dolor porro omnis in minima ipsum, neque qui! Totam alias rerum enim possimus sit sapiente fugiat, est consequatur recusandae unde natus ipsa! In quas corporis libero atque temporibus incidunt nam veritatis a. Nobis, odit."
+
     },
     {
       productName: "Diamond Tennis Bracelet",
@@ -89,7 +100,8 @@ export const productCard = [
       material: "Platinum",
       diamondCut: "Princess Cut",
       totalDiamondWeight: "5 carats",
-      color: "Platinum"
+      color: "Platinum",
+      longDescription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit a tenetur quasi quidem aliquam debitis aperiam reiciendis harum fugit sequi nihil ullam corporis corrupti cumque, delectus commodi labore veritatis error. Magni obcaecati quae soluta quia cumque quasi nam velit, voluptas voluptates, quaerat vel recusandae expedita omnis quis quas dolor qui deleniti, eos alias dolores distinctio nemo animi beatae sequi. Quisquam cupiditate quo nemo corporis facilis nulla nisi maxime. Odit itaque, quasi deserunt architecto explicabo voluptatem suscipit, provident minus amet quia dicta perspiciatis asperiores non maiores? Enim consequatur commodi esse, itaque repellendus laudantium vitae quo molestias maxime ea, culpa ex facilis illum dolore obcaecati nulla in sequi quis optio recusandae sunt, repudiandae fuga cupiditate modi? Cupiditate, quasi non repellendus expedita blanditiis asperiores repellat exercitationem quaerat, iusto, quas perferendis veniam sapiente explicabo sint temporibus consequatur sit consectetur a dicta minima. Illum, excepturi quam. Architecto aliquid pariatur quisquam! Et vero obcaecati eius perspiciatis tempora odit consequatur enim fuga debitis a quisquam dolorum molestias at ut repellendus, facilis aperiam corrupti dolor porro omnis in minima ipsum, neque qui! Totam alias rerum enim possimus sit sapiente fugiat, est consequatur recusandae unde natus ipsa! In quas corporis libero atque temporibus incidunt nam veritatis a. Nobis, odit."
     }
   ];
   
