@@ -14,8 +14,9 @@ import img2 from '../Photoes/card.png'
 import img3 from '../Photoes/delivery.png'
 import img4 from '../Photoes/shield.png'
 import img5 from '../Photoes/BG_Adv.jpg'
+import face from '../Photoes/facebook.png'
 
-export {top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage };
+export {face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage };
 
 export const productCard = [
     {

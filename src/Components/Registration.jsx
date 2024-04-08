@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import '../App.css'; 
-import useNavigate from "react-router-dom"
 
 import { addUser } from "./BackendConnection.js";
 
 function Registration() {
-
-  let navigate = useNavigate()
 
   const [name,setname]=useState('')
   const [email,setemail]=useState('')
@@ -42,10 +39,7 @@ function Registration() {
         number,
         password,
       };
-      let result = await addUser(newAdmin);
-      if (true) {
-        navigate('/login');
-      }
+    await addUser(newAdmin);
     }
   }
 
@@ -108,3 +102,5 @@ function Registration() {
 }
 
 export default Registration;
+
+

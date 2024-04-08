@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import './App.css'
 import Header4 from './Components/Header4';
 import { Routes, Route } from 'react-router-dom';
@@ -15,14 +15,18 @@ import Login from './Components/Login.jsx';
 import Registration from './Components/Registration.jsx'
 import Home2 from './Components/Home2.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
+import Header from './Components/Header.jsx';
+
+// const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
 function App() {
   return (
     <div>
-      <Header4 />
+      {/* <Header4 /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/whyus" element={<WhyUs />} />

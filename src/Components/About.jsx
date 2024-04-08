@@ -11,7 +11,7 @@ export default function About() {
         data-aos-duration="2000"
       >
         <div
-          className="container"
+          className="container1"
           id="history"
           style={{alignItems: "left" }}
         >

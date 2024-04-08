@@ -5,18 +5,22 @@ import Carousel from './Carousel'
 import styled from 'styled-components'
 import TopDealProducts from './TopDealProducts'
 import Featured from './Featured'
+import Newslater from './Newslater.jsx'
+import Banner from './Banner.jsx'
 
 const Home2 = () => {
   return (
     <>
-      {/* <Carousel /> */}
-      {/* <div className="Home">
+      <Carousel />
+      <div className="Home">
        <Testimonals />
       </div>
-    <Carousel/> */}
+    <Carousel/>
     <Container>
       <Featured/>
+      <Banner/>
       <TopDealProducts/>
+      <Newslater/>
     </Container>
     <div className='Home' >
       {/* <img className='HomeBG' src={HomeBG} /> */}

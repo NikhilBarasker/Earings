@@ -3,87 +3,94 @@ import '../App.css';
 import Logo from "../Photoes/Footerimg.png";
 import { Link } from 'react-router-dom';
 
+import { face } from './data';
+
 const Footer = () => {
   return (
-    <div>
-      <footer className="bg-gray-900 py-12 px-16 font-[sans-serif]">
+    <div style={{ borderTop: "1px solid #c8c8c8" }}>
+      <footer className="bg-whhite py-12 px-16 font-[sans-serif]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h2 className="text-white text-lg font-bold mb-4">Quick Links</h2>
+            <h2 className="text-black text-lg font-bold mb-4">Quick Links</h2>
             <ul className="space-y-3">
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all">
-                  Shop Now
+                <Link
+                  className="text-gray-400 hover:text-black text-base transition-all"
+                  to="/contact"
+                >
+                  Contact Us
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all" to='/contact' >
-                  Contact US
+                <Link
+                  className="text-gray-400 hover:text-black text-base transition-all"
+                  to="/registration"
+                >
+                  SignUp
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all">
-                  Special offers
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-white text-lg font-bold mb-4">Admin</h2>
-            <ul className="space-y-3">
-              <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all" to='/login'>
+                <Link
+                  className="text-gray-400 hover:text-black text-base transition-all"
+                  to="/login"
+                >
                   Login
                 </Link>
               </li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-black text-lg font-bold mb-4">Follow Us</h2>
+            <ul className="space-y-3">
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all" to='/registration' >
-                  Sign Up
+                <Link className="text-gray-400 hover:text-black text-base transition-all">
+                  Instagram
+                </Link>
+              </li>
+              <li>
+                <Link className="text-gray-400 hover:text-black text-base transition-all">
+                  Youtube
+                </Link>
+              </li>
+              <li>
+                <Link className="text-gray-400 hover:text-black text-base transition-all">
+                  Twitter
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h2 className="text-white text-lg font-bold mb-4">Company</h2>
+            <h2 className="text-black text-lg font-bold mb-4">Company</h2>
             <ul className="space-y-3">
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all" to='/about' >
+                <Link
+                  className="text-gray-400 hover:text-black text-base transition-all"
+                  to="/about"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all">
+                <Link className="text-gray-400 hover:text-black text-base transition-all">
                   Why Us
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400 hover:text-white text-base transition-all">
+                <Link className="text-gray-400 hover:text-black text-base transition-all">
                   Vision & Mission
                 </Link>
               </li>
             </ul>
           </div>
           <div className="flex items-center lg:justify-center">
-            <Link>
+            <Link to="/">
               <img src={Logo} alt="logo" className="w-60" />
             </Link>
           </div>
         </div>
-        <hr className="my-8 border-gray-700" />
-        <div className="sm:flex sm:items-center sm:justify-between sm:flex-row">
-          <p className="text-gray-400 text-sm sm:order-1">
-            © 2024
-            <a
-              href="https://readymadeui.com/"
-              target="_blank"
-              className="hover:underline mx-1"
-            >
-              Earings
-            </a>
-            All Rights Reserved.
-          </p>
+        <div>
           <ul className="flex mt-12 space-x-4">
-            <li className="bg-[#a91079] hover:bg-[black] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <li className="bg-[#a91079] hover:bg-[#a91079e2] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
               <a href="javascript:void(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +106,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="bg-[#a91079] hover:bg-[black] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <li className="bg-[#a91079] hover:bg-[#a91079e2] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
               <a href="javascript:void(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +122,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="bg-[#a91079] hover:bg-[black] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <li className="bg-[#a91079] hover:bg-[#a91079e2] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
               <a href="javascript:void(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,6 +136,22 @@ const Footer = () => {
               </a>
             </li>
           </ul>
+        </div>
+        <hr className="my-8 border-gray-700" />
+        <div>
+          <div className="sm:flex sm:items-center sm:justify-between sm:flex-row">
+            <p className="text-gray-400 text-sm sm:order-1">
+              © 2024
+              <a
+                href="https://readymadeui.com/"
+                target="_blank"
+                className="hover:underline mx-1"
+              >
+                Earings
+              </a>
+              All Rights Reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
