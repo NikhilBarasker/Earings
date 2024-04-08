@@ -5,4 +5,11 @@ export default {
     extend: {},
   },
   plugins: [],
+  theme: {
+    extend: {
+      colors: {
+        customGray: 'rgb(46, 45, 61)',
+      },
+    },
+  },
 };
