@@ -1,6 +1,7 @@
 import React, { lazy } from 'react'
 import './App.css'
 import Header4 from './Components/Header4';
+import Header from './Components/Header';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './Components/Footer.jsx'
 import Home from './Components/Home.jsx';
@@ -13,8 +14,9 @@ import Scrolup from './Components/Scrolup.jsx';
 import Cart from './Components/Cart.jsx';
 import Login from './Components/Login.jsx';
 import Registration from './Components/Registration.jsx'
-import Home2 from './Components/Home2.jsx';
 import ProductDetails from './Components/ProductDetails.jsx';
+import SeeDiscover from './Components/SeeDiscover.jsx'
+import Wishlists from "./Components/Wishlists.jsx"
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 

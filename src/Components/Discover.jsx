@@ -17,20 +17,13 @@ const Discover = () => {
         <Link to={'/NewColections'} onClick={handleLinkClick}><button className='flex justify-center align-middle text-center bg-customGray hover:bg-gray-800 h-[40px] px-[12px] text-white rounded-md' style={{ alignItems:'center'}}>See More..</button>
 </Link>
       </div>
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {productCard.map((product, index) => (
-                <div key={index}>
-                    <ProductCard product={product} />
-                </div>
-            ))}
-        </div> */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-    {productCard.slice(0, 3).map((product, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
+           {productCard.slice(0, 3).map((product, index) => (
         <div key={index}>
             <ProductCard product={product} />
         </div>
-    ))}
-</div>
+          ))}
+          </div>
     </div>
 </Container1>
   )
