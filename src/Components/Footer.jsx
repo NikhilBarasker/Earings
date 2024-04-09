@@ -8,10 +8,13 @@ import Logo from "../Photoes/Footerimg.png";
 import { Link } from 'react-router-dom';
 
 import { face } from './data';
+import Newslater from './Newslater';
 
 const Footer = () => {
   return (
-    <div style={{ borderTop:'1px solid #c8c8c8'}}>
+    <>
+    <Newslater/>
+      <div style={{ borderTop:'1px solid #c8c8c8'}}>
       <footer className="bg-whhite py-12 px-16 font-[sans-serif]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -135,6 +138,7 @@ const Footer = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 

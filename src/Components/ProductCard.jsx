@@ -20,8 +20,10 @@ const ProductCard = (product) => {
     }
 
     console.log(product.product.productName);
-  return (
-    <div className='w-[350px] border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px'}}>
+  
+  
+    return (
+    <div className='w-[350px] border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px',}}>
       <Link className="group relative block overflow-hidden">
   <WishlistBtn/>
 

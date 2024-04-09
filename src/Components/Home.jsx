@@ -10,6 +10,8 @@ import Newslater from './Newslater.jsx'
 import Banner from './Banner.jsx'
 import Discover from './Discover.jsx'
 import Phone from './Phone.jsx'
+import Categories from './Categories.jsx'
+import PeopleSearch from './PeopleSearch.jsx'
 // import Discover from './Discover.jsx'
 
 const Home = () => {
@@ -26,8 +28,10 @@ const Home = () => {
       <Featured/>
       <Banner/>
       <Discover/>
+      <Categories/>
       {/* <Phone/> */}
-      <Newslater/>
+      {/* <Newslater/> */}
+      <PeopleSearch/>
     </Container>
     <div className='Home' >
       {/* <img className='HomeBG' src={HomeBG} /> */}

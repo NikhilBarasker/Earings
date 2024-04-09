@@ -9,24 +9,27 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { Pagination, Navigation } from 'swiper/modules';
+import { productsCategory } from './data';
 
-const TopDealProducts = () => {
+import { Pagination, Navigation,Autoplay } from 'swiper/modules';
+
+const Categories = () => {
     const [swiperRef, setSwiperRef] = useState(null);
   return (
-    <div style={{backgroundColor:'#e3d6c5;'}}>
-    <Product_Container>
+    <div>
+      <Product_Container>
         <div className='container'>
-            <h1>Top Fetured Products</h1>
+            <h1>Shop by Categories</h1>
             <div className='Product_container'>
                 {/* {productCard.map((product, index) => (
                     <ProductCard key={index} product={product} />
                 ))} */}
             <Swiper
         onSwiper={setSwiperRef}
-        slidesPerView={3}
+        slidesPerView={4}
         centeredSlides={true}
         spaceBetween={30}
+        loop={true}
         pagination={{
           type: 'fraction',
         }}
@@ -45,19 +48,33 @@ const TopDealProducts = () => {
             spaceBetween: 20,
           },
           992: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1200: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
+                },
         }}
 
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
         initialSlide={1}
+        autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
+        speed={800} // Animation speed (milliseconds)
       >
-        {productCard.map((product, index) => (
-            <SwiperSlide key={index} style={{backgroundColor:'#ececec'}}>
-                    <ProductCard product={product} />
+        {productsCategory.map((product, index) => (
+            <SwiperSlide key={index} style={{marginRight:'0px', backgroundColor:'transparent'}} >
+                    {/* <ProductCard product={product} /> */}
+                    <Card>
+                        <div class="card">
+                        <div class="card_image"> <img src={product.photo} /> </div>
+                        <div class="card_title title-white">
+                            <p>{product.category}</p>
+                        </div>
+                        </div>
+                    </Card>
             </SwiperSlide>
                 ))}
       </Swiper>
@@ -71,12 +88,13 @@ const TopDealProducts = () => {
   )
 }
 
-export default TopDealProducts
+export default Categories
 
 const Product_Container = styled.div `
 width: 100%;
 display: flex;
   justify-content: center;
+  border-bottom: 2px solid rgb(227 227 227);
 
 /* border: 2px solid yellow; */
 .container h1{
@@ -162,10 +180,9 @@ body {
 }
 
 div.swiper-button-prev, div.swiper-button-next{
+    display: none;
   color: white;
   background-color: gray;
-  border-radius: 50px;
-  padding: 0 22px;
 }
 
 div.swiper-button-next:after{
@@ -175,5 +192,84 @@ div.swiper-button-next:after{
 div.swiper-button-prev:after {
   font-size: 20px;
 }
+
 }
+`;
+
+const Card = styled.div `
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  position: relative;
+  margin-right: 0px;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+  filter: brightness(50%);
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
 `;

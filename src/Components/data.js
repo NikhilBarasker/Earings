@@ -18,6 +18,14 @@ import face from '../Photoes/facebook.png'
 
 import smallC from '../Photoes/smallCarousel.jpg'
 
+import earR from '../Photoes/earRing.jpg'
+import fingerR from '../Photoes/fingerRing.jpg'
+import keyC from '../Photoes/keyChain.jpg'
+import wallet from '../Photoes/wallet.jpg'
+import watch from '../Photoes/watches.jpeg'
+import nec from '../Photoes/necklace.jpeg'
+import brace from '../Photoes/bracellet.jpeg'
+
 export {face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
 
 export const productCard = [
@@ -105,3 +113,48 @@ export const productCard = [
     }
   ];
   
+
+  export const productsCategory = [
+    {
+        category: "Earrings",
+        description: "Stylish silver earrings with gemstones",
+        price: 29.99,
+        photo: earR
+    },
+    {
+        category: "Finger Rings",
+        description: "Classic gold finger ring with intricate design",
+        price: 49.99,
+        photo: fingerR
+    },
+    {
+        category: "Wallets",
+        description: "Genuine leather wallet with multiple compartments",
+        price: 39.99,
+        photo: wallet
+    },
+    {
+        category: "Key Chains",
+        description: "Cute keychain with cartoon character",
+        price: 9.99,
+        photo: keyC
+    },
+    {
+        category: "Necklaces",
+        description: "Elegant diamond pendant necklace",
+        price: 79.99,
+        photo: nec
+    },
+    {
+        category: "Bracelets",
+        description: "Handcrafted beaded bracelet set",
+        price: 19.99,
+        photo: brace
+    },
+    {
+        category: "Watches",
+        description: "Sporty digital watch with heart rate monitor",
+        price: 69.99,
+        photo: watch
+    }
+];

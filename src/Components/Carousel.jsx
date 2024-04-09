@@ -125,4 +125,10 @@ overflow: hidden;
     object-fit: cover;
 }
 
+.swiper-pagination-bullet{
+  /* color: white; */
+  background-color: white;
+  font: 20px;
+}
+
  `;
