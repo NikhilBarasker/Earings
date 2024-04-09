@@ -3,8 +3,8 @@ import React from 'react'
 const Newslater = () => {
   return (
     <div>
-      <div class="mt-28 px-4 sm:px-10 mb-[10px]">
-      <div class="max-w-7xl mx-auto py-16 px-6 relative" style={{background:'rgb(90 88 113)', backgroundColor:'linear-gradient(180deg, rgba(185,141,88,0.8968837535014006) 0%, rgba(185,141,88,0.7484243697478992) 93%)'}}>
+      <div class="mt-28 px-4 sm:px-10 mb-[0px] rounded-[5px]">
+      <div class="max-w-7xl mx-auto py-16 px-6 relative rounded-[5px]" style={{background:'rgb(90 88 113)', backgroundColor:'linear-gradient(180deg, rgba(185,141,88,0.8968837535014006) 0%, rgba(185,141,88,0.7484243697478992) 93%)'}}>
         <div class="max-w-2xl mx-auto text-center">
           <h2 class="md:text-4xl text-3xl font-extrabold mb-6 text-white">Subscribe to Our Newsletter</h2>
           <div class="my-6">

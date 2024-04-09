@@ -176,4 +176,7 @@ div.swiper-button-prev:after {
   font-size: 20px;
 }
 }
+.swiper-wrapper{
+  padding: 20px 0;
+}
 `;

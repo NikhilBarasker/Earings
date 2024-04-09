@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../App.css";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import "../Responsive.css"
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Photoes/Logo.png";
-import { useContext } from "react";
 import IconContext from "../Context/IconContext";
 
 export default function Header4() {
@@ -13,146 +13,240 @@ export default function Header4() {
     setMenuOpen(!menuOpen);
   };
 
-  let navigate = useNavigate();
-
-  const handleClick = () => {
-    let data = document.getElementById("search").value;
-
-    let url = data.trim().toLowerCase();
-
-    if (url === "home" || url === "/") {
-      navigate("/home");
-    } else if (url === "/about") {
-      navigate("/about");
-    } else {
-      navigate("/error");
-    }
-
-    document.getElementById("search").value = "";
+  const [show, setShow] = useState(false);
+  const toogleLog = () => {
+    setShow(!show);
   };
+
+  let navigate = useNavigate();
 
   const handleLinkClick = () => {
     window.scrollTo(0, 0);
   };
+  const [isFocused, setIsFocused] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // You can handle the submit action here, like fetching search results
+    console.log('Search submitted:', searchTerm);
+  };
 
   return (
-    <>
-      <div
-        className="w-[100%] h-auto"
-        style={{
-          position: "fixed",
-          zIndex: "1000",
-          top: "0",
-          boxShadow: "0px 5px 5px -5px rgba(0,0,0,0.5)",
-        }}
-      >
-        <header className="shadow-md bg-white font-[sans-serif]">
-          <section className="flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]">
-            <div className="left-10 absolute z-50 bg-gray-100 flex px-4 py-3 rounded max-lg:hidden">
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>
+          {/* <form className="px-4 w-full max-w-[330px] mt-[20px] search-form">
+            <label
+              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              for="default-search"
+            >
+              Search
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                >
+                  <path
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                required=""
+                placeholder="Search"
+                className="block w-full p-4 py-5 h-[60px] ps-10 text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 outline-none focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 search"
+                id="default-search"
+                type="search"
+              />
+              <button className="absolute end-2.5 ml-[8px] bottom-1/2 translate-y-1/2 p-4 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  className="w-4 h-4"
+                >
+                  <path
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke="currentColor"
+                  ></path>
+                </svg>
+                <span className="sr-only">Search</span>
+              </button>
+            </div>
+          </form> */}
+          <div className="pt-2 relative mx-auto text-gray-600">
+      <form onSubmit={handleSubmit} className="flex align-middle justify-center">
+        <input
+          className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+          type="search"
+          name="search"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <button type="submit" className="absolute right-0 mt-[10px] mr-4">
+          <svg
+            className="text-gray-600 h-4 w-4 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 56.966 56.966"
+          >
+            <path
+              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+        </div>
+        <div>
+          <Link to="/home" className="flex justify-center mt-[10px]">
+            <img
+              style={{ marginRight: "200px" }}
+              src={Logo}
+              alt="logo"
+              className="w-36"
+            />
+          </Link>
+        </div>
+        <div>
+          <div className="absolute sm:right-10 right-4 flex items-center mt-[25px]">
+            <span className="relative sm:mr-8 mr-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 192.904 192.904"
                 width="20px"
-                onClick={() => handleClick()}
-                className="cursor-pointer fill-gray-400 mr-6 rotate-90 inline-block"
+                className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
+                viewBox="0 0 64 64"
               >
-                <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"></path>
+                <path
+                  d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                  data-original="#000000"
+                />
               </svg>
-              <input
-                type="text"
-                id="search"
-                placeholder="Search..."
-                className="outline-none bg-transparent w-full text-sm"
-              />
-            </div>
-            <a href="javascript:void(0)">
-              <img
-                src={Logo}
-                alt="logo"
-                className="md:w-[auto] w-20 ml-[20px] logo"
-              />
-            </a>
-            <div className="absolute sm:right-10 right-4 flex items-center">
-              {/* <abbr title="Wishlist">
-              <span className="relative sm:mr-8 mr-6">
+              <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
+                {likeValue}
+              </span>
+            </span>
+
+            <Link to={"/cart"} onClick={handleLinkClick}>
+              <span className="relative sm:mr-8 mr-6 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20px"
-                  className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
-                  viewBox="0 0 64 64"
+                  height="20px"
+                  className="cursor-pointer fill-[#3gray33] hover:fill-[blaack] inline-block"
+                  viewBox="0 0 512 512"
                 >
                   <path
-                    d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                    d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
                     data-original="#000000"
-                  />
+                  ></path>
                 </svg>
                 <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                  1
+                  {cartValue}
                 </span>
               </span>
-            </abbr> */}
-              <span className="relative sm:mr-8 mr-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20px"
-                  className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
-                  viewBox="0 0 64 64"
+            </Link>
+
+            <div className="flex flex-col justify-center items-center cursor-pointer">
+              <div className="relative font-[sans-serif] w-max mx-auto">
+                <button
+                  type="button"
+                  onClick={toogleLog}
+                  onBlur={toogleLog}
+                  className="px-6 py-2 flex items-center rounded-full text-[#333] text-sm font-semibold border-2 border-gray-300 outline-none hover:bg-gray-100"
                 >
-                  <path
-                    d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-                    data-original="#000000"
-                  />
-                </svg>
-                <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                  {likeValue}
-                </span>
-              </span>
-
-              <Link to={"/cart"} onClick={handleLinkClick}>
-                <span className="relative sm:mr-8 mr-6 ">
+                  <Link style={{ cursor: "pointer" }} to="/login">
+                    Log In
+                  </Link>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20px"
-                    height="20px"
-                    className="cursor-pointer fill-[#333] hover:fill-[#007bff] inline-block"
-                    viewBox="0 0 512 512"
-                  >
-                    <path
-                      d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
-                      data-original="#000000"
-                    ></path>
-                  </svg>
-                  <span className="absolute left-auto -ml-1 top-0 rounded-full bg-black px-1 py-0 text-xs text-white">
-                    {cartValue}
-                  </span>
-                </span>
-              </Link>
-
-              <div className="inline-block cursor-pointer border-gray-300">
-                <abbr title="Login">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20px"
-                    height="20px"
+                    className="w-3 fill-[#333] inline ml-2"
                     viewBox="0 0 24 24"
-                    className="hover:fill-[#007bff]"
                   >
-                    <circle cx="10" cy="7" r="6" data-original="#000000" />
                     <path
-                      d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                      fill-rule="evenodd"
+                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
+                      clip-rule="evenodd"
                       data-original="#000000"
                     />
                   </svg>
-                </abbr>
+                </button>
+                {show && (
+                  <ul className="absolute shadow-lg bg-white py-2 z-[1000] min-w-full w-max rounded-lg max-h-96 overflow-auto">
+                    <li className="py-2.5 px-6 flex items-center hover:bg-gray-100 text-[#333] text-sm cursor-pointer">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        className="w-[18px] h-[18px] mr-3"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M337.711 241.3a16 16 0 0 0-11.461 3.988c-18.739 16.561-43.688 25.682-70.25 25.682s-51.511-9.121-70.25-25.683a16.007 16.007 0 0 0-11.461-3.988c-78.926 4.274-140.752 63.672-140.752 135.224v107.152C33.537 499.293 46.9 512 63.332 512h385.336c16.429 0 29.8-12.707 29.8-28.325V376.523c-.005-71.552-61.831-130.95-140.757-135.223zM446.463 480H65.537V376.523c0-52.739 45.359-96.888 104.351-102.8C193.75 292.63 224.055 302.97 256 302.97s62.25-10.34 86.112-29.245c58.992 5.91 104.351 50.059 104.351 102.8zM256 234.375a117.188 117.188 0 1 0-117.188-117.187A117.32 117.32 0 0 0 256 234.375zM256 32a85.188 85.188 0 1 1-85.188 85.188A85.284 85.284 0 0 1 256 32z"
+                          data-original="#000000"
+                        ></path>
+                      </svg>
+                      View profile
+                    </li>
+                    <li className="py-2.5 px-6 flex items-center hover:bg-gray-100 text-[#333] text-sm cursor-pointer">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        className="w-[18px] h-[18px] mr-3"
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
+                          data-original="#000000"
+                        ></path>
+                      </svg>
+                      Dashboard
+                    </li>
+                    <li className="py-2.5 px-6 flex items-center hover:bg-gray-100 text-[#333] text-sm cursor-pointer">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        className="w-[18px] h-[18px] mr-3"
+                        viewBox="0 0 6.35 6.35"
+                      >
+                        <path
+                          d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.131-2.116 2.131A2.12 2.12 0 0 1 1.06 3.16c0-.65.286-1.228.74-1.62a.265.266 0 1 0-.344-.404A2.667 2.667 0 0 0 .53 3.158a2.66 2.66 0 0 0 2.647 2.663 2.657 2.657 0 0 0 2.645-2.663c0-.812-.363-1.542-.936-2.03a.265.266 0 0 0-.17-.066z"
+                          data-original="#000000"
+                        ></path>
+                      </svg>
+                      Logout
+                    </li>
+                  </ul>
+                )}
               </div>
+              {/* <span className="text-xs font-semibold mt-1">Profile</span> */}
             </div>
-          </section>
-          <div className="flex flex-wrap justify-center px-10 py-3 relative">
-            <div
-              id="toggle"
-              className="flex ml-auto lg:order-1 lg:hidden relative z-50"
-            >
-              <button className="ml-7 btn" onClick={() => toggleMenu()}>
+          </div>
+        </div>
+      </div>
+      <div>
+        {" "}
+        <header className="border-b border-1 bg-white font-sans min-h-[60px] mb-[-120px]">
+          <div className="flex flex-wrap items-center justify-center gap-6 px-10 py-3 relative">
+            <div className="flex items-center ml-auto lg:hidden lg:order-1">
+              <button id="toggle" className="ml-7">
                 <svg
                   className="w-7 h-7"
                   fill="#000"
@@ -169,29 +263,19 @@ export default function Header4() {
             </div>
             <ul
               id="collapseMenu"
-              style={{ display: menuOpen ? "block" : "none" }}
-              className={`lg:!flex lg:space-x-10 max-lg:space-y-3 max-lg:hidden max-lg:w-full max-lg:my-4 ${
-                menuOpen ? "block" : "hidden"
-              }`}
+              className="lg:!flex max-lg:hidden max-lg:w-full lg:ml-10 lg:space-x-10 max-lg:space-y-3"
             >
               <li className="max-lg:border-b max-lg:py-2">
-                <NavLink
-                  onClick={handleLinkClick}
+                <Link
                   to="/"
-                  activeClassName="active"
-                  className="hover:text-[#007bff] text-[#007bff] font-semibold block text-[15px]"
+                  className="hover:text-[#007bff] text-[#007bff] font-bold text-sm block"
                 >
                   Home
-                </NavLink>
+                </Link>
               </li>
-              <li className="group max-lg:border-b max-lg:py-2 relative">
-                <NavLink
-                  to={"/Shop"}
-                  onClick={handleLinkClick}
-                  activeClassName="active"
-                  className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                  Shop
+              <li className="group text-[14px] max-lg:border-b max-lg:py-2 relative">
+                <a className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-500 font-bold text-[15px] block">
+                  <div style={{ backgroundColor: "pink" }}>Agencies</div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16px"
@@ -205,128 +289,209 @@ export default function Header4() {
                       data-original="#000000"
                     />
                   </svg>
-                </NavLink>
-                <ul className="absolute hidden group-hover:block shadow-lg bg-white space-y-2 px-6 pb-4 pt-6 lg:top-5 max-lg:top-8 left-0 min-w-[250px] z-50">
-                  <li className="border-b py-3">
-                    <NavLink
-                      to={"/Sarees"}
-                      onClick={handleLinkClick}
-                      className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20px"
-                        height="20px"
-                        className="mr-4 inline-block"
-                        viewBox="0 0 64 64"
-                      >
-                        <path
-                          d="M61.92 30.93a7.076 7.076 0 0 0-6.05-5.88 8.442 8.442 0 0 0-.87-.04V22A15.018 15.018 0 0 0 40 7H24A15.018 15.018 0 0 0 9 22v3.01a8.442 8.442 0 0 0-.87.04 7.076 7.076 0 0 0-6.05 5.88A6.95 6.95 0 0 0 7 38.7V52a3.009 3.009 0 0 0 3 3v6a1 1 0 0 0 1 1h3a1 1 0 0 0 .96-.73L16.75 55h30.5l1.79 6.27A1 1 0 0 0 50 62h3a1 1 0 0 0 1-1v-6a3.009 3.009 0 0 0 3-3V38.7a6.95 6.95 0 0 0 4.92-7.77ZM11 22A13.012 13.012 0 0 1 24 9h16a13.012 13.012 0 0 1 13 13v3.3a6.976 6.976 0 0 0-5 6.7v3.18a3 3 0 0 0-1-.18H17a3 3 0 0 0-1 .18V32a6.976 6.976 0 0 0-5-6.7Zm37 16v5H16v-5a1 1 0 0 1 1-1h30a1 1 0 0 1 1 1ZM13.25 60H12v-5h2.67ZM52 60h-1.25l-1.42-5H52Zm3.83-23.08a1.008 1.008 0 0 0-.83.99V52a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V37.91a1.008 1.008 0 0 0-.83-.99 4.994 4.994 0 0 1 .2-9.88A4.442 4.442 0 0 1 9 27h.01a4.928 4.928 0 0 1 3.3 1.26A5.007 5.007 0 0 1 14 32v12a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1V32a5.007 5.007 0 0 1 1.69-3.74 4.932 4.932 0 0 1 3.94-1.22 5.018 5.018 0 0 1 4.31 4.18v.01a4.974 4.974 0 0 1-4.11 5.69Z"
-                          data-original="#000000"
-                        />
-                      </svg>
-                      Sarees
-                    </NavLink>
-                  </li>
-                  <li className="border-b py-3">
-                    <NavLink
-                      to={"/Others"}
-                      onClick={handleLinkClick}
-                      className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20px"
-                        height="20px"
-                        className="mr-4 inline-block"
-                        viewBox="0 0 1700 1700"
-                      >
-                        <path
-                          d="M916.7 1269.4c-10.7 0-20.4-7.2-23.2-18l-29.9-114.7c-3.3-12.8 4.3-25.9 17.2-29.3 12.8-3.3 25.9 4.3 29.3 17.2l29.9 114.7c3.3 12.8-4.3 25.9-17.2 29.3-2 .5-4.1.8-6.1.8zm-169.4 0c-2 0-4-.3-6.1-.8-12.8-3.3-20.5-16.4-17.2-29.3l29.9-114.7c3.3-12.8 16.4-20.5 29.3-17.2 12.8 3.3 20.5 16.4 17.2 29.3l-29.9 114.7c-2.8 10.8-12.6 18-23.2 18z"
-                          data-original="#000000"
-                        />
-                        <path
-                          d="M1066.6 1358.8H597.4c-13.3 0-24-10.7-24-24 0-62.6 50.9-113.5 113.5-113.5h290.4c62.6 0 113.5 50.9 113.5 113.5-.2 13.3-10.9 24-24.2 24zm-440.7-48H1038c-9.6-24.3-33.3-41.5-60.9-41.5H686.8c-27.6.1-51.3 17.3-60.9 41.5zM276.4 762.7c-13.3 0-24-10.7-24-24V395c0-29.7 24.2-53.9 53.9-53.9h1051.4c29.7 0 53.9 24.2 53.9 53.9v297.8c0 13.3-10.7 24-24 24s-24-10.7-24-24V395c0-3.2-2.6-5.9-5.9-5.9H306.3c-3.2 0-5.9 2.6-5.9 5.9v343.7c0 13.2-10.7 24-24 24zm904.5 392H446.5c-13.3 0-24-10.7-24-24s10.7-24 24-24h734.3c13.3 0 24 10.7 24 24s-10.6 24-23.9 24zm0-120.8H446.5c-13.3 0-24-10.7-24-24s10.7-24 24-24h734.3c13.3 0 24 10.7 24 24s-10.6 24-23.9 24z"
-                          data-original="#000000"
-                        />
-                        <path
-                          d="M424.1 1358.8H128.4c-25.6 0-46.4-20.8-46.4-46.4V761.1c0-25.6 20.8-46.4 46.4-46.4h295.7c25.6 0 46.4 20.8 46.4 46.4v551.3c0 25.6-20.8 46.4-46.4 46.4zm-294.1-48h292.5V762.7H130z"
-                          data-original="#000000"
-                        />
-                      </svg>
-                      Others
-                    </NavLink>
-                  </li>
-                  <li className="border-b py-3">
-                    <NavLink
-                      to="/Jewellary"
-                      onClick={handleLinkClick}
-                      className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20px"
-                        height="20px"
-                        className="mr-4 inline-block"
-                        viewBox="0 0 407.7 407.7"
-                      >
-                        <path
-                          d="M405.5 118.021a7.93 7.93 0 0 0-.29-.29l-84.16-74.8a7.994 7.994 0 0 0-2.64-1.6l-60.88-21.76a8 8 0 0 0-10.72 7.12c0 1.76-2.64 42.32-43.2 42.96-40.8-.64-43.36-41.2-43.44-42.96a8 8 0 0 0-10.64-7.12l-60.8 22c-.976.357-1.872.9-2.64 1.6l-83.6 74.56a8 8 0 0 0 0 11.6l66.56 67.28v184a8 8 0 0 0 8 8h253.6a8 8 0 0 0 8-8v-184l66.56-67.28a8 8 0 0 0 .29-11.31zm-67.09 55.79v-37.12a8 8 0 0 0-16 0v235.52H84.73v-235.52a8 8 0 0 0-16 0v37.2l-49.2-49.84 76.16-68.16 50.08-18.08c6.204 31.966 37.147 52.851 69.113 46.647 23.607-4.582 42.065-23.04 46.647-46.647l50.08 18.08 75.92 68.16-49.12 49.76z"
-                          data-original="#000000"
-                        />
-                      </svg>
-                      Jewellary
-                    </NavLink>
-                  </li>
-                  <li className="border-b py-3">
-                    <NavLink
-                      to={"/Offers"}
-                      onClick={handleLinkClick}
-                      activeClassName="active"
-                      className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20px"
-                        height="20px"
-                        className="mr-4 inline-block"
-                        viewBox="0 0 512 512"
-                      >
-                        <path
-                          d="M434.1 243.904h-5.955a95.572 95.572 0 0 1-61.022-22.072l-117.812-98.055a49.716 49.716 0 0 0-31.743-11.481c-27.361 0-49.621 22.26-49.621 49.621v11.586c0 22.572-18.364 40.937-40.937 40.937-15.844 0-30.407-9.279-37.102-23.639l-3.261-6.995c-7.434-15.944-23.604-26.246-41.195-26.246C20.39 157.56 0 177.949 0 203.012v118.792c0 42.954 34.946 77.9 77.9 77.9h356.2c42.954 0 77.9-34.946 77.9-77.9 0-42.954-34.946-77.9-77.9-77.9zm0 125.8H77.9c-17.829 0-33.403-9.799-41.65-24.287h439.5c-8.247 14.488-23.821 24.287-41.65 24.287zM30 315.419V203.012c0-8.521 6.932-15.452 15.452-15.452 5.98 0 11.478 3.503 14.005 8.923l3.261 6.994c11.601 24.884 36.837 40.963 64.293 40.963 39.115 0 70.937-31.822 70.937-70.937v-11.586c0-10.819 8.802-19.621 19.621-19.621a19.66 19.66 0 0 1 12.552 4.54l28.901 24.055-32.93 32.93 21.213 21.213 34.872-34.871 13.031 10.846-31.444 31.444 21.213 21.213 33.386-33.385 13.031 10.846-29.958 29.958 21.213 21.213 32.115-32.115c21.284 15.35 47.024 23.723 73.383 23.723h5.955c24.246 0 44.328 18.112 47.461 41.513H30z"
-                          data-original="#000000"
-                        />
-                      </svg>
-                      Offers
-                    </NavLink>
-                  </li>
-                </ul>
+                </a>
+                <div className="absolute hidden group-hover:flex shadow-lg bg-white px-8 pb-8 pt-6 lg:top-5 max-lg:top-8 -left-6 z-50">
+                  <div className="lg:min-w-[180px] max-lg:min-w-[140px]">
+                    <h6 className="text-base text-[#007bff] font-bold">USA</h6>
+                    <ul className="mt-3 pt-3 border-t border-1 space-y-3">
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          New York
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          San Francisco
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Houston
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Dallas
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Philadelphia
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          San Diego
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Atlanta
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Austin
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Portland
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Denver
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="lg:min-w-[180px] max-lg:min-w-[140px]">
+                    <h6 className="text-base text-[#007bff] font-bold">UK</h6>
+                    <ul className="mt-3 pt-3 border-t border-1 space-y-3">
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          London
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Bristol
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Birmingham
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Liverpool
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Manchester
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Glasgow
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Edinburgh
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Leeds
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Leicester
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Sheffield
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h6 className="text-base text-[#007bff] font-bold">
+                      Canada
+                    </h6>
+                    <ul className="mt-3 pt-3 border-t border-1 space-y-3">
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Toronto
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Calgary
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Ottawa
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Vancouver
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Montréal
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Edmonton
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Winnipeg
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Halifax
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Victoria
+                        </a>
+                      </li>
+                      <li className="max-lg:border-b py-1 rounded">
+                        <a className="hover:text-[#007bff] text-gray-500 font-bold text-sm block">
+                          Windsor
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </li>
               <li className="max-lg:border-b max-lg:py-2">
-                <NavLink
-                  to="/about"
-                  onClick={handleLinkClick}
-                  activeClassName="active"
-                  className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
-                >
-                  About
-                </NavLink>
+                <Link className="hover:text-[#007bff] text-gray-500 font-bold text-[15px] block">
+                  Team
+                </Link>
               </li>
               <li className="max-lg:border-b max-lg:py-2">
-                <NavLink
+                <Link
                   to="/contact"
-                  onClick={handleLinkClick}
-                  activeClassName="active"
-                  className="hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block"
+                  className="hover:text-[#007bff] text-gray-500 font-bold text-[15px] block"
                 >
                   Contact
-                </NavLink>
+                </Link>
+              </li>
+              <li className="max-lg:border-b max-lg:py-2">
+                <Link className="hover:text-[#007bff] text-gray-500 font-bold text-[15px] block">
+                  Source
+                </Link>
+              </li>
+              <li className="max-lg:border-b max-lg:py-2">
+                <Link className="hover:text-[#007bff] text-gray-500 font-bold text-[15px] block">
+                  Partner
+                </Link>
+              </li>
+              <li className="max-lg:border-b max-lg:py-2">
+                <Link className="hover:text-[#007bff] text-gray-500 font-bold text-[15px] block">
+                  Feature
+                </Link>
               </li>
             </ul>
           </div>
         </header>
       </div>
-          
-    </>
+    </div>
   );
 }

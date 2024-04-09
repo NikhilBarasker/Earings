@@ -1,6 +1,7 @@
 import React from 'react'
 import Testimonals from '../Components/Testimonals.jsx'
 import '../App.css'
+import '../Responsive.css'
 import Carousel from './Carousel'
 import styled from 'styled-components'
 import TopDealProducts from './TopDealProducts'
@@ -28,10 +29,10 @@ const Home = () => {
       <Featured/>
       <Banner/>
       <Discover/>
-      <Categories/>
       {/* <Phone/> */}
-      {/* <Newslater/> */}
+      <Categories/>
       <PeopleSearch/>
+      {/* <Newslater/> */}
     </Container>
     <div className='Home' >
       {/* <img className='HomeBG' src={HomeBG} /> */}

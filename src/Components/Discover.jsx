@@ -24,13 +24,13 @@ const Discover = () => {
                 </div>
             ))}
         </div> */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4" >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
     {productCard.slice(0, 3).map((product, index) => (
-        <div key={index} style={{backgroundColor:'#ececec'}}>
+        <div key={index}>
             <ProductCard product={product} />
         </div>
-    ))}
-</div>
+          ))}
+          </div>
     </div>
 </Container1>
   )
