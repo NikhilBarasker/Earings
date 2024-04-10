@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import './App.css'
 import Header4 from './Components/Header4';
 import Header from './Components/Header';
@@ -17,14 +17,31 @@ import Registration from './Components/Registration.jsx'
 import ProductDetails from './Components/ProductDetails.jsx';
 import SeeDiscover from './Components/SeeDiscover.jsx'
 import Wishlists from "./Components/Wishlists.jsx"
+import TestHeader from './Components/TestHeader.jsx';
+import Loader from './Components/Loader.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
 function App() {
+  const [loader, setLoader] = useState(true);
+  
+  useEffect(() => {
+    const loaderTimer = setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  
+    return () => clearTimeout(loaderTimer);
+  }, []);
+
   return (
-    <div>
+    <>
+      {loader && <Loader/>}
+      {!loader && 
+      
+        <div>
       {/* <Header4 /> */}
-      <Header />
+      {/* <Header /> */}
+      <TestHeader/>
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/home" element={<Home />} /> */}
@@ -44,6 +61,8 @@ function App() {
       <Scrolup />
       <Footer />
     </div>
+      }
+    </>
   );
 }
 

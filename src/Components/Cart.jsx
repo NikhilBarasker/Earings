@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react'
 import IconContext from '../Context/IconContext';
+import { cart } from './data';
+
+import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { setCartValue, cartValue, cartItems, setCartItems } = useContext(IconContext);
+    const { setCartValue, cartValue, cartItems, setCartItems, empty, setEmpty } = useContext(IconContext);
 
     const handleRemove = () => {
 
@@ -14,10 +18,14 @@ const Cart = () => {
 
     console.log('hsadghdSGHDGDAHDSFDSF',cartItems);
 
+    const handleLinkClick = () => {
+      window.scrollTo(0, 0);
+    };
+
   return (
     <div className='mt-[100px]'>
       <div class="font-[sans-serif]">
-      <div class="grid lg:grid-cols-3">
+      {!empty && <div class="grid lg:grid-cols-3">
         <div class="lg:col-span-2 p-10 bg-white overflow-x-auto">
           <div class="flex border-b pb-4">
             <h2 class="text-2xl font-extrabold text-[#333] flex-1">Shopping Cart</h2>
@@ -78,21 +86,60 @@ const Cart = () => {
             </table>
           </div>
         </div>
-        <div class="bg-gray-50 p-10">
+        <div class="bg-gray-50 p-10 border-t border-gray-300 sm:border-t sm:border-gray-300" style={{borderLeft:'1px solid #d1d1d1'}}>
           <h3 class="text-xl font-extrabold text-[#333] border-b pb-4">Order Summary</h3>
           <ul class="text-[#333] divide-y mt-6">
             <li class="flex flex-wrap gap-4 text-md py-4">Subtotal <span class="ml-auto font-bold">$37.00</span></li>
             <li class="flex flex-wrap gap-4 text-md py-4">Shipping <span class="ml-auto font-bold">$4.00</span></li>
-            <li class="flex flex-wrap gap-4 text-md py-4">Tax <span class="ml-auto font-bold">$4.00</span></li>
+            {/* <li class="flex flex-wrap gap-4 text-md py-4">Tax <span class="ml-auto font-bold">$4.00</span></li> */}
             <li class="flex flex-wrap gap-4 text-md py-4 font-bold">Total <span class="ml-auto">$45.00</span></li>
           </ul>
-          <button type="button" class="mt-6 text-md px-6 py-2.5 w-full bg-blue-600 hover:bg-blue-700 text-white rounded">Check
+          <button type="button" class="mt-6 text-md px-6 py-2.5 w-full bg-green-600 hover:bg-green-700 text-white rounded">Check
             out</button>
         </div>
-      </div>
+      </div>}
+
+      {empty && <div className='w-full h-[60vh]'>
+        <div className='w-[100%] h-[100%] flex flex-col justify-center '>
+          <img src={cart} alt="" className='w-[150px] mx-auto' />
+          <h1 className=' text-4xl text-center'>Your cart is empty !</h1>
+          <Butt><Link to={'/'} onClick={handleLinkClick}><button>Continue Shopping..</button></Link></Butt>
+        </div>
+      </div>}
     </div>
     </div>
   )
 }
 
 export default Cart
+
+const Butt = styled.button`
+margin: 20px 0;
+button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #23c483;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #23c483;
+  border: 2px solid #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+`;
