@@ -19,6 +19,7 @@ import SeeDiscover from './Components/SeeDiscover.jsx'
 import Wishlists from "./Components/Wishlists.jsx"
 import TestHeader from './Components/TestHeader.jsx';
 import Loader from './Components/Loader.jsx';
+import Wallets from './Components/CategoriesPages/Wallets.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/NewColections" element={<SeeDiscover />} />
         <Route path="/wishlists" element={<Wishlists />} />
+        <Route path="/Categories/Wallets" element={<Wallets />} />
 
       </Routes>
       <Scrolup />

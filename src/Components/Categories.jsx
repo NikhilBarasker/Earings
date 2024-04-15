@@ -18,7 +18,7 @@ const Categories = () => {
   return (
     <div>
       <Product_Container>
-        <div className='container'>
+        <div className='container mt-[40px]'>
             <h1>Shop by Categories</h1>
             <div className='Product_container'>
                 {/* {productCard.map((product, index) => (
