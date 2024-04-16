@@ -27,10 +27,10 @@ const Categories = () => {
   return (
     <div>
       <Product_Container>
-        <div className="container">
-          <h1>Shop by Categories</h1>
-          <div className="Product_container">
-            {/* {productCard.map((product, index) => (
+        <div className='container'>
+            <h1>Shop by Categories</h1>
+            <div className='Product_container'>
+                {/* {productCard.map((product, index) => (
                     <ProductCard key={index} product={product} />
                 ))} */}
             <Swiper

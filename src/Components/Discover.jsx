@@ -11,7 +11,7 @@ const Discover = () => {
   };
   return (
     <Container1>
-    <div className="mx-auto max-w-screen-xl  sm:px-6 sm:py-12 lg:px-8 " style={{backgroundColor:'#ececec'}}>
+    <div className="mx-auto max-w-screen-xl  sm:px-6 sm:py-12 lg:px-8 mt-[40px] " style={{backgroundColor:'#ececec'}}>
       <div className='flex justify-between mx-[20px]' style={{alignItems:'center', backgroundColor:'#ececec'}}>
         <h2 className="text-center text-xl font-bold text-gray-900 sm:text-3xl my-[20px]">New Collection</h2>
         <Link to={'/NewColections'} onClick={handleLinkClick}><button className='flex justify-center align-middle text-center bg-customGray hover:bg-gray-800 h-[40px] px-[12px] text-white rounded-md' style={{ alignItems:'center'}}>See More..</button>
@@ -24,7 +24,7 @@ const Discover = () => {
                 </div>
             ))}
         </div> */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {productCard.slice(0, 3).map((product, index) => (
         <div key={index}>
             <ProductCard product={product} />

@@ -5,6 +5,8 @@ import ear1 from '../Photoes/ear1.jpg'
 import ear2 from '../Photoes/ear2.jpg'
 import ear3 from '../Photoes/ear3.jpg'
 
+import Logo from "../Photoes/Logo.png";
+
 import AboutbackgroundImage from '../Photoes/Advantages.png'
 import ad1 from '../Photoes/Advantages.png'
 import Adv_back from '../Photoes/Adv_back.jpeg'
@@ -26,7 +28,12 @@ import watch from '../Photoes/watches.jpeg'
 import nec from '../Photoes/necklace.jpeg'
 import brace from '../Photoes/bracellet.jpeg'
 
-export {face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
+import cart from '../Photoes/cart.png'
+import backgroundImage from '../Photoes/bgg.jpeg'
+import backgroundImage1 from '../Photoes/wallet_bg (2).jpeg'
+import favi from '../Photoes/favicon.ico'
+
+export {backgroundImage, backgroundImage1, favi, cart,Logo, face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
 
 export const productCard = [
     {

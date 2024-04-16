@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {productCard} from './data'
 import ProductCard from './ProductCard';
 import { Link } from 'react-router-dom';
+import PeopleSearch from './PeopleSearch';
 
 const SeeDiscover = () => {
   return (
@@ -23,6 +24,7 @@ const SeeDiscover = () => {
             ))}
         </div>
     </div>
+        <PeopleSearch/>
 </Container1>
     </div>
   )
