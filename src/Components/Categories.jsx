@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import ProductCard from './ProductCard'
-import {productCard} from './data'
+import { productCard } from './data'
+import { useNavigate } from 'react-router-dom'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,42 +13,49 @@ import 'swiper/css/navigation';
 import { productsCategory } from './data';
 
 import { Pagination, Navigation,Autoplay } from 'swiper/modules';
+import Product1 from './Product1'
 
 const Categories = () => {
+
+  let navigate = useNavigate()
+
+  const handleClick = () => {
+  navigate('/Product1')
+}
+
     const [swiperRef, setSwiperRef] = useState(null);
   return (
     <div>
       <Product_Container>
-        <div className='container'>
-            <h1>Shop by Categories</h1>
-            <div className='Product_container'>
-                {/* {productCard.map((product, index) => (
+        <div className="container">
+          <h1>Shop by Categories</h1>
+          <div className="Product_container">
+            {/* {productCard.map((product, index) => (
                     <ProductCard key={index} product={product} />
                 ))} */}
             <Swiper
-        onSwiper={setSwiperRef}
-        slidesPerView={4}
-        centeredSlides={true}
-        spaceBetween={30}
-        loop={true}
-        pagination={{
-          type: 'fraction',
-        }}
-
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 0,
-          },
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          992: {
+              onSwiper={setSwiperRef}
+              slidesPerView={4}
+              centeredSlides={true}
+              spaceBetween={30}
+              loop={true}
+              pagination={{
+                type: "fraction",
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                992: {
                   slidesPerView: 3,
                   spaceBetween: 20,
                 },
@@ -55,37 +63,39 @@ const Categories = () => {
                   slidesPerView: 4,
                   spaceBetween: 30,
                 },
-        }}
-
-        navigation={true}
-        modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper"
-        initialSlide={1}
-        autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
-        speed={800} // Animation speed (milliseconds)
-      >
-        {productsCategory.map((product, index) => (
-            <SwiperSlide key={index} style={{marginRight:'0px', backgroundColor:'transparent'}} >
-                    {/* <ProductCard product={product} /> */}
-                    <Card>
-                        <div class="card">
-                        <div class="card_image"> <img src={product.photo} /> </div>
-                        <div class="card_title title-white">
-                            <p>{product.category}</p>
-                        </div>
-                        </div>
-                    </Card>
-            </SwiperSlide>
-                ))}
-      </Swiper>
-            </div>
-
-            
-            
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation, Autoplay]}
+              className="mySwiper"
+              initialSlide={1}
+              autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
+              speed={800} // Animation speed (milliseconds)
+            >
+              {productsCategory.map((product, index) => (
+                <SwiperSlide
+                  onClick={handleClick}
+                  key={index}
+                  style={{ marginRight: "0px", backgroundColor: "transparent" }}
+                >
+                  {/* <ProductCard product={product} /> */}
+                  <Card>
+                    <div className="card">
+                      <div className="card_image">
+                        <img src={product.photo} />{" "}
+                      </div>
+                      <div className="card_title title-white">
+                        <p>{product.category}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
-    </Product_Container>
+      </Product_Container>
     </div>
-  )
+  );
 }
 
 export default Categories

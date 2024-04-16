@@ -1,13 +1,15 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import required modules
-import { Navigation } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
+
+
+import SwiperCore from "swiper";
+
+SwiperCore.use([Pagination, Autoplay]);
 
 export default function Testimonals() {
   let obj = [
@@ -31,11 +33,72 @@ export default function Testimonals() {
         "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
       name: "Ankoor Soni",
       email: "ankoors@gmail.com",
+    },
+    {
+      id: 4,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
+    },
+    {
+      id: 5,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
+    },
+    {
+      id: 6,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
+    },
+    {
+      id: 7,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
+    },
+    {
+      id: 8,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
+    },
+    {
+      id: 9,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
+    },
+    {
+      id: 10,
+      review:
+        "The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive and the delivery was impressively prompt",
+      name: "Ankoor Soni",
+      email: "ankoors@gmail.com",
     }
   ];
   return (
     <div>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        autoplay={true}
+        // navigation={true}
+        modules={[Pagination, Autoplay]}
+        className="mySwiper"
+        breakpoints={{
+          768: {
+            slidesPerView: 3,
+          },
+        }}
+      >
         {obj.map((refs, index) => (
           <SwiperSlide>
             <div class="font-[sans-serif] max-w-[350px] h-auto p-8 rounded-md mx-auto shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] bg-white relative my-12">
@@ -45,9 +108,6 @@ export default function Testimonals() {
               />
               <div className="mt-8 text-center">
                 <p className="text-sm text-[#333] leading-relaxed ">
-                  {/* The service was amazing. I never had to wait that long for my
-                  food. The staff was friendly and attentive, and the delivery
-                  was impressively prompt. */}
                   {refs.review}
                 </p>
                 <h4 className="text-base font-extrabold mt-8">{refs.name}</h4>

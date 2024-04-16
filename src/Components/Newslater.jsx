@@ -23,7 +23,7 @@ const Newslater = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #ececec;
 }
 .search {
@@ -32,64 +32,63 @@ body{
   right: 0;
   /* transition: .9s ease; */
 }
-.search button:active{
+.search button:active {
   background-color: lightgreen;
 }
 
-
-.uperheader{
+.uperheader {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-.logo{
+.logo {
   height: 50px;
   width: 70px;
 }
 
-.loginfrm{
+.loginfrm {
   margin: 200px 0 50px 0;
 }
 
-.login:hover{
+.login:hover {
   cursor: pointer;
   scale: 1.1;
 }
-.login:active{
+.login:active {
   color: lightgreen;
 }
-.pic{
+.pic {
   display: none;
 }
 
-.newAdminLink{
+.newAdminLink {
   margin: 4px 0 0 0;
 }
-.newAdminLink:hover{
-color: blue;
+.newAdminLink:hover {
+  color: blue;
 }
-.headerFont{
-    font-family: "Roboto", sans-serif;
+.headerFont {
+  font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-style: normal;
 }
-.group{
+.group {
   display: none;
 }
-.newAdminLink:active{
-color: lightseagreen;
+.newAdminLink:active {
+  color: lightseagreen;
 }
 
-.ApoutPage{
-  background-image: url('./Photoes/Aboutpagebg.jpg');
+.ApoutPage {
+  background-image: url("./Photoes/Aboutpagebg.jpg");
   filter: brightness(60%);
   margin: 120px 0 0 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-.ApoutPage h1{
+.ApoutPage h1 {
   color: #ffffff;
   font-size: 50px;
   display: flex;
@@ -101,14 +100,14 @@ color: lightseagreen;
   background-size: cover;
 }
 
-.container1{
+.container1 {
   /* background-image: url(../src/Photoes/AboutBodyBG.jpg); */
-  
+
   padding: 50px 0 50px 0;
 }
-.Info{
+.Info {
   margin: 0 50px 0 50px;
 }
-
-
-
+#prdergbg {
+  margin: 120px 0 0 0;
+}

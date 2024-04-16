@@ -1,9 +1,7 @@
 import React, { lazy } from 'react'
 import './App.css'
-import Header4 from './Components/Header4';
 import Header from './Components/Header';
 import { Routes, Route } from 'react-router-dom';
-import Footer from './Components/Footer.jsx'
 import Home from './Components/Home.jsx';
 import Contact from './Components/Contact.jsx';
 import About from './Components/About.jsx';
@@ -17,17 +15,17 @@ import Registration from './Components/Registration.jsx'
 import ProductDetails from './Components/ProductDetails.jsx';
 import SeeDiscover from './Components/SeeDiscover.jsx'
 import Wishlists from "./Components/Wishlists.jsx"
-
-// const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
+import CustomerRegistration from './Components/CustomerRegistration.jsx';
+import CustomerLogin from './Components/CustomerLogin.jsx';
+import Footer from './Components/Footer.jsx'
+import Product1 from './Components/Product1.jsx';
 
 function App() {
   return (
     <div>
-      {/* <Header4 /> */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/whyus" element={<WhyUs />} />
@@ -39,7 +37,9 @@ function App() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/NewColections" element={<SeeDiscover />} />
         <Route path="/wishlists" element={<Wishlists />} />
-
+        <Route path="customerregistration" element={<CustomerRegistration />} />
+        <Route path="customerlogin" element={<CustomerLogin />} />
+        <Route path="product1" element={<Product1 />} />
       </Routes>
       <Scrolup />
       <Footer />

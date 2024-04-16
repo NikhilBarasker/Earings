@@ -1,15 +1,28 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+//   theme: {
+//     extend: {
+//       colors: {
+//         customGray: 'rgb(46, 45, 61)',
+//       },
+//     },
+//   },
+// };
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        customGray: 'rgb(46, 45, 61)',
+                customGray: 'rgb(46, 45, 61)',
       },
     },
   },
-};
+  plugins: [],
+});

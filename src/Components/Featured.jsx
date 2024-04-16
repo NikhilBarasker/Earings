@@ -1,5 +1,5 @@
 import React from 'react'
-import {top1, top2, top3, ear1, ear2, ear3} from './data'
+import { top1, top2, top3, ear1, ear2, ear3 } from './data'
 import { Link } from 'react-router-dom'
 
 const Featured = () => {
@@ -78,7 +78,7 @@ const Featured = () => {
       </li>
     </ul>
   </div>
-</section>
+      </section>
     </div>
   )
 }
