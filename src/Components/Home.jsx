@@ -21,24 +21,24 @@ const Home = () => {
     <>
       <Carousel />
       {/* <div className="Home">
-       <Testimonals />
       </div>
     <Carousel/> */}
-    <Container>
-      <TopDealProducts/>
-      <Advantages/>
-      <Featured/>
-      <Banner/>
-      <Discover/>
-      {/* <Phone/> */}
-      <Categories/>
-      <PeopleSearch/>
-      {/* <Newslater/> */}
-    </Container>
-    <div className='Home' >
-      {/* <img className='HomeBG' src={HomeBG} /> */}
-      {/* <img style={{height:'200px', width:'250px'}} src={KaanKiBalli} /> */}
-    </div>
+      <Container>
+        <TopDealProducts />
+        <Advantages />
+        <Featured />
+        <Banner />
+        <Discover />
+        {/* <Phone/> */}
+        <Categories />
+        <PeopleSearch />
+        {/* <Newslater/> */}
+      </Container>
+      <Testimonals />
+      <div className="Home">
+        {/* <img className='HomeBG' src={HomeBG} /> */}
+        {/* <img style={{height:'200px', width:'250px'}} src={KaanKiBalli} /> */}
+      </div>
     </>
   );
 }
