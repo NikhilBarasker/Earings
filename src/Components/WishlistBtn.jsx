@@ -17,17 +17,16 @@ const WishlistBtn = () => {
     <div>
       <button
       onClick={handleIncrement}
-    className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
+    className="text-center absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
   >
     <span className="sr-only">Wishlist</span>
 
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill={isOn ? 'red' : 'none'}
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
+      viewBox="0 0 22 22"
       stroke="currentColor"
-      className="h-4 w-4"
+      className="h-4 w-4 pr-[1px]"
     >
       <path
         strokeLinecap="round"

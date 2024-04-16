@@ -12,9 +12,13 @@ import 'swiper/css/navigation';
 import { productsCategory } from './data';
 
 import { Pagination, Navigation,Autoplay } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
     const [swiperRef, setSwiperRef] = useState(null);
+    const handleLinkClick = () => {
+      window.scrollTo(0, 0);
+    };
   return (
     <div>
       <Product_Container>
@@ -68,12 +72,14 @@ const Categories = () => {
             <SwiperSlide key={index} style={{marginRight:'0px', backgroundColor:'transparent'}} >
                     {/* <ProductCard product={product} /> */}
                     <Card>
+                    <Link to={`/Categories/${product.category}`} onClick={handleLinkClick}>
                         <div class="card">
                         <div class="card_image"> <img src={product.photo} /> </div>
                         <div class="card_title title-white">
                             <p>{product.category}</p>
                         </div>
                         </div>
+                    </Link>
                     </Card>
             </SwiperSlide>
                 ))}

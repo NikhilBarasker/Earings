@@ -20,6 +20,7 @@ import Wishlists from "./Components/Wishlists.jsx"
 import TestHeader from './Components/TestHeader.jsx';
 import Loader from './Components/Loader.jsx';
 import Wallets from './Components/CategoriesPages/Wallets.jsx';
+import Watches from './Components/CategoriesPages/Watches.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
@@ -58,6 +59,7 @@ function App() {
         <Route path="/NewColections" element={<SeeDiscover />} />
         <Route path="/wishlists" element={<Wishlists />} />
         <Route path="/Categories/Wallets" element={<Wallets />} />
+        <Route path="/Categories/Watches" element={<Watches />} />
 
       </Routes>
       <Scrolup />
