@@ -21,6 +21,9 @@ import TestHeader from './Components/TestHeader.jsx';
 import Loader from './Components/Loader.jsx';
 import Wallets from './Components/CategoriesPages/Wallets.jsx';
 import Watches from './Components/CategoriesPages/Watches.jsx';
+import NotFound from './Components/NotFound.jsx';
+import Bracelets from './Components/CategoriesPages/Bracelets.jsx';
+import EarRings from './Components/CategoriesPages/EarRings.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
@@ -60,7 +63,10 @@ function App() {
         <Route path="/wishlists" element={<Wishlists />} />
         <Route path="/Categories/Wallets" element={<Wallets />} />
         <Route path="/Categories/Watches" element={<Watches />} />
+        <Route path="/Categories/Bracelets" element={<Bracelets />} />
+        <Route path="/Categories/Earrings" element={<EarRings />} />
 
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Scrolup />
       <Footer />

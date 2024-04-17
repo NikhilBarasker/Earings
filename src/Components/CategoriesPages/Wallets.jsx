@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { backgroundImage1 } from '../data'
+import { backgroundImage1, backg } from '../data'
 const Wallets = () => {
     const products = [
         {
@@ -102,7 +102,7 @@ const Wallets = () => {
     <div className='mt-12'>
       <div className='relative h-96'>
         <img
-          src={backgroundImage1}
+          src={backg}
           alt=""
           className='absolute inset-0 w-full h-full object-cover brightness-75'
           style={{ filter: 'brightness(50%)' }}

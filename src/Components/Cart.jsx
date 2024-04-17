@@ -44,7 +44,7 @@ const Cart = () => {
                 
                 {cartItems.map((item, index) => {
                     const product = item.product;
-                    console.log(product.brand);
+                    console.log(product.productName);
                 <tr key={index}>
                   <td class="py-6 px-4">
                     <div class="flex items-center gap-6 w-max">
@@ -52,7 +52,7 @@ const Cart = () => {
                         <img src={product.imageUrl} class="w-full h-full object-contain" />
                       </div>
                       <div>
-                        <p class="text-md font-bold text-[#333]">{product.brand}</p>
+                        <p class="text-md font-bold text-[#333]">{product.productName}</p>
                         <button type="button" class="mt-4 font-semibold text-red-400 text-sm" onClick={handleRemove}>
                           Remove
                         </button>

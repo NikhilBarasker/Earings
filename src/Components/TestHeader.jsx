@@ -202,7 +202,7 @@ const TestHeader = () => {
                 <Link to={'/'} onClick={handleLinkClick} className="text-sm font-medium text-gray-900 hover:text-gray-900/70">Home</Link>
               </li>
               <li className="relative hidden md:block">
-                <Link href="#" onClick={handleLinkClick} className="text-sm font-medium text-gray-900 hover:text-gray-900/70">
+                <Link className="text-sm font-medium text-gray-900 hover:text-gray-900/70">
                 
                 <div>
         <button
@@ -211,7 +211,7 @@ const TestHeader = () => {
           id="menu-button"
           aria-expanded={isOpen}
           aria-haspopup="true"
-          onClick={toggleMenuP}
+          onClick={()=>{setIsOpen(!isOpen)}}
         >
           Products
           <svg
@@ -238,19 +238,19 @@ const TestHeader = () => {
           tabIndex="-1"
         >
           <div className="py-1" role="none">
-          <Link href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-0">
+          <Link className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-0">
               Ear Rings
             </Link>
-            <Link href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-1">
+            <Link className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-1">
               Bracellets
             </Link>
-            <Link href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-2">
+            <Link className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-2">
               Nose Rings
             </Link>
-            <Link href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-2">
+            <Link className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-2">
               Wallets
             </Link>
-            <Link href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-2">
+            <Link className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabIndex="-1" id="menu-item-2">
               Watches
             </Link>
           </div>
@@ -261,7 +261,7 @@ const TestHeader = () => {
                 </Link>
               </li>
               <li className="hidden md:block">
-                <Link href="#" onClick={handleLinkClick} className="text-sm font-medium text-gray-900 hover:text-gray-900/70">Service</Link>
+                <Link onClick={handleLinkClick} className="text-sm font-medium text-gray-900 hover:text-gray-900/70">Service</Link>
               </li>
               <li className="hidden md:block">
                 <Link to={'/contact'} onClick={handleLinkClick}  className="text-sm font-medium text-gray-900 hover:text-gray-900/70">Contacts</Link>

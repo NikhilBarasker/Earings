@@ -31,9 +31,10 @@ import brace from '../Photoes/bracellet.jpeg'
 import cart from '../Photoes/cart.png'
 import backgroundImage from '../Photoes/bgg.jpeg'
 import backgroundImage1 from '../Photoes/wallet_bg (2).jpeg'
+import backg from '../Photoes/backg.png'
 import favi from '../Photoes/favicon.ico'
 
-export {backgroundImage, backgroundImage1, favi, cart,Logo, face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
+export {backg, backgroundImage, backgroundImage1, favi, cart,Logo, face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
 
 export const productCard = [
     {
