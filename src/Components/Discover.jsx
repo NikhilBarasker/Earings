@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {productCard} from './data'
 import ProductCard from './ProductCard';
 import { Link } from 'react-router-dom';
+import Productcard2 from './CategoriesPages/Productcard2';
 
 const Discover = () => {
   const handleLinkClick = () => {
@@ -24,7 +25,7 @@ const Discover = () => {
                 </div>
             ))}
         </div> */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" >
     {productCard.slice(0, 3).map((product, index) => (
         <div key={index}>
             <ProductCard product={product} />

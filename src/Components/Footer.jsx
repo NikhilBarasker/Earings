@@ -9,7 +9,7 @@ import Newslater from './Newslater';
 const Footer = () => {
   return (
     <>
-    {/* <Newslater/>   */}
+    <Newslater/>  
     <div style={{ borderTop:'1px solid #c8c8c8'}}>
       <footer className="bg-whhite py-12 px-16 font-[sans-serif]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

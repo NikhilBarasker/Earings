@@ -165,3 +165,96 @@ export const productCard = [
         photo: watch
     }
 ];
+
+
+export const CategoryProducts = [
+  {
+    id: 1,
+    name: 'SoleStride Elegance',
+    description: 'Premium sneakers designed for ultimate comfort and style.',
+    price: 99.99,
+    image: 'https://via.placeholder.com/400x300?text=SoleStride+Elegance',
+    category: 'Sneakers'
+  },
+  {
+    id: 2,
+    name: 'UrbanTrail Sneakers',
+    description: 'Versatile sneakers perfect for urban adventures.',
+    price: 79.99,
+    image: 'https://via.placeholder.com/400x300?text=UrbanTrail+Sneakers',
+    category: 'Sneakers'
+  },
+  {
+    id: 3,
+    name: 'VelvetGlide Boots',
+    description: 'Luxurious velvet boots with a sleek design.',
+    price: 129.99,
+    image: 'https://via.placeholder.com/400x300?text=VelvetGlide+Boots',
+    category: 'Boots'
+  },
+  {
+    id: 4,
+    name: 'SportyStride Runners',
+    description: 'Lightweight running shoes for active lifestyles.',
+    price: 69.99,
+    image: 'https://via.placeholder.com/400x300?text=SportyStride+Runners',
+    category: 'Sneakers'
+  },
+  {
+      id: 4,
+      name: 'Classic Leather Bifold Wallet',
+      description: 'Timeless leather bifold wallet with multiple card slots and cash compartment.',
+      price: 49.99,
+      image: 'https://via.placeholder.com/400x300?text=Classic+Leather+Bifold+Wallet',
+      category: 'Wallets'
+    },
+    {
+      id: 5,
+      name: 'Slim Minimalist Card Holder',
+      description: 'Sleek and compact card holder wallet for minimalist carry.',
+      price: 29.99,
+      image: 'https://via.placeholder.com/400x300?text=Slim+Minimalist+Card+Holder',
+      category: 'Wallets'
+    },
+    {
+      id: 6,
+      name: 'Traveler\'s RFID Blocking Wallet',
+      description: 'RFID-blocking wallet with dedicated passport and card slots for secure travel.',
+      price: 39.99,
+      image: 'https://via.placeholder.com/400x300?text=Traveler\'s+RFID+Blocking+Wallet',
+      category: 'Wallets'
+    },
+    {
+      id: 7,
+      name: 'Luxury Leather Zip-Around Wallet',
+      description: 'High-end leather zip-around wallet with multiple compartments and zippered closure.',
+      price: 79.99,
+      image: 'https://via.placeholder.com/400x300?text=Luxury+Leather+Zip-Around+Wallet',
+      category: 'Wallets'
+    },
+    {
+      id: 8,
+      name: 'Sporty Nylon Wallet',
+      description: 'Casual and sporty nylon wallet with secure velcro closure.',
+      price: 19.99,
+      image: 'https://via.placeholder.com/400x300?text=Sporty+Nylon+Wallet',
+      category: 'Wallets'
+    },
+    {
+      id: 9,
+      name: 'Executive Leather Money Clip',
+      description: 'Executive-style leather money clip wallet for minimalistic carry.',
+      price: 34.99,
+      image: 'https://via.placeholder.com/400x300?text=Executive+Leather+Money+Clip',
+      category: 'Wallets'
+    },
+    {
+      id: 10,
+      name: 'Stylish Vegan Leather Wallet',
+      description: 'Fashionable vegan leather wallet with card slots and coin pouch.',
+      price: 39.99,
+      image: 'https://via.placeholder.com/400x300?text=Stylish+Vegan+Leather+Wallet',
+      category: 'Wallets'
+    },
+  // Add more products as needed
+];

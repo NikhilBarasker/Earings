@@ -13,17 +13,10 @@ import "swiper/css/navigation";
 
 import { productsCategory } from "./data";
 
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import Product1 from "./Earings";
+import { Pagination, Navigation,Autoplay } from 'swiper/modules';
 
 const Categories = () => {
-  let navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/earings");
-  };
-
-  const [swiperRef, setSwiperRef] = useState(null);
+    const [swiperRef, setSwiperRef] = useState(null);
   return (
     <div>
       <Product_Container>
@@ -63,35 +56,33 @@ const Categories = () => {
                   slidesPerView: 4,
                   spaceBetween: 30,
                 },
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation, Autoplay]}
-              className="mySwiper"
-              initialSlide={1}
-              autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
-              speed={800} // Animation speed (milliseconds)
-            >
-              {productsCategory.map((product, index) => (
-                <SwiperSlide
-                  onClick={handleClick}
-                  key={index}
-                  style={{ marginRight: "0px", backgroundColor: "transparent" }}
-                >
-                  {/* <ProductCard product={product} /> */}
-                  <Card>
-                    <Link to={/Categories/${product.category}} onClick={handleClick}>
+        }}
+
+        navigation={true}
+        modules={[Pagination, Navigation, Autoplay]}
+        className="mySwiper"
+        initialSlide={1}
+        autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
+        speed={800} // Animation speed (milliseconds)
+      >
+        {productsCategory.map((product, index) => (
+            <SwiperSlide key={index} style={{marginRight:'0px', backgroundColor:'transparent'}} >
+                    {/* <ProductCard product={product} /> */}
+                    <Card>
                         <div class="card">
                         <div class="card_image"> <img src={product.photo} /> </div>
                         <div class="card_title title-white">
                             <p>{product.category}</p>
                         </div>
                         </div>
-                    </Link>
-                   </Card>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+                    </Card>
+            </SwiperSlide>
+                ))}
+      </Swiper>
+            </div>
+
+            
+            
         </div>
       </Product_Container>
     </div>
