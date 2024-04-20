@@ -1,7 +1,7 @@
 import React, { lazy, useEffect, useState } from 'react'
 import './App.css'
 import Header4 from './Components/Header4';
-import Header from './Components/Header';
+// import Header from './Components/Header';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './Components/Footer.jsx'
 import Home from './Components/Home.jsx';
@@ -24,6 +24,7 @@ import Watches from './Components/CategoriesPages/Watches.jsx';
 import NotFound from './Components/NotFound.jsx';
 import Bracelets from './Components/CategoriesPages/Bracelets.jsx';
 import EarRings from './Components/CategoriesPages/EarRings.jsx';
+import LatestHead from './Components/LatestHead.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
@@ -46,7 +47,8 @@ function App() {
         <div>
       {/* <Header4 /> */}
       {/* <Header /> */}
-      <TestHeader/>
+      {/* <TestHeader/> */}
+      <LatestHead/>
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/home" element={<Home />} /> */}

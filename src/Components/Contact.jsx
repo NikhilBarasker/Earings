@@ -35,13 +35,12 @@ export default function Contact() {
  };
 
   return (
-    <div style={{ marginTop: "120px" }}>
+    <div className='mt-[10px]'>
       <div>
         <h1
           style={{
             fontSize: "40px",
             textAlign: "center",
-            margin: "200px 0 100px 0",
           }}
         >
           Contact page
@@ -176,9 +175,9 @@ export default function Contact() {
               </div>
               <div className="bg-gray-200 p-6 rounded-lg">
                 <p className="text-sm font-semibold text-[#333]">
-                  I'm interested in...
+                  Contact Us...
                 </p>
-                <div className="space-y-4 max-lg:mt-4">
+                {/* <div className="space-y-4 max-lg:mt-4">
                   <button
                     type="button"
                     className="px-4 py-2 rounded-md bg-[#a91079] text-white text-sm tracking-wider font-medium outline-none border-2 border-[#a91079] mr-4"
@@ -197,7 +196,7 @@ export default function Contact() {
                   >
                     Design system
                   </button>
-                </div>
+                </div> */}
                 <form className="mt-8 space-y-4">
                   <input
                     type="text"
@@ -264,7 +263,7 @@ export default function Contact() {
           style={{
             fontSize: "40px",
             textAlign: "center",
-            margin: "50px 0 50px 0",
+            margin:'20px 0'
           }}
         >
           Our Location
@@ -273,8 +272,9 @@ export default function Contact() {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.28782400545!2d79.08821747380216!3d21.180722182544727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c13ccc72dcab%3A0x83400de59cf114fd!2sMahesh%20Patangwala%20And%20General%20Storesll%20wholesale%20perfume%20ll%20wholesale%20deodrents%20perfume%20ll%20ear%20piercing!5e0!3m2!1sen!2sin!4v1712043760114!5m2!1sen!2sin"
           width="500"
           height="450"
-          style={{ border: 0, width: "100%" }}
+          style={{  boxShadow:'0px 0px 16px -8px rgba(0,0,0,0.5', width: "100%" }}
           allowfullscreen={true}
+          className='max-w-6xl m-auto rounded-lg'
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>

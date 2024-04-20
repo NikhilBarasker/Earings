@@ -8,7 +8,7 @@ import PeopleSearch from './PeopleSearch';
 
 const SeeDiscover = () => {
   return (
-    <div className='mt-[120px]'>
+    <div className=''>
     <Container1>
     <div className="mx-auto max-w-screen-xl  sm:px-6 sm:py-12 lg:px-8 ">
       <div className='flex justify-between mx-[20px]' style={{alignItems:'center'}}>

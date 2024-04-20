@@ -57,7 +57,7 @@ const Carousel = () => {
 export default Carousel
 
 const DIV = styled.div`
-margin-top: 120px;
+margin-top: 0px;
 /* 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
   color: white;

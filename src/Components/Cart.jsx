@@ -9,27 +9,32 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
     const { setCartValue, cartValue, cartItems, setCartItems, empty, setEmpty } = useContext(IconContext);
 
-    const handleRemove = () => {
-
-            if (cartValue > 0) { // Only decrement if cartValue is positive
-              setCartValue(cartValue - 1);
-            }
-    }
-
     console.log('hsadghdSGHDGDAHDSFDSF',cartItems);
+
+    const handleRemoveItem = (index) => {
+      confirm("Are you sure to remove this item?");
+      // Create a copy of cartItems array
+      const updatedCartItems = [...cartItems];
+      // Remove item at specified index
+      updatedCartItems.splice(index, 1);
+      // Update cartItems in context
+      setCartItems(updatedCartItems);
+      // Decrease cartValue
+      setCartValue(cartValue - 1); // Assuming cartValue represents total item count
+    };
 
     const handleLinkClick = () => {
       window.scrollTo(0, 0);
     };
 
   return (
-    <div className='mt-[100px]'>
-      <div class="font-[sans-serif]">
-      {!empty && <div class="grid lg:grid-cols-3">
+    <div className=''>
+      {!empty && <div class="font-[sans-serif]">
+      <div class="grid lg:grid-cols-3">
         <div class="lg:col-span-2 p-10 bg-white overflow-x-auto">
           <div class="flex border-b pb-4">
             <h2 class="text-2xl font-extrabold text-[#333] flex-1">Shopping Cart</h2>
-            <h3 class="text-xl font-extrabold text-[#333]">3 Items</h3>
+            <h3 class="text-xl font-extrabold text-[#333]">{cartItems.length} Items</h3>
           </div>
           <div>
             <table class="mt-6 w-full border-collapse divide-y">
@@ -41,19 +46,16 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody class="whitespace-nowrap divide-y">
-                
-                {cartItems.map((item, index) => {
-                    const product = item.product;
-                    console.log(product.productName);
-                <tr key={index}>
+                {cartItems && cartItems.map((item, index)=> (
+                  <tr key={index}>
                   <td class="py-6 px-4">
                     <div class="flex items-center gap-6 w-max">
                       <div class="h-36 shrink-0">
-                        <img src={product.imageUrl} class="w-full h-full object-contain" />
+                        <img src={item.product.imageUrl} class="w-full h-full object-contain" />
                       </div>
                       <div>
-                        <p class="text-md font-bold text-[#333]">{product.productName}</p>
-                        <button type="button" class="mt-4 font-semibold text-red-400 text-sm" onClick={handleRemove}>
+                        <p class="text-md font-bold text-[#333]">{item.product.productName}</p>
+                        <button type="button" class="mt-4 font-semibold text-red-400 text-sm" onClick={() => handleRemoveItem(index)}>
                           Remove
                         </button>
                       </div>
@@ -77,36 +79,34 @@ const Cart = () => {
                     </div>
                   </td>
                   <td class="py-6 px-4">
-                    <h4 class="text-md font-bold text-[#333]">{product.price}</h4>
+                    <h4 class="text-md font-bold text-[#333]">Rs. {item.product.price}</h4>
                   </td>
                 </tr>
-                })}
-
+                ))}
               </tbody>
             </table>
           </div>
         </div>
-        <div class="bg-gray-50 p-10 border-t border-gray-300 sm:border-t sm:border-gray-300" style={{borderLeft:'1px solid #d1d1d1'}}>
+        <div class="bg-gray-50 p-10">
           <h3 class="text-xl font-extrabold text-[#333] border-b pb-4">Order Summary</h3>
           <ul class="text-[#333] divide-y mt-6">
             <li class="flex flex-wrap gap-4 text-md py-4">Subtotal <span class="ml-auto font-bold">$37.00</span></li>
             <li class="flex flex-wrap gap-4 text-md py-4">Shipping <span class="ml-auto font-bold">$4.00</span></li>
-            {/* <li class="flex flex-wrap gap-4 text-md py-4">Tax <span class="ml-auto font-bold">$4.00</span></li> */}
+            <li class="flex flex-wrap gap-4 text-md py-4">Tax <span class="ml-auto font-bold">$4.00</span></li>
             <li class="flex flex-wrap gap-4 text-md py-4 font-bold">Total <span class="ml-auto">$45.00</span></li>
           </ul>
           <button type="button" class="mt-6 text-md px-6 py-2.5 w-full bg-green-600 hover:bg-green-700 text-white rounded">Check
             out</button>
         </div>
-      </div>}
-
-      {empty && <div className='w-full h-[60vh]'>
+      </div>
+    </div>}
+        {empty && <div className='w-full h-[60vh]'>
         <div className='w-[100%] h-[100%] flex flex-col justify-center '>
           <img src={cart} alt="" className='w-[150px] mx-auto' />
           <h1 className=' text-4xl text-center'>Your cart is empty !</h1>
           <Butt><Link to={'/'} onClick={handleLinkClick}><button>Continue Shopping..</button></Link></Butt>
         </div>
       </div>}
-    </div>
     </div>
   )
 }
