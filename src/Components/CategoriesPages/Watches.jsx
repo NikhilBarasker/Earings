@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeaderImageSec from "./HeaderImageSec";
 
-import { backgroundImage1 } from "../data";
+import { backgroundImage1, backg } from "../data";
 import { CategoryProducts } from "../data";
 import Productcard2 from "./Productcard2";
 
@@ -13,45 +13,45 @@ const Watches = () => {
     setSelectedId(product.id);
   };
   const [selectedId, setSelectedId] = useState();
+  const [availabilityOpen, setAvailabilityOpen] = useState(false);
+  const [priceOpen, setPriceOpen] = useState(false);
   return (
     <div>
-      <HeaderImageSec img={backgroundImage1} categ={"Watches"} />
+      <HeaderImageSec img={backg} categ={"Watches"} />
 
       <div className="bg-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between align-middle w-[100%]">
+          <div className="flex flex-col justify-between align-middle w-[100%] lg:flex-row pb-12">
           
-          <div className="w-[auto]">
-          <h2 className="text-4xl font-extrabold text-gray-800 mb-12">
+          <div className="w-[auto] flex items-center justify-center">
+          <h2 className="text-4xl font-extrabold text-gray-800">
             Premium Watches
           </h2>
           </div>
 
           <div>
-<div class=" flex justify-between align-middle">
-  <details
-    class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
-  >
-    <summary
-      class="flex cursor-pointer items-center justify-between gap-2 bg-white p-4 text-gray-900 transition"
-    >
-      <span class="text-sm font-medium"> Availability </span>
 
-      <span class="transition group-open:-rotate-180">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="h-4 w-4"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </span>
-    </summary>
+<div className="p-4 flex flex-col gap-[5px] align-middle md:flex-row lg:flex-row">
+      {/* Availability Dropdown */}
+      <div className="relative">
+        <details className="border rounded border-gray-300">
+          <summary
+            className="cursor-pointer flex items-center justify-between bg-white p-4 text-gray-900"
+            onClick={() => setAvailabilityOpen(!availabilityOpen)}
+          >
+            <span className="text-sm font-medium">Availability</span>
+            <span className={`transform transition ${availabilityOpen ? 'rotate-180' : ''}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </span>
+          </summary>
+        </details>
 
-    <div class="border-t border-gray-200 bg-white">
+        {/* Availability Dropdown Content */}
+        {availabilityOpen && (
+            <div className="">
+            <div class="border border-gray-200 bg-white">
       <header class="flex items-center justify-between p-4">
         <span class="text-sm text-gray-700"> 0 Selected </span>
 
@@ -86,31 +86,31 @@ const Watches = () => {
         </li>
       </ul>
     </div>
-  </details>
+            </div>
+        )}
+      </div>
 
-  <details
-    class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
-  >
-    <summary
-      class="flex cursor-pointer items-center justify-between gap-2 bg-white p-4 text-gray-900 transition"
-    >
-      <span class="text-sm font-medium"> Price </span>
+      {/* Price Dropdown */}
+      <div className="relative">
+        <details className="border rounded border-gray-300">
+          <summary
+            className="cursor-pointer flex items-center justify-between bg-white p-4 text-gray-900"
+            onClick={() => setPriceOpen(!priceOpen)}
+          >
+            <span className="text-sm font-medium">Price</span>
+            <span className={`transform transition ${priceOpen ? 'rotate-180' : ''}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </span>
+          </summary>
+        </details>
 
-      <span class="transition group-open:-rotate-180">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="h-4 w-4"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </span>
-    </summary>
+        {/* Price Dropdown Content */}
+        {priceOpen && (
+            
 
-    <div class="border-t border-gray-200 bg-white">
+      <div class="border border-gray-200 bg-white">
       <header class="flex items-center justify-between p-4">
         <span class="text-sm text-gray-700"> The highest price is $600 </span>
 
@@ -119,9 +119,9 @@ const Watches = () => {
         </button>
       </header>
 
-      <div class="border-t border-gray-200 p-4">
+      <div class="border border-gray-200 p-4">
         <div class="flex justify-between gap-4">
-          <label for="FilterPriceFrom" class="flex items-center gap-2">
+        <label for="FilterPriceFrom" class="flex items-center gap-2">
             <span class="text-sm text-gray-600">$</span>
 
             <input
@@ -144,10 +144,14 @@ const Watches = () => {
           </label>
         </div>
       </div>
+      
     </div>
-  </details>
+
+        )}
+      </div>
+    </div>
+
 </div>
-          </div>
           </div>
 
 

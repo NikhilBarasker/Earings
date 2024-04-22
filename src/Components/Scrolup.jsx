@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import "../App.css";
-import "../Responsive.css";
 import styled from "styled-components";
 
 const Scrolup = () => {
