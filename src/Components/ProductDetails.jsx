@@ -39,7 +39,7 @@ const ProductDetails = () => {
 
   return (
     <Container>
-    <div  className="">
+    <div  className="mt-10">
       <div class=" font-[sans-serif]">
       <div class="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
         <div class="grid items-start grid-cols-1 lg:grid-cols-2 gap-10">
@@ -70,17 +70,17 @@ const ProductDetails = () => {
       >
         <SwiperSlide style={{backgroundColor:'transparent'}}>
           {/* <img src="https://swiperjs.com/demos/images/nature-1.jpg" /> */}
-          <img src={ShowProduct.product.imageUrl} />
+          <img src={ShowProduct.product.imageUrl} className='sm:w-[90%] rounded-md' />
+        </SwiperSlide>
+        {/* <SwiperSlide style={{backgroundColor:'transparent'}}>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" className='sm:w-[90%] rounded-md' />
         </SwiperSlide>
         <SwiperSlide style={{backgroundColor:'transparent'}}>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" className='sm:w-[90%] rounded-md'/>
         </SwiperSlide>
         <SwiperSlide style={{backgroundColor:'transparent'}}>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide style={{backgroundColor:'transparent'}}>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" className='sm:w-[90%] rounded-md'/>
+        </SwiperSlide> */}
       </Swiper>
       
           </Div>
@@ -155,13 +155,13 @@ const ProductDetails = () => {
                 <button type="button" class="w-12 h-12 bg-red-400 border-2 border-white hover:border-gray-800 rounded-full shrink-0"></button>
               </div>
             </div> */}
-            <div class="flex divide-x border w-max mt-[20px]">
+            <div class="flex divide-x border w-max mt-[20px] shadow-lg">
                       <button type="button" class="bg-gray-100 px-4 py-2 font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-current" viewBox="0 0 124 124">
                           <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000"></path>
                         </svg>
                       </button>
-                      <button type="button" class="bg-transparent px-4 py-2 font-semibold text-[#333] text-md">
+                      <button type="button" class="bg-transparent px-4 py-2 font-semibold text-[#333] text-md border-t border-gray-100">
                         1
                       </button>
                       <button type="button" class="bg-gray-800 text-white px-4 py-2 font-semibold">
@@ -303,6 +303,16 @@ body {
 .swiper-button-prev:after, .swiper-button-next:after{
     color: black;
     font-size: 25px;
+}
+
+.swiper-button-prev{
+  position: absolute;
+  left: -5px;
+}
+
+.swiper-button-next{
+  position: absolute;
+  right: -5px;
 }
 
 

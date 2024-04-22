@@ -12,15 +12,13 @@ const Cart = () => {
     console.log('hsadghdSGHDGDAHDSFDSF',cartItems);
 
     const handleRemoveItem = (index) => {
-      confirm("Are you sure to remove this item?");
-      // Create a copy of cartItems array
-      const updatedCartItems = [...cartItems];
-      // Remove item at specified index
-      updatedCartItems.splice(index, 1);
-      // Update cartItems in context
-      setCartItems(updatedCartItems);
-      // Decrease cartValue
-      setCartValue(cartValue - 1); // Assuming cartValue represents total item count
+      const confirmed = window.confirm("Are you sure to remove this item?");
+      if (confirmed){
+        const updatedCartItems = [...cartItems];
+        updatedCartItems.splice(index, 1);
+        setCartItems(updatedCartItems);
+        setCartValue(cartValue - 1); 
+      }
     };
 
     const handleLinkClick = () => {
@@ -89,14 +87,19 @@ const Cart = () => {
         </div>
         <div class="bg-gray-50 p-10">
           <h3 class="text-xl font-extrabold text-[#333] border-b pb-4">Order Summary</h3>
-          <ul class="text-[#333] divide-y mt-6">
-            <li class="flex flex-wrap gap-4 text-md py-4">Subtotal <span class="ml-auto font-bold">$37.00</span></li>
-            <li class="flex flex-wrap gap-4 text-md py-4">Shipping <span class="ml-auto font-bold">$4.00</span></li>
-            <li class="flex flex-wrap gap-4 text-md py-4">Tax <span class="ml-auto font-bold">$4.00</span></li>
-            <li class="flex flex-wrap gap-4 text-md py-4 font-bold">Total <span class="ml-auto">$45.00</span></li>
-          </ul>
-          <button type="button" class="mt-6 text-md px-6 py-2.5 w-full bg-green-600 hover:bg-green-700 text-white rounded">Check
-            out</button>
+          
+          {cartItems.map((item, index)=>{
+            <ul class="text-[#333] divide-y mt-6">
+              <li class="flex flex-wrap gap-4 text-md py-4">Subtotal <span class="ml-auto font-bold">
+                Rs.{item.product.price * item.quantity}
+              </span></li>
+              <li class="flex flex-wrap gap-4 text-md py-4">Shipping <span class="ml-auto font-bold">$4.00</span></li>
+              <li class="flex flex-wrap gap-4 text-md py-4">Tax <span class="ml-auto font-bold">$4.00</span></li>
+              <li class="flex flex-wrap gap-4 text-md py-4 font-bold">Total <span class="ml-auto">$45.00</span></li>
+            </ul>
+          })}  
+          <Link to={'/checkout'}> <button type="button" class="mt-6 text-md px-6 py-2.5 w-full bg-green-600 hover:bg-green-700 text-white rounded">Check
+            out</button></Link>
         </div>
       </div>
     </div>}

@@ -11,7 +11,7 @@ const Footer = () => {
     <>
     <Newslater/>
     <div style={{ borderTop:'1px solid #c8c8c8'}}>
-      <footer className="bg-whhite py-12 px-16 font-[sans-serif]">
+      <footer className="bg-white py-12 px-16 font-[sans-serif]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h2 className="text-black text-lg font-bold mb-4">Quick Links</h2>
@@ -93,7 +93,7 @@ const Footer = () => {
         </div>
         <div>
           <ul className="flex mt-12 space-x-4">
-            <li className="bg-[#a91079] hover:bg-[#a91079e2] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <li className="bg-[#5a5871] hover:bg-[#9ca3af] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
               <a href="javascript:void(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="bg-[#a91079] hover:bg-[#a91079e2] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <li className="bg-[#5a5871] hover:bg-[#9ca3af] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
               <a href="javascript:void(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const Footer = () => {
                 </svg>
               </a>
             </li>
-            <li className="bg-[#a91079] hover:bg-[#a91079e2] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+            <li className="bg-[#5a5871] hover:bg-[#9ca3af] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
               <a href="javascript:void(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

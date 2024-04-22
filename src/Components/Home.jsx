@@ -14,6 +14,7 @@ import Phone from './Phone.jsx'
 import Categories from './Categories.jsx'
 import PeopleSearch from './PeopleSearch.jsx'
 import Trendings from './Trendings.jsx'
+import Scrolup from './Scrolup.jsx'
 // import Discover from './Discover.jsx'
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
       <Discover/>
       <Categories/>
       <PeopleSearch/>
+      <Scrolup/>
     </Container>
     </>
   );

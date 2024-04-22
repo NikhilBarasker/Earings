@@ -13,9 +13,9 @@ const Newslater = () => {
               valuable insights. Join our community today!</p>
           </div>
           <div
-            class="max-w-2xl left-0 right-0 mx-auto w-full bg-white p-5 flex items-center shadow-lg absolute -bottom-10 rounded-md">
+            class="max-w-2xl left-0 right-0 mx-auto w-full bg-[#ececec] p-5 flex items-center shadow-lg absolute -bottom-10 rounded-md">
             <input type="email" placeholder="Enter your email"
-              class="w-full bg-gray-50 py-3.5 px-4 text-base focus:outline-gray-300" style={{}}/>
+              class="w-full bg-[white] py-3.5 px-4 text-base focus:outline-gray-300" style={{}}/>
             <button
               class="bg-[#333] hover:bg-[#111] text-white flex items-center transition-all font-semibold px-5 py-4" style={{background:'rgb(90 88 113)', borderRadius:'10px'}}>
               Subscribe

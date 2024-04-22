@@ -20,11 +20,13 @@ import Wishlists from "./Components/Wishlists.jsx"
 import TestHeader from './Components/TestHeader.jsx';
 import Loader from './Components/Loader.jsx';
 import Wallets from './Components/CategoriesPages/Wallets.jsx';
-import Watches from './Components/CategoriesPages/Watches.jsx';
+import Watches from './Components/CategoriesPages/Watches_Content.jsx';
 import NotFound from './Components/NotFound.jsx';
 import Bracelets from './Components/CategoriesPages/Bracelets.jsx';
 import EarRings from './Components/CategoriesPages/EarRings.jsx';
 import LatestHead from './Components/LatestHead.jsx';
+import styled from 'styled-components';
+import Checkout from './Components/Checkout.jsx';
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));  
 
@@ -44,14 +46,14 @@ function App() {
       {loader && <Loader/>}
       {!loader && 
       
-        <div>
+        <div >
       {/* <Header4 /> */}
       {/* <Header /> */}
       {/* <TestHeader/> */}
       <LatestHead/>
+      <Div >
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/whyus" element={<WhyUs />} />
@@ -67,11 +69,13 @@ function App() {
         <Route path="/Categories/Watches" element={<Watches />} />
         <Route path="/Categories/Bracelets" element={<Bracelets />} />
         <Route path="/Categories/Earrings" element={<EarRings />} />
+        <Route path="/checkout" element={<Checkout />} />
 
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Scrolup />
       <Footer />
+      </Div>
     </div>
       }
     </>
@@ -79,3 +83,8 @@ function App() {
 }
 
 export default App;
+const Div = styled.div `
+
+  height: calc(100vh - 80px); /* Subtract header height from 100vh */
+  overflow-y: scroll; /* Allow scrolling within the container */
+`;

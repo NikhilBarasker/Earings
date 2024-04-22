@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const NotFound = () => {
   return (
-    <div className='flex justify-center items-center mt-[120px]'>
+    <div className='flex justify-center items-center'>
         <div className='w-[100%] h-[70vh]'>
 
 <div class="grid h-screen place-content-center bg-white px-4">
