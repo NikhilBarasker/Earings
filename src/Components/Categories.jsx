@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import ProductCard from "./ProductCard";
-import { productCard } from "./data";
 import { useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +13,40 @@ import { productsCategory } from "./data";
 import { Pagination, Navigation,Autoplay } from 'swiper/modules';
 
 const Categories = () => {
-    const [swiperRef, setSwiperRef] = useState(null);
+  const [swiperRef, setSwiperRef] = useState(null);
+
+  let navigate = useNavigate();
+  
+  const handleClick = (category) => {
+    console.log('xxxxxxxxxxxxxxx', category);
+    switch (category) {
+      case `Earrings`:
+        navigate("/Categories/Earrings");
+        break;
+      case `Bracelets`:
+        navigate("/Categories/Bracelets");
+        break;
+      case `Wallets`:
+        navigate("/Categories/Wallets");
+        break;
+      case `Watches`:
+        navigate("/Categories/Watches");
+        break;
+      case `Finger Rings`:
+        navigate("/Categories/Rings");
+        break;
+      case `key Chains`:
+        navigate("/Categories/keyChains");
+        break;
+      case `Caps`:
+        navigate("/Categories/Caps");
+        break;
+      case `Goggles`:
+        navigate("/Categories/Goggles");
+        break;
+    }
+}
+
   return (
     <div>
       <Product_Container>
@@ -56,33 +86,35 @@ const Categories = () => {
                   slidesPerView: 4,
                   spaceBetween: 30,
                 },
-        }}
-
-        navigation={true}
-        modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper"
-        initialSlide={1}
-        autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
-        speed={800} // Animation speed (milliseconds)
-      >
-        {productsCategory.map((product, index) => (
-            <SwiperSlide key={index} style={{marginRight:'0px', backgroundColor:'transparent'}} >
-                    {/* <ProductCard product={product} /> */}
-                    <Card>
-                        <div class="card">
-                        <div class="card_image"> <img src={product.photo} /> </div>
-                        <div class="card_title title-white">
-                            <p>{product.category}</p>
-                        </div>
-                        </div>
-                    </Card>
-            </SwiperSlide>
-                ))}
-      </Swiper>
-            </div>
-
-            
-            
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation, Autoplay]}
+              className="mySwiper"
+              initialSlide={1}
+              autoplay={{ delay: 1000 }} // Autoplay with 3 seconds interval
+              speed={800} // Animation speed (milliseconds)
+            >
+              {productsCategory.map((product, index) => (
+                <SwiperSlide
+                  key={index}
+                  style={{ marginRight: "0px", backgroundColor: "transparent" }}
+                >
+                  {/* <ProductCard product={product} /> */}
+                  <Card onClick={() => handleClick(product.category)}>
+                    <div className="card">
+                      <div className="card_image">
+                        {" "}
+                        <img src={product.photo} />{" "}
+                      </div>
+                      <div className="card_title title-white">
+                        <p>{product.category}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </Product_Container>
     </div>

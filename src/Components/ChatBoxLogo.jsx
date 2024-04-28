@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { IoChatbubbleSharp } from "react-icons/io5";
-import ChatBox from './ChatBox';
+// import ChatBox from './ChatBox';
 import styled from "styled-components";
 
 export default function ChatBoxLogo() {
@@ -19,7 +19,7 @@ export default function ChatBoxLogo() {
           </button>
         </div>
       </div>
-      {showChatBox && <ChatBox />}
+      {/* {showChatBox && <ChatBox />} */}
     </Container>
   ); 
 }
@@ -31,7 +31,7 @@ const Container = styled.div`
   position: fixed;
   bottom: 70px;
   right: 10px;
-  z-index: 99;
+  z-index:1000;
   cursor: pointer;
 
   .content-container {

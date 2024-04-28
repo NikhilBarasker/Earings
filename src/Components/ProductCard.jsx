@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { top1, top2, top3 } from "./data";
 import AddCartBtn from "./AddCartBtn";
 import { Link } from "react-router-dom";
 import WishlistBtn from "./WishlistBtn";
@@ -18,11 +17,10 @@ const ProductCard = (product) => {
     console.log(ShowProduct);
   };
 
-    console.log(product.product.productName);
   return (
-    <div className='max-w-[350px] w-[350px]  border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px'}}>
+    <div className='max-w-[100%] w-[350px]  border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px'}}>
       <Link className="group relative block overflow-hidden">
-        <WishlistBtn />
+        <WishlistBtn product={ product} />
 
         <Link to={"/ProductDetail"} onClick={ShowDetails}>
           <img

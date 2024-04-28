@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdCancel } from "react-icons/md";
 
 export default function ChatBox() {
   return (
@@ -7,7 +8,8 @@ export default function ChatBox() {
       className="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]"
     >
       <div className="w-full max-w-lg bg-white ml-[700px] shadow-lg rounded-lg p-6 relative">
-        <svg
+        <MdCancel />
+        {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-3.5 cursor-pointer shrink-0 fill-[#333] hover:fill-red-500 float-right"
           viewBox="0 0 320.591 320.591"
@@ -20,7 +22,7 @@ export default function ChatBox() {
             d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
             data-original="#000000"
           ></path>
-        </svg>
+        </svg> */}
         <div className="my-6 text-center">
           <h4 className="text-3xl text-[#333] font-extrabold">Sign In</h4>
           <p className="text-sm text-gray-400 mt-4">

@@ -4,7 +4,8 @@ import IconContext from './IconContext'
 const IconContextProvider = (props) => {
     const [cartValue, setCartValue] = useState(0)
     const [likeValue, setlikeValue] = useState(0)
-    const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+      const [wishItems, setWishItems] = useState([]);
     const [empty, setEmpty] = useState(true);
 
     useEffect(() => {
@@ -14,10 +15,22 @@ const IconContextProvider = (props) => {
 
 
   return (
-    <IconContext.Provider value={{cartValue, setCartValue, likeValue, setlikeValue, cartItems, setCartItems, empty, setEmpty}}>
+    <IconContext.Provider
+      value={{
+        setWishItems,
+        wishItems, cartValue,
+        setCartValue,
+        likeValue,
+        setlikeValue,
+        cartItems,
+        setCartItems,
+        empty,
+        setEmpty,
+      }}
+    >
       {props.children}
     </IconContext.Provider>
-  )
+  );
 }
 
 export default IconContextProvider

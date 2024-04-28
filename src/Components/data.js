@@ -162,9 +162,21 @@ export const productCard = [
     {
         category: "Watches",
         description: "Sporty digital watch with heart rate monitor",
+        price: 669.99,
+        photo: watch
+    }, 
+    {
+        category: "Goggles",
+        description: "Sporty digital watch with heart rate monitor",
+        price: 969.99,
+        photo: watch
+    }, 
+    {
+        category: "Caps",
+        description: "Sporty digital watch with heart rate monitor",
         price: 69.99,
         photo: watch
-    }
+    } 
 ];
 
 

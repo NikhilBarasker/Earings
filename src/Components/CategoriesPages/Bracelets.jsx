@@ -1,219 +1,361 @@
-import React, { useState } from "react";
-import HeaderImageSec from "./HeaderImageSec";
-
-import { backgroundImage1, backg } from "../data";
+import { Fragment, useState } from "react";
+import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  FunnelIcon,
+  MinusIcon,
+  PlusIcon,
+  Squares2X2Icon,
+} from "@heroicons/react/20/solid";
 import { CategoryProducts } from "../data";
-import Productcard2 from "./Productcard2";
+import EarRings_Content from "./EarRings_Content";
+import Bracelets_Content from "./Bracelets_Content";
 
-const Bracelets = () => {
-    const [isLiked, setIsLiked] = useState(false);
+const sortOptions = [
+  { name: "Most Popular", href: "#", current: true },
+  { name: "Best Rating", href: "#", current: false },
+  { name: "Newest", href: "#", current: false },
+  { name: "Price: Low to High", href: "#", current: false },
+  { name: "Price: High to Low", href: "#", current: false },
+];
+const subCategories = [
+  { name: "Totes", href: "#" },
+  { name: "Backpacks", href: "#" },
+  { name: "Travel Bags", href: "#" },
+  { name: "Hip Bags", href: "#" },
+  { name: "Laptop Sleeves", href: "#" },
+];
+const filters = [
+  {
+    id: "color",
+    name: "Color",
+    options: [
+      { value: "white", label: "White", checked: false },
+      { value: "beige", label: "Beige", checked: false },
+      { value: "blue", label: "Blue", checked: true },
+      { value: "brown", label: "Brown", checked: false },
+      { value: "green", label: "Green", checked: false },
+      { value: "purple", label: "Purple", checked: false },
+    ],
+  },
+  {
+    id: "category",
+    name: "Category",
+    options: [
+      { value: "new-arrivals", label: "New Arrivals", checked: false },
+      { value: "sale", label: "Sale", checked: false },
+      { value: "travel", label: "Travel", checked: true },
+      { value: "organization", label: "Organization", checked: false },
+      { value: "accessories", label: "Accessories", checked: false },
+    ],
+  },
+  {
+    id: "size",
+    name: "Size",
+    options: [
+      { value: "2l", label: "2L", checked: false },
+      { value: "6l", label: "6L", checked: false },
+      { value: "12l", label: "12L", checked: false },
+      { value: "18l", label: "18L", checked: false },
+      { value: "20l", label: "20L", checked: false },
+      { value: "40l", label: "40L", checked: true },
+    ],
+  },
+];
 
-  const handleLikeToggle = (product) => {
-    setIsLiked(!isLiked);
-    setSelectedId(product.id);
-  };
-  const [selectedId, setSelectedId] = useState();
-  const [availabilityOpen, setAvailabilityOpen] = useState(false);
-  const [priceOpen, setPriceOpen] = useState(false);
-  return (
-    <div>
-      <HeaderImageSec img={backg} categ={"Bracelets"} />
-
-<div className="bg-gray-100 py-12">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col justify-between align-middle w-[100%] lg:flex-row pb-12">
-    
-    <div className="w-[auto] flex items-center justify-center">
-    <h2 className="text-4xl font-extrabold text-gray-800">
-      Premium Bracelets
-    </h2>
-    </div>
-
-    <div>
-
-<div className="p-4 flex flex-col gap-[5px] align-middle md:flex-row lg:flex-row">
-{/* Availability Dropdown */}
-<div className="relative">
-  <details className="border rounded border-gray-300">
-    <summary
-      className="cursor-pointer flex items-center justify-between bg-white p-4 text-gray-900"
-      onClick={() => setAvailabilityOpen(!availabilityOpen)}
-    >
-      <span className="text-sm font-medium">Availability</span>
-      <span className={`transform transition ${availabilityOpen ? 'rotate-180' : ''}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </span>
-    </summary>
-  </details>
-
-  {/* Availability Dropdown Content */}
-  {availabilityOpen && (
-      <div className="">
-      <div class="border border-gray-200 bg-white">
-<header class="flex items-center justify-between p-4">
-  <span class="text-sm text-gray-700"> 0 Selected </span>
-
-  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-    Reset
-  </button>
-</header>
-
-<ul class="space-y-1 border-t border-gray-200 p-4">
-  <li>
-    <label for="FilterInStock" class="inline-flex items-center gap-2">
-      <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
-
-      <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
-    </label>
-  </li>
-
-  <li>
-    <label for="FilterPreOrder" class="inline-flex items-center gap-2">
-      <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
-
-      <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
-    </label>
-  </li>
-
-  <li>
-    <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
-      <input type="checkbox" id="FilterOutOfStock" class="size-5 rounded border-gray-300" />
-
-      <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
-    </label>
-  </li>
-</ul>
-</div>
-      </div>
-  )}
-</div>
-
-{/* Price Dropdown */}
-<div className="relative">
-  <details className="border rounded border-gray-300">
-    <summary
-      className="cursor-pointer flex items-center justify-between bg-white p-4 text-gray-900"
-      onClick={() => setPriceOpen(!priceOpen)}
-    >
-      <span className="text-sm font-medium">Price</span>
-      <span className={`transform transition ${priceOpen ? 'rotate-180' : ''}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </span>
-    </summary>
-  </details>
-
-  {/* Price Dropdown Content */}
-  {priceOpen && (
-      
-
-<div class="border border-gray-200 bg-white">
-<header class="flex items-center justify-between p-4">
-  <span class="text-sm text-gray-700"> The highest price is $600 </span>
-
-  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-    Reset
-  </button>
-</header>
-
-<div class="border border-gray-200 p-4">
-  <div class="flex justify-between gap-4">
-  <label for="FilterPriceFrom" class="flex items-center gap-2">
-      <span class="text-sm text-gray-600">$</span>
-
-      <input
-        type="number"
-        id="FilterPriceFrom"
-        placeholder="From"
-        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-      />
-    </label>
-
-    <label for="FilterPriceTo" class="flex items-center gap-2">
-      <span class="text-sm text-gray-600">$</span>
-
-      <input
-        type="number"
-        id="FilterPriceTo"
-        placeholder="To"
-        class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-      />
-    </label>
-  </div>
-</div>
-
-</div>
-
-  )}
-</div>
-</div>
-
-</div>
-    </div>
-
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {/* Product Cards */}
-      {CategoryProducts.map((product, index) => (
-        <div
-          key={product.id}
-          className="bg-white rounded-xl p-6 cursor-pointer hover:-translate-y-2 transition-all relative"
-        >
-          <div
-            className={`bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full absolute top-4 right-4 cursor-pointer 
-    ${
-      isLiked
-        ? "transform scale-105"
-        : "transform scale-100 hover:scale-110"
-    }`}
-            onClick={()=>{handleLikeToggle(product)}}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18px"
-              onClick={() => setSelectedId(product.id)}
-              className={`fill-current ${
-                selectedId === product.id
-                  ? "text-red-500"
-                  : "text-gray-800"
-              } inline-block`}
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-fill={selectedId === product.id ? "red" : "none"}
-            >
-              <path
-  strokeLinecap="round"
-  strokeLinejoin="round"
-  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-/>
-            </svg>
-          </div>
-          <div className="w-full h-48 overflow-hidden">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-gray-800">
-              {product.name}
-            </h3>
-            <p className="text-gray-500 text-sm mt-2">
-              {product.description}
-            </p>
-            <h4 className="text-lg text-gray-700 font-bold mt-4">{`Rs.${product.price}`}</h4>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
-    </div>
-  )
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
 }
 
-export default Bracelets
+export default function Bracelets() {
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  return (
+    <div className="bg-[#f3f4f5]">
+      <div>
+        {/* Mobile filter dialog */}
+        <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+          <Dialog
+            as="div"
+            className="relative z-40 lg:hidden"
+            onClose={setMobileFiltersOpen}
+          >
+            <Transition.Child
+              as={Fragment}
+              enter="transition-opacity ease-linear duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity ease-linear duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 z-40 flex">
+              <Transition.Child
+                as={Fragment}
+                enter="transition ease-in-out duration-300 transform"
+                enterFrom="translate-x-full"
+                enterTo="translate-x-0"
+                leave="transition ease-in-out duration-300 transform"
+                leaveFrom="translate-x-0"
+                leaveTo="translate-x-full"
+              >
+                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                  <div className="flex items-center justify-between px-4">
+                    <h2 className="text-lg font-medium text-gray-900">
+                      Filters
+                    </h2>
+                    <button
+                      type="button"
+                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                      onClick={() => setMobileFiltersOpen(false)}
+                    >
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  {/* Filters */}
+                  <form className="mt-4 border-t border-gray-200">
+                    <h3 className="sr-only">Categories</h3>
+                    <ul
+                      role="list"
+                      className="px-2 py-3 font-medium text-gray-900"
+                    >
+                      {subCategories.map((category) => (
+                        <li key={category.name}>
+                          <a href={category.href} className="block px-2 py-3">
+                            {category.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {filters.map((section) => (
+                      <Disclosure
+                        as="div"
+                        key={section.id}
+                        className="border-t border-gray-200 px-4 py-6"
+                      >
+                        {({ open }) => (
+                          <>
+                            <h3 className="-mx-2 -my-3 flow-root">
+                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                                <span className="font-medium text-gray-900">
+                                  {section.name}
+                                </span>
+                                <span className="ml-6 flex items-center">
+                                  {open ? (
+                                    <MinusIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
+                                  ) : (
+                                    <PlusIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                </span>
+                              </Disclosure.Button>
+                            </h3>
+                            <Disclosure.Panel className="pt-6">
+                              <div className="space-y-6">
+                                {section.options.map((option, optionIdx) => (
+                                  <div
+                                    key={option.value}
+                                    className="flex items-center"
+                                  >
+                                    <input
+                                      id={`filter-mobile-${section.id}-${optionIdx}`}
+                                      name={`${section.id}[]`}
+                                      defaultValue={option.value}
+                                      type="checkbox"
+                                      defaultChecked={option.checked}
+                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    />
+                                    <label
+                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                      className="ml-3 min-w-0 flex-1 text-gray-500"
+                                    >
+                                      {option.label}
+                                    </label>
+                                  </div>
+                                ))}
+                              </div>
+                            </Disclosure.Panel>
+                          </>
+                        )}
+                      </Disclosure>
+                    ))}
+                  </form>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </Dialog>
+        </Transition.Root>
+
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-baseline justify-between border-b border-gray-300 pb-6 pt-24">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+              Premium Bracelets
+            </h1>
+
+            <div className="flex items-center">
+              <Menu as="div" className="relative inline-block text-left">
+                <div>
+                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                    Sort
+                    <ChevronDownIcon
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {sortOptions.map((option) => (
+                        <Menu.Item key={option.name}>
+                          {({ active }) => (
+                            <a
+                              href={option.href}
+                              className={classNames(
+                                option.current
+                                  ? "font-medium text-gray-900"
+                                  : "text-gray-500",
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              {option.name}
+                            </a>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+
+              <button
+                type="button"
+                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+              >
+                <span className="sr-only">View grid</span>
+                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                onClick={() => setMobileFiltersOpen(true)}
+              >
+                <span className="sr-only">Filters</span>
+                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+
+          <section aria-labelledby="products-heading" className="pb-24 pt-6">
+            <h2 id="products-heading" className="sr-only">
+              Products
+            </h2>
+
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+              {/* Filters */}
+              <form className="hidden lg:block">
+                <h3 className="sr-only">Categories</h3>
+                <ul
+                  role="list"
+                  className="space-y-4 border-b border-gray-300 pb-6 text-sm font-medium text-gray-900"
+                >
+                  {subCategories.map((category) => (
+                    <li key={category.name}>
+                      <a href={category.href}>{category.name}</a>
+                    </li>
+                  ))}
+                </ul>
+
+                {filters.map((section) => (
+                  <Disclosure
+                    as="div"
+                    key={section.id}
+                    className="border-b border-gray-300 py-6"
+                  >
+                    {({ open }) => (
+                      <>
+                        <h3 className="-my-3 flow-root">
+                          <Disclosure.Button className="flex w-full items-center justify-between bg-[f3f4f5] py-3 text-sm text-gray-400 hover:text-gray-500">
+                            <span className="font-medium text-gray-900">
+                              {section.name}
+                            </span>
+                            <span className="ml-6 flex items-center">
+                              {open ? (
+                                <MinusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              ) : (
+                                <PlusIcon
+                                  className="h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              )}
+                            </span>
+                          </Disclosure.Button>
+                        </h3>
+                        <Disclosure.Panel className="pt-6">
+                          <div className="space-y-4">
+                            {section.options.map((option, optionIdx) => (
+                              <div
+                                key={option.value}
+                                className="flex items-center"
+                              >
+                                <input
+                                  id={`filter-${section.id}-${optionIdx}`}
+                                  name={`${section.id}[]`}
+                                  defaultValue={option.value}
+                                  type="checkbox"
+                                  defaultChecked={option.checked}
+                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                />
+                                <label
+                                  htmlFor={`filter-${section.id}-${optionIdx}`}
+                                  className="ml-3 text-sm text-gray-600"
+                                >
+                                  {option.label}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </Disclosure.Panel>
+                      </>
+                    )}
+                  </Disclosure>
+                ))}
+              </form>
+
+              {/* Product grid */}
+              <div className="lg:col-span-3">
+                {/* Your content */}
+                <Bracelets_Content />
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  );
+}

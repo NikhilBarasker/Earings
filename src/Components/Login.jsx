@@ -32,7 +32,7 @@ export default function Login() {
       } 
   }
     return (
-      <div className="mt-[120px]">
+      <div className="">
         <div className="bg-white font-[sans-serif] text-white min-h-screen flex flex-col items-center justify-center py-6 px-4 relative">
           <div
             className="max-w-lg w-full border py-12 px-8 rounded-md relative z-50"

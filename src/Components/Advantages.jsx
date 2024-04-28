@@ -3,7 +3,7 @@ import { ad1, img1, img2, img3, img4, Adv_back } from './data'
 
 const Advantages = () => {
   return (
-    <div class="font-[sans-serif] text-[#333] my-[30px]" style={{border:'0.2px solid #dedede', padding:'15px 0', boxShadow:'0px 1px 12px -6px rgba(0,0,0,0.5)'}}>
+    <div class="font-[sans-serif] text-[#333] bg-white my-[30px]" style={{border:'0.2px solid #dedede', padding:'15px 0', boxShadow:'0px 1px 12px -6px rgba(0,0,0,0.5)'}}>
       <div class="grid lg:grid-cols-4 sm:grid-cols-2 gap-x-6 gap-y-12 divide-x divide-gray-300">
         <div class="text-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-blue-600 w-10 inline-block" viewBox="0 0 512 512" style={{fill:'#e09841'}}>

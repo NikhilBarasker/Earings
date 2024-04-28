@@ -1,15 +1,12 @@
 import React from 'react'
 import { useContext } from 'react'
 import IconContext from '../Context/IconContext';
-
-
-
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddCartBtn = (product) => {
     const item = product.product;
-    console.log('ass',item);
+    // console.log('ass',item);
     const { setCartValue, cartValue, cartItems, setCartItems } = useContext(IconContext);
     
     const handleIncrement = () => {
@@ -21,7 +18,7 @@ const AddCartBtn = (product) => {
     }
 
     const handleToast = (item) => {
-        toast.success(`Product ${item.productName} added to cart!`, { // Use product.productName for specific product
+        toast.success(`Product ${item.productName} added to cart!`, { 
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,

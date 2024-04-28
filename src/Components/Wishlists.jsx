@@ -1,354 +1,257 @@
-import React from 'react'
+import React from "react";
+import { useContext } from "react";
+import IconContext from "../Context/IconContext";
 
 const Wishlists = () => {
-  return (
-    <div className='mt-[150px]'>
-      <div class="overflow-x-auto pb-8">
-  <table class="min-w-full bg-white font-[sans-serif]">
-    <thead class="bg-gray-100 whitespace-nowrap">
-      <tr>
-        <th class="pl-6 w-8">
-          <input id="checkbox" type="checkbox" class="hidden peer" />
-          <label for="checkbox"
-            class="relative flex items-center justify-center p-0.5 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer bg-blue-500 border border-gray-400 rounded overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-full fill-white" viewBox="0 0 520 520">
-              <path
-                d="M79.423 240.755a47.529 47.529 0 0 0-36.737 77.522l120.73 147.894a43.136 43.136 0 0 0 36.066 16.009c14.654-.787 27.884-8.626 36.319-21.515L486.588 56.773a6.13 6.13 0 0 1 .128-.2c2.353-3.613 1.59-10.773-3.267-15.271a13.321 13.321 0 0 0-19.362 1.343q-.135.166-.278.327L210.887 328.736a10.961 10.961 0 0 1-15.585.843l-83.94-76.386a47.319 47.319 0 0 0-31.939-12.438z"
-                data-name="7-Check" data-original="#000000" />
-            </svg>
-          </label>
-        </th>
-        <th class="px-6 py-5 text-left text-sm font-semibold text-black">
-          Product
-        </th>
-        <th class="px-6 py-5 text-left text-sm font-semibold text-black">
-          Price
-        </th>
-        <th class="px-6 py-5 text-left text-sm font-semibold text-black">
-          In stock
-        </th>
-        <th class="px-6 py-5 text-left text-sm font-semibold text-black">
-          Sales
-        </th>
-        <th class="px-6 py-5 text-left text-sm font-semibold text-black">
-          Rating
-        </th>
-        <th class="px-6 py-5 text-left text-sm font-semibold text-black">
-          Action
-        </th>
-      </tr>
-    </thead>
-    <tbody class="whitespace-nowrap divide-y divide-gray-200">
-      <tr>
-        <td class="pl-6 w-8">
-          <input id="checkbox1" type="checkbox" class="hidden peer" />
-          <label for="checkbox1"
-            class="relative flex items-center justify-center p-0.5 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer bg-blue-500 border border-gray-400 rounded overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-full fill-white" viewBox="0 0 520 520">
-              <path
-                d="M79.423 240.755a47.529 47.529 0 0 0-36.737 77.522l120.73 147.894a43.136 43.136 0 0 0 36.066 16.009c14.654-.787 27.884-8.626 36.319-21.515L486.588 56.773a6.13 6.13 0 0 1 .128-.2c2.353-3.613 1.59-10.773-3.267-15.271a13.321 13.321 0 0 0-19.362 1.343q-.135.166-.278.327L210.887 328.736a10.961 10.961 0 0 1-15.585.843l-83.94-76.386a47.319 47.319 0 0 0-31.939-12.438z"
-                data-name="7-Check" data-original="#000000" />
-            </svg>
-          </label>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/product_img_1.webp' class="w-10 h-10 p-1.5 shrink-0 bg-gray-100" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Light Gray T-Shirt</p>
-            </div>
-          </div>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          $25.00
-        </td>
-        <td class="px-6 py-3">
-          90
-        </td>
-        <td class="px-6 py-3">
-          200
-        </td>
-        <td class="px-6 py-3">
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#CED5D8" />
-          </svg>
-          <svg class="w-[18px] h-4 inline" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#CED5D8" />
-          </svg>
-        </td>
-        <td class="px-6 py-3">
-          <button class="mr-4" title="Edit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-gray-500" viewBox="0 0 32 32">
-              <path
-                d="M13 16c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0 10c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0-20c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3z"
-                data-original="#000000" />
-            </svg>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="pl-6 w-8">
-          <input id="checkbox2" type="checkbox" class="hidden peer" />
-          <label for="checkbox2"
-            class="relative flex items-center justify-center p-0.5 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer bg-blue-500 border border-gray-400 rounded overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-full fill-white" viewBox="0 0 520 520">
-              <path
-                d="M79.423 240.755a47.529 47.529 0 0 0-36.737 77.522l120.73 147.894a43.136 43.136 0 0 0 36.066 16.009c14.654-.787 27.884-8.626 36.319-21.515L486.588 56.773a6.13 6.13 0 0 1 .128-.2c2.353-3.613 1.59-10.773-3.267-15.271a13.321 13.321 0 0 0-19.362 1.343q-.135.166-.278.327L210.887 328.736a10.961 10.961 0 0 1-15.585.843l-83.94-76.386a47.319 47.319 0 0 0-31.939-12.438z"
-                data-name="7-Check" data-original="#000000" />
-            </svg>
-          </label>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/product_img_2.webp' class="w-10 h-10 p-1.5 shrink-0 bg-gray-100" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Black T-Shirt</p>
-            </div>
-          </div>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          $30.00
-        </td>
-        <td class="px-6 py-3">
-          80
-        </td>
-        <td class="px-6 py-3">
-          230
-        </td>
-        <td class="px-6 py-3">
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#CED5D8" />
-          </svg>
-        </td>
-        <td class="px-6 py-3">
-          <button class="mr-4" title="Edit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-gray-500" viewBox="0 0 32 32">
-              <path
-                d="M13 16c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0 10c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0-20c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3z"
-                data-original="#000000" />
-            </svg>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="pl-6 w-8">
-          <input id="checkbox1" type="checkbox" class="hidden peer" />
-          <label for="checkbox1"
-            class="relative flex items-center justify-center p-0.5 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer bg-blue-500 border border-gray-400 rounded overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-full fill-white" viewBox="0 0 520 520">
-              <path
-                d="M79.423 240.755a47.529 47.529 0 0 0-36.737 77.522l120.73 147.894a43.136 43.136 0 0 0 36.066 16.009c14.654-.787 27.884-8.626 36.319-21.515L486.588 56.773a6.13 6.13 0 0 1 .128-.2c2.353-3.613 1.59-10.773-3.267-15.271a13.321 13.321 0 0 0-19.362 1.343q-.135.166-.278.327L210.887 328.736a10.961 10.961 0 0 1-15.585.843l-83.94-76.386a47.319 47.319 0 0 0-31.939-12.438z"
-                data-name="7-Check" data-original="#000000" />
-            </svg>
-          </label>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/product_img_1.webp' class="w-10 h-10 p-1.5 shrink-0 bg-gray-100" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Light Gray T-Shirt</p>
-            </div>
-          </div>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          $25.00
-        </td>
-        <td class="px-6 py-3">
-          90
-        </td>
-        <td class="px-6 py-3">
-          200
-        </td>
-        <td class="px-6 py-3">
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#CED5D8" />
-          </svg>
-          <svg class="w-[18px] h-4 inline" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#CED5D8" />
-          </svg>
-        </td>
-        <td class="px-6 py-3">
-          <button class="mr-4" title="Edit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-gray-500" viewBox="0 0 32 32">
-              <path
-                d="M13 16c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0 10c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0-20c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3z"
-                data-original="#000000" />
-            </svg>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td class="pl-6 w-8">
-          <input id="checkbox2" type="checkbox" class="hidden peer" />
-          <label for="checkbox2"
-            class="relative flex items-center justify-center p-0.5 peer-checked:before:hidden before:block before:absolute before:w-full before:h-full before:bg-white w-5 h-5 cursor-pointer bg-blue-500 border border-gray-400 rounded overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-full fill-white" viewBox="0 0 520 520">
-              <path
-                d="M79.423 240.755a47.529 47.529 0 0 0-36.737 77.522l120.73 147.894a43.136 43.136 0 0 0 36.066 16.009c14.654-.787 27.884-8.626 36.319-21.515L486.588 56.773a6.13 6.13 0 0 1 .128-.2c2.353-3.613 1.59-10.773-3.267-15.271a13.321 13.321 0 0 0-19.362 1.343q-.135.166-.278.327L210.887 328.736a10.961 10.961 0 0 1-15.585.843l-83.94-76.386a47.319 47.319 0 0 0-31.939-12.438z"
-                data-name="7-Check" data-original="#000000" />
-            </svg>
-          </label>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/product_img_2.webp' class="w-10 h-10 p-1.5 shrink-0 bg-gray-100" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Black T-Shirt</p>
-            </div>
-          </div>
-        </td>
-        <td class="px-6 py-3 text-sm">
-          $30.00
-        </td>
-        <td class="px-6 py-3">
-          80
-        </td>
-        <td class="px-6 py-3">
-          230
-        </td>
-        <td class="px-6 py-3">
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline mr-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#facc15" />
-          </svg>
-          <svg class="w-[18px] h-4 inline" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z"
-              fill="#CED5D8" />
-          </svg>
-        </td>
-        <td class="px-6 py-3">
-          <button class="mr-4" title="Edit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-gray-500" viewBox="0 0 32 32">
-              <path
-                d="M13 16c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0 10c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm0-20c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3z"
-                data-original="#000000" />
-            </svg>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  {/* <div class="md:flex mt-4 pt-4 px-6 border-t border-gray-100">
-    <p class="text-sm text-gray-400 flex-1">Showind 1 to 5 of 100 entries</p>
-    <div class="flex items-center max-md:mt-4">
-      <p class="text-sm text-gray-400">Display</p>
-      <select class="text-sm text-gray-400 border border-gray-400 rounded h-7 mx-4 outline-none">
-        <option>5</option>
-        <option>10</option>
-        <option>20</option>
-        <option>50</option>
-        <option>100</option>
-      </select>
-      <ul class="flex space-x-1 ml-2">
-        <li class="flex items-center justify-center cursor-pointer bg-gray-300 w-7 h-7 rounded">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-gray-500" viewBox="0 0 55.753 55.753">
-            <path
-              d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
-              data-original="#000000" />
-          </svg>
-        </li>
-        <li class="flex items-center justify-center cursor-pointer text-sm w-7 h-7 rounded">
-          1
-        </li>
-        <li class="flex items-center justify-center cursor-pointer text-sm bg-[#007bff] text-white w-7 h-7 rounded">
-          2
-        </li>
-        <li class="flex items-center justify-center cursor-pointer text-sm w-7 h-7 rounded">
-          3
-        </li>
-        <li class="flex items-center justify-center cursor-pointer text-sm w-7 h-7 rounded">
-          4
-        </li>
-        <li class="flex items-center justify-center cursor-pointer bg-gray-300 w-7 h-7 rounded">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-gray-500 rotate-180" viewBox="0 0 55.753 55.753">
-            <path
-              d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
-              data-original="#000000" />
-          </svg>
-        </li>
-      </ul>
-    </div>
-  </div> */}
-</div>
-    </div>
-  )
-}
+  const {
+    setWishItems,
+    wishItems,
+    setCartValue,
+    cartValue,
+    cartItems,
+    setCartItems,
+    empty,
+    setEmpty,
+  } = useContext(IconContext);
+  
+  let [wishProductInfo] = [...wishItems];
+  console.log('cccccccccc', wishProductInfo)
 
-export default Wishlists
+  return (
+    <div class="font-[sans-serif]">
+      <div class="p-6 lg:max-w-6xl max-w-2xl mx-auto">
+        <div class="grid items-start grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="w-full lg:sticky top-0 sm:flex gap-2">
+            {/* <div class="sm:space-y-3 w-16 max-sm:flex max-sm:mb-4 max-sm:gap-4">
+              <img
+                src="https://readymadeui.com/images/product1.webp"
+                alt="Product1"
+                class="w-full cursor-pointer outline"
+              />
+              <img
+                src="https://readymadeui.com/images/product6.webp"
+                alt="Product2"
+                class="w-full cursor-pointer"
+              />
+              <img
+                src="https://readymadeui.com/images/product7.webp"
+                alt="Product3"
+                class="w-full cursor-pointer"
+              />
+              <img
+                src="https://readymadeui.com/images/product3.webp"
+                alt="Product4"
+                class="w-full cursor-pointer"
+              />
+            </div> */}
+            <img
+              src="https://readymadeui.com/images/product2.webp"
+              alt="Product"
+              class="w-4/5 rounded object-cover"
+            />
+          </div>
+          <div>
+            <h2 class="text-2xl font-extrabold text-gray-800">
+              {}
+            </h2>
+            <div class="flex flex-wrap gap-4 mt-4">
+              <p class="text-gray-800 text-xl font-bold">
+                {}
+              </p>
+              <p class="text-gray-400 text-xl">
+                <strike>$16</strike>{" "}
+                <span class="text-sm ml-1">Tax included</span>
+              </p>
+            </div>
+            <div class="flex space-x-2 mt-4">
+              <svg
+                class="w-5 fill-gray-800"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+              </svg>
+              <svg
+                class="w-5 fill-gray-800"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+              </svg>
+              <svg
+                class="w-5 fill-gray-800"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+              </svg>
+              <svg
+                class="w-5 fill-gray-800"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+              </svg>
+              <svg
+                class="w-5 fill-[#CED5D8]"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+              </svg>
+            </div>
+            <div class="mt-8">
+              <h3 class="text-lg font-bold text-gray-800">Sizes</h3>
+              <div class="flex flex-wrap gap-4 mt-4">
+                <button
+                  type="button"
+                  class="w-12 h-12 border-2 hover:border-gray-800 font-bold text-sm rounded-full flex items-center justify-center shrink-0"
+                >
+                  SM
+                </button>
+                <button
+                  type="button"
+                  class="w-12 h-12 border-2 hover:border-gray-800 border-gray-800 font-bold text-sm rounded-full flex items-center justify-center shrink-0"
+                >
+                  MD
+                </button>
+                <button
+                  type="button"
+                  class="w-12 h-12 border-2 hover:border-gray-800 font-bold text-sm rounded-full flex items-center justify-center shrink-0"
+                >
+                  LG
+                </button>
+                <button
+                  type="button"
+                  class="w-12 h-12 border-2 hover:border-gray-800 font-bold text-sm rounded-full flex items-center justify-center shrink-0"
+                >
+                  XL
+                </button>
+              </div>
+              <button
+                type="button"
+                class="w-full mt-4 px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded"
+              >
+                Add to cart
+              </button>
+            </div>
+            <div class="mt-8">
+              <h3 class="text-lg font-bold text-gray-800">About the item</h3>
+              <ul class="space-y-3 list-disc mt-4 pl-4 text-sm text-gray-800">
+                <li>
+                  A gray t-shirt is a wardrobe essential because it is so
+                  versatile.
+                </li>
+                <li>
+                  Available in a wide range of sizes, from extra small to extra
+                  large, and even in tall and petite sizes.
+                </li>
+                <li>
+                  This is easy to care for. They can usually be machine-washed
+                  and dried on low heat.
+                </li>
+                <li>
+                  You can add your own designs, paintings, or embroidery to make
+                  it your own.
+                </li>
+              </ul>
+            </div>
+            <div class="mt-8 max-w-md">
+              <h3 class="text-lg font-bold text-gray-800">Reviews(10)</h3>
+              <div class="space-y-3 mt-4">
+                <div class="flex items-center">
+                  <p class="text-sm text-gray-800 font-bold">5.0</p>
+                  <svg
+                    class="w-5 fill-gray-800 ml-1"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                  </svg>
+                  <div class="bg-gray-300 rounded w-full h-2 ml-3">
+                    <div class="w-2/3 h-full rounded bg-gray-800"></div>
+                  </div>
+                  <p class="text-sm text-gray-800 font-bold ml-3">66%</p>
+                </div>
+                <div class="flex items-center">
+                  <p class="text-sm text-gray-800 font-bold">4.0</p>
+                  <svg
+                    class="w-5 fill-gray-800 ml-1"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                  </svg>
+                  <div class="bg-gray-300 rounded w-full h-2 ml-3">
+                    <div class="w-1/3 h-full rounded bg-gray-800"></div>
+                  </div>
+                  <p class="text-sm text-gray-800 font-bold ml-3">33%</p>
+                </div>
+                <div class="flex items-center">
+                  <p class="text-sm text-gray-800 font-bold">3.0</p>
+                  <svg
+                    class="w-5 fill-gray-800 ml-1"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                  </svg>
+                  <div class="bg-gray-300 rounded w-full h-2 ml-3">
+                    <div class="w-1/6 h-full rounded bg-gray-800"></div>
+                  </div>
+                  <p class="text-sm text-gray-800 font-bold ml-3">16%</p>
+                </div>
+                <div class="flex items-center">
+                  <p class="text-sm text-gray-800 font-bold">2.0</p>
+                  <svg
+                    class="w-5 fill-gray-800 ml-1"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                  </svg>
+                  <div class="bg-gray-300 rounded w-full h-2 ml-3">
+                    <div class="w-1/12 h-full rounded bg-gray-800"></div>
+                  </div>
+                  <p class="text-sm text-gray-800 font-bold ml-3">8%</p>
+                </div>
+                <div class="flex items-center">
+                  <p class="text-sm text-gray-800 font-bold">1.0</p>
+                  <svg
+                    class="w-5 fill-gray-800 ml-1"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                  </svg>
+                  <div class="bg-gray-300 rounded w-full h-2 ml-3">
+                    <div class="w-[6%] h-full rounded bg-gray-800"></div>
+                  </div>
+                  <p class="text-sm text-gray-800 font-bold ml-3">6%</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="w-full mt-8 px-4 py-2 bg-transparent border-2 border-gray-800 text-gray-800 font-bold rounded"
+              >
+                Read all reviews
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Wishlists;

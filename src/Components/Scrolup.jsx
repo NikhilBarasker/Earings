@@ -55,7 +55,7 @@ const Container = styled.div`
   position: fixed;
   bottom: 10px;
   right: 10px;
-  z-index: 99;
+  z-index: 9999;
   cursor: pointer;
 
   .content-container {
