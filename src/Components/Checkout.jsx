@@ -8,9 +8,6 @@ const Checkout = () => {
     useContext(IconContext);
 
   let arr = [...cartItems];
-
-// console.log('xxxxxxxxxxxxxxxxxxxx',arr[0].product.price)
-
   console.log("zzzzzzzzzzzzzzz", arr);
   const totalPrice = arr.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.price;

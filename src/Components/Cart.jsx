@@ -8,14 +8,11 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  //  let [increment, setincrement] = useState(1);
 
   const { setCartValue, cartValue, cartItems, setCartItems, empty, setEmpty } =
     useContext(IconContext);
 
   const [quantities, setQuantities] = useState({});
-
-  console.log('xxxxxxxxxxxxxxxxxxxxxxxx',cartItems)
 
 const handleIncrement = (index) => {
   setQuantities((prevQuantities) => ({
@@ -32,6 +29,9 @@ const handleIncrement = (index) => {
         quantity: updatedQuantity,
         price: item.product.price * updatedQuantity,
       };
+    }
+    else {
+      price : item.product.price;
     }
     return item;
   });
@@ -151,7 +151,7 @@ const handleRemoveItem = (index) => {
                                     type="button"
                                     className="bg-transparent px-4 py-2 font-semibold text-[#333] text-md"
                                   >
-                                    {quantities[index] || 1}
+                                    {quantities[index] || 0}
                                   </button>
                                   <button
                                     type="button"
@@ -175,7 +175,7 @@ const handleRemoveItem = (index) => {
                                 <h4 className="text-md font-bold text-[#333]">
                                   Rs.{" "}
                                   {item.product.price *
-                                    (quantities[index] || 1)}
+                                    (quantities[index] || 0)}
                                 </h4>
                               </td>
                             </div>

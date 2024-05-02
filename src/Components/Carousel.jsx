@@ -1,5 +1,4 @@
-import React , { useEffect, useRef, useState } from 'react';
-// Import Swiper React components
+import React , { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 import 'swiper/css';
@@ -16,16 +15,10 @@ const Carousel = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768); // Example threshold for small screens
+      setIsSmallScreen(window.innerWidth < 768);
     };
-
-    // Add event listener to listen for resize events
     window.addEventListener('resize', handleResize);
-
-    // Initial check on component mount
     handleResize();
-
-    // Clean up event listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
@@ -34,9 +27,6 @@ const Carousel = () => {
       <Swiper
         cssMode={false}
         navigation={true}
-        pagination={true}
-        // mousewheel={true}
-        // keyboard={true}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,

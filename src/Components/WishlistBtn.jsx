@@ -3,16 +3,14 @@ import { useContext } from "react";
 import IconContext from "../Context/IconContext";
 
 const WishlistBtn = ({ product }) => {
+  console.log('lllllllllllllllll',product)
   const item = product.product;
   const { likeValue, setlikeValue, setWishItems, wishItems } =
     useContext(IconContext);
-
-  // console.log("Prrrr", product.product);
   const handleIncrement = () => {
-    // setlikeValue(likeValue +1)
-    // handleClick();
     alert(`Product ${item.productName} added to Wishlist!`);
     const updatedWishItems = [...wishItems, product];
+    console.log("Updated", updatedWishItems);
     setWishItems(updatedWishItems);
     setIsOn((prevState) => !prevState);
     if (isOn) {

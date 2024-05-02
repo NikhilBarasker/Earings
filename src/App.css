@@ -6,6 +6,12 @@ body {
 .imgQuentityPrice{
   display: flex;
 }
+
+.wishlist{
+  display: grid;
+  grid-template-columns: repeat(4,4fr);
+  gap: 10px;
+}
 .quantity{
   display: flex;
 }
