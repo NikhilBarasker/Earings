@@ -12,8 +12,8 @@ const HeaderImageSec = ({categ, img}) => {
         />
         <div className='absolute inset-0 flex items-center justify-center text-white text-sm font-medium mt-[7%]'>
           <p className='text-2xl text-center'>
-            <span className="hover:underline uppercase cursor-pointer text-2xl">Home</span> / {' '}
-            <span className="hover:underline uppercase cursor-pointer text-2xl">Categories</span> / {' '}
+            {/* <span className="hover:underline uppercase cursor-pointer text-2xl">Home</span> / {' '}
+            <span className="hover:underline uppercase cursor-pointer text-2xl">Categories</span> / {' '} */}
             <span className='uppercase text-xl'>{categ}</span>
           </p>
         </div>

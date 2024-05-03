@@ -7,6 +7,32 @@
     margin: 0 0 0 130px;
     width: auto;
   }
+
+  .humburger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  margin: 70px 0 0 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.productNav{
+width: 50px;
+text-align: center;
+margin: 0 0 0 155px;
+}
+.productDropdown{
+  margin: 0 0 0 150px;
+}
+
+  .navbar {
+  position: relative;
+  z-index: 1; 
+}
+
   .wishlist{
   display: grid;
   grid-template-columns:repeat(1,1fr);

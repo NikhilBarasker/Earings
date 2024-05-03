@@ -16,7 +16,7 @@ import Testimonals from './Testimonals.jsx'
 
 const Home = () => {
   return (
-    <>
+    <div >
       <Carousel />
       <Container>
         <TopDealProducts />
@@ -29,7 +29,7 @@ const Home = () => {
         <Testimonals />
         <PeopleSearch />
       </Container>
-    </>
+    </div>
   );
 }
 

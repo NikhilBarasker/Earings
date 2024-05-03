@@ -3,6 +3,7 @@ import { Logo } from "./data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../App.css'
+import '../Responsive.css'
 import IconContext from "../Context/IconContext";
 import { GiHeartEarrings } from "react-icons/gi";
 import { LiaRingSolid } from "react-icons/lia";
@@ -37,18 +38,25 @@ const LatestHead = () => {
     const [showRes, setShowRes] = useState(false)
     const toogleRes = () => {
       setShowRes(!showRes);
-    }
+  }
+
+  const handleNavLinkClick = () => {
+    closeMenu(); // Close the menu when any link is clicked
+  };
 
   return (
-    <div className="relative z-50 w-[100vw] h-[80px]">
-      <header className="fixed top-0 flex bg-white border-b py-4 sm:px-10 px-6 font-[sans-serif] min-h-[80px] tracking-wide w-[100%]">
+    <div className="relative z-50 w-[100vw] h-[80px] navbar">
+      <header className="fixed top-0 flex bg-white border-b py-4 sm:px-10 px-6 font-[sans-serif] min-h-[80px] tracking-wide w-[100%] navbar">
         <div className="flex flex-wrap items-center lg:gap-y-2 gap-4 w-full">
           <Link to={"/"}>
             <img src={Logo} alt="logo" className="w-20" />
           </Link>
 
           {/* Hamburger icon for mobile */}
-          <button className="lg:hidden" onClick={toggleMenu}>
+          <button
+            className="lg:hidden ml-[211px]  mb-[15px]"
+            onClick={toggleMenu}
+          >
             <svg
               className="w-7 h-7 fill-current text-gray-600"
               viewBox="0 0 20 20"
@@ -63,14 +71,14 @@ const LatestHead = () => {
           </button>
 
           <ul
-            className={`lg:flex lg:gap-x-3 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50 items-center
+            className={`lg:flex lg:gap-x-3 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto items-center
                         transition-transform duration-500 ${
                           isMenuOpen
                             ? "block translate-x-0"
                             : "hidden translate-x-0"
-                        }`}
+                        } humburger`}
           >
-            <li className="mb-6 hidden max-lg:block">
+            {/* <li className="mb-6 hidden max-lg:block">
               <a href="javascript:void(0)">
                 <img
                   src="https://readymadeui.com/readymadeui.svg"
@@ -78,9 +86,10 @@ const LatestHead = () => {
                   className="w-36"
                 />
               </a>
-            </li>
+            </li> */}
             <li className="max-lg:border-b max-lg:py-3 px-3">
               <Link
+                onClick={handleNavLinkClick}
                 to={"/"}
                 className="text-[#007bff] hover:text-[#007bff] text-[15px] block font-semibold"
               >
@@ -89,6 +98,7 @@ const LatestHead = () => {
             </li>
             <li className="max-lg:border-b max-lg:py-3 px-3">
               <Link
+                onClick={handleNavLinkClick}
                 to={"/about"}
                 className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
               >
@@ -98,11 +108,11 @@ const LatestHead = () => {
 
             <li
               data-popover-target="menu"
-              class="relative block p-1 font-sans text-sm font-medium leading-normal text-blue-gray-900 antialiased"
+              className="relative block p-1 font-sans text-sm font-medium leading-normal text-blue-gray-900 antialiased"
             >
               <div
                 role="button"
-                class="flex w-full items-center gap-2 rounded-lg bg-blue-gray-50/50 p-3 py-2 pr-4 text-start font-medium leading-tight text-gray-900 outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                className="flex w-full items-center gap-2 rounded-lg p-3 py-2 pr-4 text-start font-medium leading-tight text-gray-900 outline-none transition-all hover:bg-opacity-80 hover:text-blue-gray-900  focus:bg-opacity-80 focus:text-blue-gray-900  active:bg-opacity-80 active:text-blue-gray-900 productNav"
                 onClick={toogleRes}
               >
                 Products
@@ -113,7 +123,7 @@ const LatestHead = () => {
                   stroke-width="2.5"
                   stroke="currentColor"
                   aria-hidden="true"
-                  class={`hidden h-3 w-3 ${
+                  className={`hidden h-3 w-3 ${
                     showRes ? "rotate-180" : ""
                   } transition-transform lg:block`}
                 >
@@ -130,7 +140,7 @@ const LatestHead = () => {
                   stroke-width="2.5"
                   stroke="currentColor"
                   aria-hidden="true"
-                  class={`block h-3 w-3 ${
+                  className={`block h-3 w-3 ${
                     showRes ? "rotate-180" : ""
                   } transition-transform lg:hidden`}
                 >
@@ -143,142 +153,151 @@ const LatestHead = () => {
               </div>
               {showRes && (
                 <div
-                  class="absolute z-[999] lg:top-[50px] lg:left-[-100px] lg:w-[900px]  min-w-[180px] max-w-screen-xl overflow-auto rounded-xl border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500  shadow-lg shadow-blue-gray-500/10 focus:outline-none overflow-x-auto"
+                  className="absolute z-[999] lg:top-[50px] lg:left-[-100px] lg:w-[900px]  min-w-[180px] max-w-screen-xl overflow-auto rounded-xl border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500  shadow-lg shadow-blue-gray-500/10 focus:outline-none overflow-x-auto productDropdown"
                   id=":r8:"
                   role="menu"
                   data-popover="menu"
                   data-popover-placement="bottom"
                 >
                   <ul
-                    class="lg:grid lg:grid-cols-3 gap-y-2 outline-none outline-0 flex flex-col"
+                    className="lg:grid lg:grid-cols-3 gap-y-2 outline-none outline-0 flex flex-col"
                     role="menuitem"
                   >
-                    <a href="#">
+                    <Link
+                      onClick={handleNavLinkClick}
+                      to="/Categories/Earrings"
+                    >
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
-                        <div class="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
+                        <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
                           {" "}
                           <GiHeartEarrings className="avtar" />
                         </div>
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Earrings
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link onClick={handleNavLinkClick} to="/Categories/Rings">
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
-                        <div class="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
+                        <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
                           {" "}
                           <LiaRingSolid className="avtar" />
                         </div>
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Rings
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link
+                      onClick={handleNavLinkClick}
+                      to="/Categories/KeyChain"
+                    >
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
-                        <div class="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
+                        <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
                           {" "}
                           <GiChainedArrowHeads className="avtar" />
                         </div>
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Keychains
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link onClick={handleNavLinkClick} to="/Categories/Wallets">
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
                         <FaWallet className="avtar" />
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Wallet
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link onClick={handleNavLinkClick} to="/Categories/Caps">
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
                         <GiBilledCap className="avtar" />
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Caps
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link onClick={handleNavLinkClick} to="/Categories/Goggles">
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
                         <PiGogglesThin className="avtar" />
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Goggles
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link
+                      onClick={handleNavLinkClick}
+                      to="/Categories/Bracelets"
+                    >
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
                         <TbBrandTorchain className="avtar" />
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Breslates
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link onClick={handleNavLinkClick} to="/Categories/Watches">
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
                         <BsSmartwatch className="avtar" />
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Smart Watches
                           </h6>
                         </div>
                       </button>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link onClick={handleNavLinkClick} to="/Categories/Offers">
                       <button
                         role="menuitem"
-                        class="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+                        className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
                       >
                         <MdLocalOffer className="avtar" />
                         <div>
-                          <h6 class="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
+                          <h6 className="flex items-center font-sans text-sm font-bold tracking-normal text-blue-gray-900 antialiased">
                             Special Offers
                           </h6>
                         </div>
                       </button>
-                    </a>
+                    </Link>
                   </ul>
                 </div>
               )}
@@ -286,6 +305,7 @@ const LatestHead = () => {
 
             <li className="max-lg:border-b max-lg:py-3 px-3">
               <Link
+                onClick={handleNavLinkClick}
                 to={"/contact"}
                 className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
               >

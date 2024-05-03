@@ -129,7 +129,7 @@ export default function Watches() {
                       {subCategories.map((category) => (
                         <li key={category.name}>
                           <a href={category.href} className="block px-2 py-3">
-                            {category.name}
+                            {category.name} 
                           </a>
                         </li>
                       ))}

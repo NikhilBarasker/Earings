@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import '../App.css'
 
 export default function About() {
   return (
     <div>
       <div className="ApoutPage">
-        <h1>About Us</h1>
+        <h1 style={{
+          color:'#fff'
+        }}>About Us</h1>
         <p><Link to={'/'} >Home</Link></p>
       </div>
       <div

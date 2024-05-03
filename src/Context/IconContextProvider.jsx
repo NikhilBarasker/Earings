@@ -3,6 +3,7 @@ import IconContext from './IconContext'
 
 const IconContextProvider = (props) => {
     const [cartValue, setCartValue] = useState(0)
+    const [wishValue, setWishValue] = useState(0)
     const [likeValue, setlikeValue] = useState(0)
   const [cartItems, setCartItems] = useState([]);
       const [wishItems, setWishItems] = useState([]);
@@ -18,8 +19,11 @@ const IconContextProvider = (props) => {
     <IconContext.Provider
       value={{
         setWishItems,
-        wishItems, cartValue,
+        wishItems,
+        cartValue,
         setCartValue,
+        wishValue,
+        setWishValue,
         likeValue,
         setlikeValue,
         cartItems,
