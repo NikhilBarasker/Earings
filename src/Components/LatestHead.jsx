@@ -56,7 +56,7 @@ const LatestHead = () => {
 
           {/* Hamburger icon for mobile */}
           <button
-            className="lg:hidden ml-[211px]  mb-[15px]"
+            className="lg:hidden ml-[150px]  mb-[15px]"
             onClick={toggleMenu}
           >
             <svg
