@@ -1,15 +1,20 @@
 import React,{useState} from 'react'
 import { IoChatbubbleSharp } from "react-icons/io5";
-// import ChatBox from './ChatBox';
+import ChatBox from './ChatBox';
 import styled from "styled-components";
 
 export default function ChatBoxLogo() {
 
- const [showChatBox, setShowChatBox] = useState(false);
+const [showChatBox, setShowChatBox] = useState(false);
 
- const toggleChatBox = () => {
-   setShowChatBox(true); // Show the chat box when clicked
- };
+const toggleChatBox = () => {
+  setShowChatBox(!showChatBox);
+};
+
+const hideChatBox = () => {
+  setShowChatBox(false);
+};
+
   return (
     <Container onClick={toggleChatBox}>
       <div className="content-container">
@@ -19,7 +24,7 @@ export default function ChatBoxLogo() {
           </button>
         </div>
       </div>
-      {/* {showChatBox && <ChatBox />} */}
+      {showChatBox && <ChatBox onClose={hideChatBox} />}
     </Container>
   ); 
 }
@@ -30,7 +35,7 @@ const Container = styled.div`
   height: 50px;
   position: fixed;
   bottom: 70px;
-  right: 10px;
+  right: 50px;
   z-index:1000;
   cursor: pointer;
 

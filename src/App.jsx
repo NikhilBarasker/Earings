@@ -23,8 +23,6 @@ import EarRings from "./Components/CategoriesPages/EarRings.jsx";
 import LatestHead from "./Components/LatestHead.jsx";
 import styled from "styled-components";
 import Checkout from "./Components/Checkout.jsx";
-import Scrolup from "./Components/Scrolup.jsx";
-import ChatBoxLogo from "./Components/ChatBox.jsx";
 import KeyChains from "./Components/CategoriesPages/KeyChains.jsx";
 import Rings from "./Components/CategoriesPages/Rings.jsx";
 import Caps from "./Components/CategoriesPages/Caps.jsx";
@@ -78,7 +76,6 @@ function App() {
             </Routes>
             {/* <ChatBoxLogo /> */}
             <Footer />
-            <Scrolup />
           </Div>
         </div>
       )}

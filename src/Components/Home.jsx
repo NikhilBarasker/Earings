@@ -16,7 +16,7 @@ import Testimonals from './Testimonals.jsx'
 
 const Home = () => {
   return (
-    <div >
+    <div>
       <Carousel />
       <Container>
         <TopDealProducts />
@@ -42,5 +42,6 @@ margin: auto;
 display: flex;
 justify-content: center;
 flex-direction: column;
+z-index:1;
 /* border: 2px solid red; */
 `;

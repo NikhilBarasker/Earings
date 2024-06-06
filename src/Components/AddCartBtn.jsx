@@ -8,14 +8,14 @@ const AddCartBtn = (product) => {
   console.log('xxx',product)
     const item = product.product;
     const { setCartValue, cartValue, cartItems, setCartItems } = useContext(IconContext);
-    
-    const handleIncrement = () => {
+    console.log('hi')
+  const handleIncrement = () => {
+    // e.preventdefault();
         setCartValue(cartValue + 1);
         alert(`Product ${item.productName} added to cart!`)
         const updatedCartItems = [...cartItems, product];
       setCartItems(updatedCartItems);
       console.log('zzzzzzzzzzzzzzzz',updatedCartItems);
-        // handleToast(item);
   }
 
 
@@ -33,34 +33,33 @@ const AddCartBtn = (product) => {
     //     });
     // }
 
-  return (
-    <>
-    <div >
-      <form className="mt-4">
-      <button 
-            onClick={handleIncrement}
-        className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105" style={{background:'#2e2d3d', color:'white'}}
-      >
-        Add to Cart
-      </button>
-    </form>
-    </div>
+   return (
+     <>
+       <div>
+         <div
+           onClick={handleIncrement}
+           className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+           style={{ background: "#2e2d3d", color: "white" }}
+         >
+           Add to Cart
+         </div>
+       </div>
 
-    <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition={Bounce}
-      />
-    </>
-  )
+       <ToastContainer
+         position="top-right"
+         autoClose={5000}
+         hideProgressBar={false}
+         newestOnTop={false}
+         closeOnClick
+         rtl={false}
+         pauseOnFocusLoss
+         draggable
+         pauseOnHover
+         theme="light"
+         transition={Bounce}
+       />
+     </>
+   );
 }
 
 export default AddCartBtn

@@ -8,12 +8,12 @@ const Checkout = () => {
     useContext(IconContext);
 
   let arr = [...cartItems];
-  console.log("zzzzzzzzzzzzzzz", arr);
+  // console.log("zzzzzzzzzzzzzzz", arr);
   const totalPrice = arr.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.price;
   }, 0);
 
-  console.log("Total Price:", totalPrice); // Output: Total Price: 60
+  console.log("Total Price:", totalPrice); 
 
   return (
     <div>

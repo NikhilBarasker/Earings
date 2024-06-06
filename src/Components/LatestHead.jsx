@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { Logo } from "./data";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import '../App.css'
-import '../Responsive.css'
+import "../App.css";
+import "../Responsive.css";
 import IconContext from "../Context/IconContext";
 import { GiHeartEarrings } from "react-icons/gi";
 import { LiaRingSolid } from "react-icons/lia";
@@ -14,14 +14,15 @@ import { PiGogglesThin } from "react-icons/pi";
 import { TbBrandTorchain } from "react-icons/tb";
 import { BsSmartwatch } from "react-icons/bs";
 import { MdLocalOffer } from "react-icons/md";
+import ChatBoxLogo from "./ChatBoxLogo";
 
 const LatestHead = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleWishList = () => {
     navigate("/wishlist");
     // alert(`It's working`)
-}
+  };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,17 +32,18 @@ const LatestHead = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setShowRes(!showRes);
   };
   const { setCartValue, cartValue, likeValue, cartItems, setCartItems } =
     useContext(IconContext);
 
-    const [showRes, setShowRes] = useState(false)
-    const toogleRes = () => {
-      setShowRes(!showRes);
-  }
+  const [showRes, setShowRes] = useState(false);
+  const toogleRes = () => {
+    setShowRes(!showRes);
+  };
 
   const handleNavLinkClick = () => {
-    closeMenu(); // Close the menu when any link is clicked
+    closeMenu();
   };
 
   return (
@@ -78,37 +80,33 @@ const LatestHead = () => {
                             : "hidden translate-x-0"
                         } humburger`}
           >
-            {/* <li className="mb-6 hidden max-lg:block">
-              <a href="javascript:void(0)">
-                <img
-                  src="https://readymadeui.com/readymadeui.svg"
-                  alt="logo"
-                  className="w-36"
-                />
-              </a>
-            </li> */}
-            <li className="max-lg:border-b max-lg:py-3 px-3">
+            <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
               <Link
-                onClick={handleNavLinkClick}
                 to={"/"}
                 className="text-[#007bff] hover:text-[#007bff] text-[15px] block font-semibold"
               >
                 Home
               </Link>
             </li>
-            <li className="max-lg:border-b max-lg:py-3 px-3">
+            <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
               <Link
-                onClick={handleNavLinkClick}
                 to={"/about"}
                 className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
               >
                 About
               </Link>
             </li>
-
+            <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
+              <Link
+                to={"/contact"}
+                className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
+              >
+                Contact
+              </Link>
+            </li>
             <li
               data-popover-target="menu"
-              className="relative block p-1 font-sans text-sm font-medium leading-normal text-blue-gray-900 antialiased"
+              className="relative block p-1 font-sans text-sm font-medium leading-normal text-blue-gray-900 antialiased mt-[10px] mb-[10px]"
             >
               <div
                 role="button"
@@ -164,7 +162,7 @@ const LatestHead = () => {
                     role="menuitem"
                   >
                     <Link
-                      onClick={handleNavLinkClick}
+                      onClick={() => handleNavLinkClick()}
                       to="/Categories/Earrings"
                     >
                       <button
@@ -182,7 +180,10 @@ const LatestHead = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link onClick={handleNavLinkClick} to="/Categories/Rings">
+                    <Link
+                      onClick={() => handleNavLinkClick()}
+                      to="/Categories/Rings"
+                    >
                       <button
                         role="menuitem"
                         className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -199,7 +200,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={handleNavLinkClick}
+                      onClick={() => handleNavLinkClick()}
                       to="/Categories/KeyChain"
                     >
                       <button
@@ -217,7 +218,10 @@ const LatestHead = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link onClick={handleNavLinkClick} to="/Categories/Wallets">
+                    <Link
+                      onClick={() => handleNavLinkClick()}
+                      to="/Categories/Wallets"
+                    >
                       <button
                         role="menuitem"
                         className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -230,7 +234,10 @@ const LatestHead = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link onClick={handleNavLinkClick} to="/Categories/Caps">
+                    <Link
+                      onClick={() => handleNavLinkClick()}
+                      to="/Categories/Caps"
+                    >
                       <button
                         role="menuitem"
                         className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -243,7 +250,10 @@ const LatestHead = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link onClick={handleNavLinkClick} to="/Categories/Goggles">
+                    <Link
+                      onClick={() => handleNavLinkClick()}
+                      to="/Categories/Goggles"
+                    >
                       <button
                         role="menuitem"
                         className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -257,7 +267,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={handleNavLinkClick}
+                      onClick={() => handleNavLinkClick()}
                       to="/Categories/Bracelets"
                     >
                       <button
@@ -272,7 +282,10 @@ const LatestHead = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link onClick={handleNavLinkClick} to="/Categories/Watches">
+                    <Link
+                      onClick={() => handleNavLinkClick()}
+                      to="/Categories/Watches"
+                    >
                       <button
                         role="menuitem"
                         className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -285,7 +298,10 @@ const LatestHead = () => {
                         </div>
                       </button>
                     </Link>
-                    <Link onClick={handleNavLinkClick} to="/Categories/Offers">
+                    <Link
+                      onClick={() => handleNavLinkClick()}
+                      to="/Categories/Offers"
+                    >
                       <button
                         role="menuitem"
                         className="flex w-full cursor-pointer select-none items-center gap-3 rounded-lg px-3 pb-2 pt-[9px] text-start leading-tight outline-none transition-all hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
@@ -301,16 +317,6 @@ const LatestHead = () => {
                   </ul>
                 </div>
               )}
-            </li>
-
-            <li className="max-lg:border-b max-lg:py-3 px-3">
-              <Link
-                onClick={handleNavLinkClick}
-                to={"/contact"}
-                className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
-              >
-                Contact
-              </Link>
             </li>
           </ul>
 
@@ -387,6 +393,7 @@ const LatestHead = () => {
           )}
         </div>
       </header>
+      <ChatBoxLogo />
     </div>
   );
 };

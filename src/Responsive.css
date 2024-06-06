@@ -22,7 +22,7 @@
 .productNav{
 width: 50px;
 text-align: center;
-margin: 0 0 0 155px;
+margin: 0 0 0 150px;
 }
 .productDropdown{
   margin: 0 0 0 150px;
@@ -32,7 +32,9 @@ margin: 0 0 0 155px;
   position: relative;
   z-index: 1; 
 }
-
+#chatbox{
+  margin-left: 0px;
+}
   .wishlist{
   display: grid;
   grid-template-columns:repeat(1,1fr);
