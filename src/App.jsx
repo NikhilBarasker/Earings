@@ -28,6 +28,7 @@ import Rings from "./Components/CategoriesPages/Rings.jsx";
 import Caps from "./Components/CategoriesPages/Caps.jsx";
 import Goggles from "./Components/CategoriesPages/Goggles.jsx";
 import Offers from "./Components/CategoriesPages/Offers.jsx";
+import UserProfile from "./Components/UserProfile.jsx";
 
 // const ProductDetails = lazy( () => import('./Components/ProductDetails'));
 
@@ -73,6 +74,7 @@ function App() {
               <Route path ="/Categories/Caps" element={<Caps />} />
               <Route path ="/Categories/Goggles" element={<Goggles />} />
               <Route path ="/Categories/Offers" element={<Offers />} />
+              <Route path ="/profile" element={<UserProfile />} />
             </Routes>
             {/* <ChatBoxLogo /> */}
             <Footer />

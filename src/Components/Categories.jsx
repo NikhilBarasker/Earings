@@ -18,7 +18,6 @@ const Categories = () => {
   let navigate = useNavigate();
   
   const handleClick = (category) => {
-    console.log('xxxxxxxxxxxxxxx', category);
     switch (category) {
       case `Earrings`:
         navigate("/Categories/Earrings");
@@ -53,9 +52,6 @@ const Categories = () => {
         <div className="container">
           <h1>Shop by Categories</h1>
           <div className="Product_container">
-            {/* {productCard.map((product, index) => (
-                    <ProductCard key={index} product={product} />
-                ))} */}
             <Swiper
               onSwiper={setSwiperRef}
               slidesPerView={4}
@@ -104,7 +100,7 @@ const Categories = () => {
                     <div className="card">
                       <div className="card_image">
                         {" "}
-                        <img src={product.photo} />{" "}
+                        <img src={product.photo} />
                       </div>
                       <div className="card_title title-white">
                         <p>{product.category}</p>

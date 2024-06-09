@@ -18,15 +18,17 @@ import img4 from '../Photoes/shield.png'
 import img5 from '../Photoes/BG_Adv.jpg'
 import face from '../Photoes/facebook.png'
 
-import smallC from '../Photoes/smallCarousel.jpg'
+import smallCarousel from '../Photoes/smallCarousel.jpg'
 
-import earR from '../Photoes/earRing.jpg'
+import earRing from '../Photoes/earRing.jpg'
 import fingerR from '../Photoes/fingerRing.jpg'
 import keyC from '../Photoes/keyChain.jpg'
 import wallet from '../Photoes/wallet.jpg'
 import watch from '../Photoes/watches.jpeg'
 import nec from '../Photoes/necklace.jpeg'
 import brace from '../Photoes/bracellet.jpeg'
+import SyliderGoogles from "../Photoes/SyliderGoogles.jpg";
+import Cap1 from '../Photoes/Cap1.jpg'
 
 import cart from '../Photoes/cart.png'
 import backgroundImage from '../Photoes/bgg.jpeg'
@@ -34,7 +36,30 @@ import backgroundImage1 from '../Photoes/wallet_bg (2).jpeg'
 import backg from '../Photoes/backg.png'
 import favi from '../Photoes/favicon.ico'
 
-export {backg, backgroundImage, backgroundImage1, favi, cart,Logo, face, top1, top2, top3,img5, ear1, ear2, ear3, ad1, img1, img2, img3, img4, Adv_back, AboutbackgroundImage, smallC };
+export {
+  backg,
+  backgroundImage,
+  backgroundImage1,
+  favi,
+  cart,
+  Logo,
+  face,
+  top1,
+  top2,
+  top3,
+  img5,
+  ear1,
+  ear2,
+  ear3,
+  ad1,
+  img1,
+  img2,
+  img3,
+  img4,
+  Adv_back,
+  AboutbackgroundImage,
+  smallCarousel,
+};
 
 export const productCard = [
     {
@@ -124,60 +149,60 @@ export const productCard = [
 
   export const productsCategory = [
     {
-        category: "Earrings",
-        description: "Stylish silver earrings with gemstones",
-        price: 29.99,
-        photo: earR
+      category: "Earrings",
+      description: "Stylish silver earrings with gemstones",
+      price: 29.99,
+      photo: earRing,
     },
     {
-        category: "Finger Rings",
-        description: "Classic gold finger ring with intricate design",
-        price: 49.99,
-        photo: fingerR
+      category: "Finger Rings",
+      description: "Classic gold finger ring with intricate design",
+      price: 49.99,
+      photo: fingerR,
     },
     {
-        category: "Wallets",
-        description: "Genuine leather wallet with multiple compartments",
-        price: 39.99,
-        photo: wallet
+      category: "Wallets",
+      description: "Genuine leather wallet with multiple compartments",
+      price: 39.99,
+      photo: wallet,
     },
     {
-        category: "Key Chains",
-        description: "Cute keychain with cartoon character",
-        price: 9.99,
-        photo: keyC
+      category: "Key Chains",
+      description: "Cute keychain with cartoon character",
+      price: 9.99,
+      photo: keyC,
     },
     {
-        category: "Necklaces",
-        description: "Elegant diamond pendant necklace",
-        price: 79.99,
-        photo: nec
+      category: "Necklaces",
+      description: "Elegant diamond pendant necklace",
+      price: 79.99,
+      photo: nec,
     },
     {
-        category: "Bracelets",
-        description: "Handcrafted beaded bracelet set",
-        price: 19.99,
-        photo: brace
+      category: "Bracelets",
+      description: "Handcrafted beaded bracelet set",
+      price: 19.99,
+      photo: brace,
     },
     {
-        category: "Watches",
-        description: "Sporty digital watch with heart rate monitor",
-        price: 669.99,
-        photo: watch
-    }, 
+      category: "Watches",
+      description: "Sporty digital watch with heart rate monitor",
+      price: 669.99,
+      photo: watch,
+    },
     {
-        category: "Goggles",
-        description: "Sporty digital watch with heart rate monitor",
-        price: 969.99,
-        photo: watch
-    }, 
+      category: "Goggles",
+      description: "Sporty digital watch with heart rate monitor",
+      price: 969.99,
+      photo: SyliderGoogles,
+    },
     {
-        category: "Caps",
-        description: "Sporty digital watch with heart rate monitor",
-        price: 69.99,
-        photo: watch
-    } 
-];
+      category: "Caps",
+      description: "Sporty digital watch with heart rate monitor",
+      price: 69.99,
+      photo: Cap1,
+    },
+  ];
 
 
 export const CategoryProducts = [

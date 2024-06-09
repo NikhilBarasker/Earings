@@ -9,7 +9,7 @@ import {Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/mo
 import img1 from '../Photoes/HomeBG.jpg'
 import img2 from '../Photoes/carousel1.jpg'
 
-import { smallC } from './data';
+import { smallCarousel } from "./data";
 
 const Carousel = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -23,7 +23,6 @@ const Carousel = () => {
   }, []);
   return (
     <DIV>
-     
       <Swiper
         cssMode={false}
         navigation={true}
@@ -34,14 +33,37 @@ const Carousel = () => {
         modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide><img className='img' src={isSmallScreen ? smallC : img2} alt=""/></SwiperSlide>
-        <SwiperSlide><img className='img' src={isSmallScreen ? smallC : img1} alt=""/></SwiperSlide>
-        <SwiperSlide><img className='img' src={isSmallScreen ? smallC : img2} alt=""/></SwiperSlide>
-        <SwiperSlide><img className='img' src={isSmallScreen ? smallC : img1} alt=""/></SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="img"
+            src={isSmallScreen ? smallCarousel : img2}
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="img"
+            src={isSmallScreen ? smallCarousel : img1}
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="img"
+            src={isSmallScreen ? smallCarousel : img2}
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="img"
+            src={isSmallScreen ? smallCarousel : img1}
+            alt=""
+          />
+        </SwiperSlide>
       </Swiper>
-   
     </DIV>
-  )
+  );
 }
 
 export default Carousel

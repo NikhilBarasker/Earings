@@ -1,62 +1,99 @@
 @media only screen and (max-width: 767px) {
-  .uperheader{
+  .uperheader {
     display: flex;
     flex-direction: column;
   }
-  .logo{
+  .input{
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff; /* Optionally, adjust background color to match navbar */
+    padding: 10px; /* Optionally, add padding for better spacing */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    display: none; /* Initially hide the input */
+  }
+
+  .search-active .input {
+    display: block; /* Display the input when search is active */
+  }
+
+
+  .logoMenu{
+    margin: 0 0 0 -150px;
+  }
+  
+  .logo {
     margin: 0 0 0 130px;
     width: auto;
   }
+  .secondNav{
+    margin-top: -65px;
+  }
 
   .humburger {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  margin: 70px 0 0 0;
-  background-color: #fff;
-  text-align: center;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    margin: 70px 0 0 0;
+    background-color: #fff;
+    text-align: center;
+  }
 
-.productNav{
-width: 50px;
-text-align: center;
-margin: 0 0 0 150px;
-}
-.productDropdown{
-  margin: 0 0 0 150px;
-}
+  .productNav {
+    width: 50px;
+    text-align: center;
+    margin: 0 0 0 150px;
+  }
+
+  .productDropdown {
+    margin: 0 0 0 150px;
+  }
 
   .navbar {
-  position: relative;
-  z-index: 1; 
-}
-#chatbox{
-  margin-left: 0px;
-}
-  .wishlist{
-  display: grid;
-  grid-template-columns:repeat(1,1fr);
-  gap: 10px;
-}
+    position: relative;
+    z-index: 1;
+  }
+  
+  #chatbox {
+    margin-left: 0px;
+  }
+  
+  .wishlist {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 
-  .cartItemsInfo{
+  .cartItemsInfo {
     display: flex;
     flex-direction: column;
   }
-  .img{
+
+  .img {
     width: 100%;
-    height:100px;
+    height: 100px;
   }
-   .search-form {
+
+  .search-form {
     display: none;
   }
-  .imgQuentityPrice{
-  display: flex;
-  flex-direction: column;
+
+  .imgQuentityPrice {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quantity {
+    display: flex;
+  }
 }
-.quantity{
-  display: flex;
-}
+
+@media (max-width: 1024px) {
+  .search-input {
+    display: none;
+  }
 }

@@ -15,6 +15,10 @@ import { TbBrandTorchain } from "react-icons/tb";
 import { BsSmartwatch } from "react-icons/bs";
 import { MdLocalOffer } from "react-icons/md";
 import ChatBoxLogo from "./ChatBoxLogo";
+import { CgProfile } from "react-icons/cg";
+import { FaPowerOff } from "react-icons/fa6";
+import { MdOutlineLogin } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
 
 const LatestHead = () => {
   let navigate = useNavigate();
@@ -25,6 +29,7 @@ const LatestHead = () => {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [profileDropDown, setProfileDropDown] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,31 +51,47 @@ const LatestHead = () => {
     closeMenu();
   };
 
+  const handleProfile = () => {
+    setProfileDropDown(true)
+  }
+  const handleProfileL = () => {
+    setProfileDropDown(false);
+  }
+
+  
+    const [isInputVisible, setIsInputVisible] = useState(false);
+
+    const handleSearchClick = () => {
+      setIsInputVisible(!isInputVisible);
+    };
+  
+
   return (
     <div className="relative z-50 w-[100vw] h-[80px] navbar">
       <header className="fixed top-0 flex bg-white border-b py-4 sm:px-10 px-6 font-[sans-serif] min-h-[80px] tracking-wide w-[100%] navbar">
         <div className="flex flex-wrap items-center lg:gap-y-2 gap-4 w-full">
-          <Link to={"/"}>
-            <img src={Logo} alt="logo" className="w-20" />
-          </Link>
+          <span className="flex flex-row-reverse logoMenu">
+            <Link to={"/"}>
+              <img src={Logo} alt="logo" className="w-16" />
+            </Link>
 
-          {/* Hamburger icon for mobile */}
-          <button
-            className="lg:hidden ml-[150px]  mb-[15px]"
-            onClick={toggleMenu}
-          >
-            <svg
-              className="w-7 h-7 fill-current text-gray-600"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+            <button
+              className="lg:hidden ml-[150px] mr-[10px]  mb-[15px]"
+              onClick={toggleMenu}
             >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-7 h-7 fill-current text-gray-600"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </span>
 
           <ul
             className={`lg:flex lg:gap-x-3 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto items-center
@@ -321,23 +342,25 @@ const LatestHead = () => {
           </ul>
 
           <div className="ml-auto flex items-center space-x-6">
-            <div className="flex border-2 focus-within:border-gray-400 rounded-full px-6 py-3 overflow-hidden max-w-52 max-lg:hidden">
-              <input
-                type="text"
-                placeholder="Search something..."
-                className="w-full text-sm bg-transparent outline-none pr-2"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 192.904 192.904"
-                width="16px"
-                className="cursor-pointer fill-gray-600"
-              >
-                <path d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z" />
-              </svg>
-            </div>
-
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-8 secondNav">
+              <div className="relative">
+                <button
+                  className="flex items-center justify-center mr-[-10px]  mt-[-10px] w-[40px] h-[40px] rounded-full focus:outline-none "
+                  onClick={handleSearchClick}
+                >
+                  <FaSearch style={{
+                    color:'black'
+                  }} className="w-[20px] h-[20px] text-gray-600 mt-[10px] mr-[-20px]" />
+                </button>
+                {/* Input field */}
+                {isInputVisible && (
+                  <input
+                    type="text"
+                    placeholder="Search something..."
+                    className="absolute top-full left-0 z-10 w-[200px] bg-white border border-gray-300 rounded-md py-2 px-3 shadow-sm focus:outline-none"
+                  />
+                )}
+              </div>
               <span onClick={() => handleWishList()} className="relative">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -369,28 +392,33 @@ const LatestHead = () => {
                 </span>
               </Link>
 
-              <button className="px-5 py-2 text-sm rounded-full text-white border-2 border-transparent hover:border-[#757292] bg-[#2e2d3d] hover:bg-[#55537a]">
-                Sign In
-              </button>
+              <div className="relative inline-block">
+                <button
+                  onMouseEnter={handleProfile}
+                  onMouseLeave={handleProfileL}
+                  className="px-5 py-2 text-sm rounded-full text-white border-2 border-transparent hover:border-[#757292] bg-[#2e2d3d] hover:bg-[#55537a]"
+                >
+                  <CgProfile className="w-[17px] h-[17px]" />
+                </button>
+                {profileDropDown && (
+                  <ul
+                    onMouseEnter={handleProfile}
+                    onMouseLeave={handleProfileL}
+                    className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-[1000] ml-[-40px] mt-[2px]"
+                  >
+                    <li className="flex flex-row px-4 py-2 hover:bg-gray-100">
+                      <MdOutlineLogin className="w-[25px] w-[25px] ml-[-6px] mt-[4px] mr-[5px]" />
+                      <Link to="/profile">My Profile</Link>
+                    </li>
+                    <li className="flex flex-row px-4 py-2 hover:bg-gray-100">
+                      <FaPowerOff className="mt-[4px] mr-[5px]" />
+                      <Link>Logout</Link>
+                    </li>
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
-
-          {/* Close button for mobile */}
-          {isMenuOpen && (
-            <button
-              className="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white p-3"
-              onClick={closeMenu}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 fill-black"
-                viewBox="0 0 320.591 320.591"
-              >
-                <path d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z" />
-                <path d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z" />
-              </svg>
-            </button>
-          )}
         </div>
       </header>
       <ChatBoxLogo />
