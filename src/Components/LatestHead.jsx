@@ -396,9 +396,8 @@ const LatestHead = () => {
                 <button
                   onMouseEnter={handleProfile}
                   onMouseLeave={handleProfileL}
-                  className="px-5 py-2 text-sm rounded-full text-white border-2 border-transparent hover:border-[#757292] bg-[#2e2d3d] hover:bg-[#55537a]"
                 >
-                  <CgProfile className="w-[17px] h-[17px]" />
+                  <CgProfile className=" mt-[10px] w-[22px] h-[22px]" />
                 </button>
                 {profileDropDown && (
                   <ul
