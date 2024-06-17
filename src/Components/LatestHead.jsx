@@ -117,14 +117,6 @@ const LatestHead = () => {
                 About
               </Link>
             </li>
-            <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
-              <Link
-                to={"/contact"}
-                className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
-              >
-                Contact
-              </Link>
-            </li>
             <li
               data-popover-target="menu"
               className="relative block p-1 font-sans text-sm font-medium leading-normal text-blue-gray-900 antialiased mt-[10px] mb-[10px]"
@@ -339,6 +331,14 @@ const LatestHead = () => {
                 </div>
               )}
             </li>
+            <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
+              <Link
+                to={"/contact"}
+                className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
 
           <div className="ml-auto flex items-center space-x-6">
@@ -348,9 +348,12 @@ const LatestHead = () => {
                   className="flex items-center justify-center mr-[-10px]  mt-[-10px] w-[40px] h-[40px] rounded-full focus:outline-none "
                   onClick={handleSearchClick}
                 >
-                  <FaSearch style={{
-                    color:'black'
-                  }} className="w-[20px] h-[20px] text-gray-600 mt-[10px] mr-[-20px]" />
+                  <FaSearch
+                    style={{
+                      color: "black",
+                    }}
+                    className="w-[20px] h-[20px] text-gray-600 mt-[10px] mr-[-20px]"
+                  />
                 </button>
                 {/* Input field */}
                 {isInputVisible && (
@@ -403,10 +406,10 @@ const LatestHead = () => {
                   <ul
                     onMouseEnter={handleProfile}
                     onMouseLeave={handleProfileL}
-                    className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-[1000] ml-[-40px] mt-[2px]"
+                    className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-[1000] ml-[-60px]"
                   >
                     <li className="flex flex-row px-4 py-2 hover:bg-gray-100">
-                      <MdOutlineLogin className="w-[25px] w-[25px] ml-[-6px] mt-[4px] mr-[5px]" />
+                      <MdOutlineLogin className="w-[25px] w-[25px] ml-[-6px] mr-[5px]" />
                       <Link to="/profile">My Profile</Link>
                     </li>
                     <li className="flex flex-row px-4 py-2 hover:bg-gray-100">
