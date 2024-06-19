@@ -1,285 +1,187 @@
 import React, { useState } from "react";
+import Avatar from "react-avatar";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { RiArrowRightSLine } from "react-icons/ri";
+import { FaRegUser } from "react-icons/fa";
+import { MdAccountBalanceWallet } from "react-icons/md";
+import { RiFolderUserFill } from "react-icons/ri";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 export default function UserProfile() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [colorFilters, setColorFilters] = useState(["blue"]);
-  const [categoryFilters, setCategoryFilters] = useState(["travel"]);
-  const [sizeFilters, setSizeFilters] = useState(["40l"]);
+  const [data,setData] = useState({
+    Fname:"",
+    Lname:"",
+    gender:"",
+    Email:"",
+    PhoneNo:"",
+  })
 
-  const toggleMobileFilters = () => {
-    setMobileFiltersOpen(!mobileFiltersOpen);
-  };
+  const handleOnChange = (e)=>{
+    const {name, value} = e.target;
+    setData((prev)=>{
+      return{
+      ...prev,
+      [name]:value,
+      }
+    })
+  }
 
-  const handleCheckboxChange = (filterType, value) => {
-    let filters;
-    switch (filterType) {
-      case "color":
-        filters = [...colorFilters];
-        if (filters.includes(value)) {
-          filters = filters.filter((filter) => filter !== value);
-        } else {
-          filters.push(value);
-        }
-        setColorFilters(filters);
-        break;
-      case "category":
-        filters = [...categoryFilters];
-        if (filters.includes(value)) {
-          filters = filters.filter((filter) => filter !== value);
-        } else {
-          filters.push(value);
-        }
-        setCategoryFilters(filters);
-        break;
-      case "size":
-        filters = [...sizeFilters];
-        if (filters.includes(value)) {
-          filters = filters.filter((filter) => filter !== value);
-        } else {
-          filters.push(value);
-        }
-        setSizeFilters(filters);
-        break;
-      default:
-        break;
+  const submitHandler = (e)=>{
+    e.preventDefault();
+    if (data.Fname==='') {
+       return alert("First Name is Required");
     }
-  };
+    if (data.Lname==='') {
+       return alert("Last Name is Required");
+    }
+    if (data.gender==='') {
+      return alert("Gender is Required");
+    }
+    if (data.Email==='') {
+      return alert("Email is Required");
+    }
+    if (data.PhoneNo==='') {
+      return alert("Phone No. is Required");
+    }
+    
+    
+    console.log(data)
+
+  }
 
   return (
-    <div>
-      <div className="bg-white">
-        <div>
-          {mobileFiltersOpen && (
-            <div
-              className="relative z-40 lg:hidden"
-              role="dialog"
-              aria-modal="true"
-            >
-              <div className="fixed inset-0 bg-black bg-opacity-25"></div>
-              <div className="fixed inset-0 z-40 flex">
-                <div className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
-                  <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900">
-                      Filters
-                    </h2>
-                    <button
-                      type="button"
-                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
-                      onClick={toggleMobileFilters}
-                    >
-                      <span className="sr-only">Close menu</span>
-                      <svg
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <form className="mt-4 border-t border-gray-200">
-                    <h3 className="sr-only">Categories</h3>
-                    <ul
-                      role="list"
-                      className="px-2 py-3 font-medium text-gray-900"
-                    >
-                      {[
-                        "Totes",
-                        "Backpacks",
-                        "Travel Bags",
-                        "Hip Bags",
-                        "Laptop Sleeves",
-                      ].map((category) => (
-                        <li key={category}>
-                          <a href="#" className="block px-2 py-3">
-                            {category}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-gray-200 px-4 py-6">
-                      <h3 className="-mx-2 -my-3 flow-root">
-                        <button
-                          type="button"
-                          className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
-                          aria-controls="filter-section-mobile-0"
-                          aria-expanded="false"
-                        >
-                          <span className="font-medium text-gray-900">
-                            Color
-                          </span>
-                        </button>
-                      </h3>
-                      <div className="pt-6" id="filter-section-mobile-0">
-                        <div className="space-y-6">
-                          {[
-                            "white",
-                            "beige",
-                            "blue",
-                            "brown",
-                            "green",
-                            "purple",
-                          ].map((color, index) => (
-                            <div key={color} className="flex items-center">
-                              <input
-                                id={`filter-mobile-color-${index}`}
-                                name="color[]"
-                                value={color}
-                                type="checkbox"
-                                checked={colorFilters.includes(color)}
-                                onChange={() =>
-                                  handleCheckboxChange("color", color)
-                                }
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={`filter-mobile-color-${index}`}
-                                className="ml-3 min-w-0 flex-1 text-gray-500"
-                              >
-                                {color.charAt(0).toUpperCase() + color.slice(1)}
-                              </label>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="border-t border-gray-200 px-4 py-6">
-                      <h3 className="-mx-2 -my-3 flow-root">
-                        <button
-                          type="button"
-                          className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
-                          aria-controls="filter-section-mobile-1"
-                          aria-expanded="false"
-                        >
-                          <span className="font-medium text-gray-900">
-                            Category
-                          </span>
-                        </button>
-                      </h3>
-                      <div className="pt-6" id="filter-section-mobile-1">
-                        <div className="space-y-6">
-                          {[
-                            "new-arrivals",
-                            "sale",
-                            "travel",
-                            "organization",
-                            "accessories",
-                          ].map((category, index) => (
-                            <div key={category} className="flex items-center">
-                              <input
-                                id={`filter-mobile-category-${index}`}
-                                name="category[]"
-                                value={category}
-                                type="checkbox"
-                                checked={categoryFilters.includes(category)}
-                                onChange={() =>
-                                  handleCheckboxChange("category", category)
-                                }
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={`filter-mobile-category-${index}`}
-                                className="ml-3 min-w-0 flex-1 text-gray-500"
-                              >
-                                {category.replace("-", " ")}
-                              </label>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="border-t border-gray-200 px-4 py-6">
-                      <h3 className="-mx-2 -my-3 flow-root">
-                        <button
-                          type="button"
-                          className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
-                          aria-controls="filter-section-mobile-2"
-                          aria-expanded="false"
-                        >
-                          <span className="font-medium text-gray-900">
-                            Size
-                          </span>
-                        </button>
-                      </h3>
-                      <div className="pt-6" id="filter-section-mobile-2">
-                        <div className="space-y-6">
-                          {["2l", "6l", "12l", "18l", "20l", "40l"].map(
-                            (size, index) => (
-                              <div key={size} className="flex items-center">
-                                <input
-                                  id={`filter-mobile-size-${index}`}
-                                  name="size[]"
-                                  value={size}
-                                  type="checkbox"
-                                  checked={sizeFilters.includes(size)}
-                                  onChange={() =>
-                                    handleCheckboxChange("size", size)
-                                  }
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-mobile-size-${index}`}
-                                  className="ml-3 min-w-0 flex-1 text-gray-500"
-                                >
-                                  {size.toUpperCase()}
-                                </label>
-                              </div>
-                            )
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+    <div className=" mt-7 px-0 lg:px-44 w-[100%] ">
+      <div className="flex justify-between ">
+        <div className="w-[30%] md:w-[28%] lg:w-[25%] ">
+          <div className=" bg-white px-2">
+            <Avatar
+              src="https://img.freepik.com/premium-vector/avatar-man-with-beard-office-worker-wearing-glasses-it-developer-engineer-programmer_277909-144.jpg?w=2000"
+              size="60"
+              round={true}
+            />
+            <span className="pl-4 font-medium text-sm lg:text-lg">Hello</span>
+          </div>
+          <div className="mt-5 bg-white">
+            <div className=" px-2 py-6 flex items-center justify-between">
+              <div className="flex items-center">
+                <HiOutlineShoppingBag size={24} />
+                <span className="pl-4 text-gray-700 text-xs lg:text-base">MY ORDERS</span>
+              </div>
+              <RiArrowRightSLine size={24} />
+            </div>
+            <hr />
+            <div className=" px-2 py-6 flex items-center">
+              <FaRegUser size={24} />
+              <span className="pl-4 text-gray-700 text-xs md:text-sm lg:text-base">ACCOUNT SETTINGS</span>
+            </div>
+            <div className="flex flex-col mx-12  gap-3 text-xs md:text-xs lg:text-sm">
+              <span>Profile Information</span>
+              <span>Manage Addresses</span>
+              <span>PAN Card Information</span>
+            </div>
+            <hr />
+            <div className=" px-2 py-6 flex items-center">
+              <MdAccountBalanceWallet size={24} />
+              <span className="pl-4 text-gray-700 text-xs md:text-sm lg:text-base">PAYMENTS</span>
+            </div>
+            <div className="flex flex-col mx-12  gap-3 text-xs md:text-xs lg:text-sm">
+              <span>Gift Cards</span>
+
+
+
+              <span>Saved UPI</span>
+              <span>Saved Cards</span>
+            </div>
+            <hr />
+            <div className=" px-2 py-6 flex items-center">
+              <RiFolderUserFill size={24} />
+              <span className="pl-4 text-gray-700 text-xs md:text-sm lg:text-base">MY STUFF</span>
+            </div>
+            <div className="flex flex-col mx-12  gap-3 text-xs md:text-xs lg:text-sm">
+              <span>My Coupons</span>
+              <span>My Reviews & Ratings</span>
+              <span>All Notifications</span>
+              <span>My Wishlist</span>
+            </div>
+            <hr />
+            <div className=" px-2 py-6 flex items-center">
+              <RiLogoutCircleLine size={24} className="rotate-90" />
+              <span className="pl-4 text-gray-700 text-xs md:text-sm lg:text-base">Logout</span>
+            </div>
+          </div>
+          <div className="mt-5 bg-white  px-2  flex items-center">
+            <div className=" py-5">
+              <h6>Frequently Visited</h6>
+              <span className="pt-3 text-xs text-gray-700">
+                Track Order Help Center{" "}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="w-[69%] md:w-[70.5%] lg:w-[73.5%] bg-white ">
+          <form action="" className="py-8 px-8">
+            <div className=" w-[90%] lg:w-[30%] justify-between flex">
+              <span className="text-xs md:text-sm lg:text-lg font-medium">Personal Information</span>
+              <button className="text-xs md:text-sm lg:text-lg text-blue-800">Cancel</button>
+            </div>
+            <div className="w-[75%] mt-7 gap-3 flex flex-col lg:flex-row ">
+              <input
+                type="text"
+                placeholder="First Name"
+                name="Fname"
+                value={data.Fname}
+                onChange={handleOnChange}
+                className=" border-[1px] border-gray-700 outline-none py-0 md:py-0 lg:py-2 px-2 w-[70%] lg:w-[40%] "
+                
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="Lname"
+                value={data.Lname}
+                onChange={handleOnChange}
+                className=" border-[1px] border-gray-700 outline-none py-0 lg:py-2 px-2  w-[70%] lg:w-[40%]"
+              />
+              <button className=" py-0 md:py-1 lg:py-2 px-1 lg:px-8 w-[50%] lg:w-[30%] bg-blue-700 text-white text-xs md:text-sm lg:text-lg"  onClick={submitHandler}>SAVE</button>
+            </div>
+            <div className="flex flex-col mt-7">
+              <span className="text-xs md:text-sm lg:text-lg">Your Gender</span>
+              <div className="flex gap-2 lg:flex lg:flex-row lg:gap-4 mt-2 lg:mt-5" >
+                <input type="radio" name="gender" value="Male" id="Male" className="cursor-pointer" checked={data.gender==='Male'} onChange={handleOnChange} />
+                <label htmlFor="Male" className="cursor-pointer">Male</label>
+                <input type="radio" name="gender" value="Female" id="Female" className="cursor-pointer" checked={data.gender==='Female'} onChange={handleOnChange} />
+                <label htmlFor="Female" className="cursor-pointer">Female</label>
               </div>
             </div>
-          )}
-
-          <main className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-                Profiles
-              </h1>
-            </div>
-
-            <section aria-labelledby="products-heading" className="pb-24 pt-6">
-              <h2 id="products-heading" className="sr-only">
-                Products
-              </h2>
-              <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                <form className="hidden lg:block">
-                  <h3 className="sr-only">Categories</h3>
-                  <ul
-                    role="list"
-                    className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
-                  >
-                    {[
-                      "Totes",
-                      "Backpacks",
-                      "Travel Bags",
-                      "Hip Bags",
-                      "Laptop Sleeves",
-                    ].map((category) => (
-                      <li key={category}>
-                        <a href="#">{category}</a>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                </form>
-                <div className="lg:col-span-3">
-                 
-                </div>
+            <div className=" mt-7">
+              <div className=" flex gap-5">
+                <span className="text-xs md:text-sm lg:text-lg">Email Address</span>
+                <button className="text-blue-800 text-xs md:text-sm lg:text-lg">Edit</button>
               </div>
-            </section>
-          </main>
+              <input
+                type="email"
+                placeholder="Email"
+                name="Email"
+                value={data.Email}
+                onChange={handleOnChange}
+                className="border-[1px] border-gray-700 outline-none py-0 lg:py-2 px-2  w-32 lg:w-64 mt-5"
+              />
+            </div>
+            <div className="mt-7">
+              <div className="flex gap-5">
+                <span className="text-xs md:text-sm lg:text-lg">Phone Number</span>
+                <button className="text-blue-800 text-xs md:text-sm lg:text-lg">Edit</button>
+              </div>
+              <input
+                type="number"
+                placeholder="Ph. No."
+                name="PhoneNo"
+                value={data.PhoneNo}
+                onChange={handleOnChange}
+                className="border-[1px] border-gray-700 outline-none py-0 lg:py-2 px-2  w-32 lg:w-64 mt-5"
+              />
+            </div>
+          </form>
         </div>
       </div>
     </div>

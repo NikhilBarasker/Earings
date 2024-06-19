@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import '../App.css'
+import Avatar from 'react-avatar';
 
 export default function About() {
   return (
@@ -18,7 +19,7 @@ export default function About() {
       >
     <Container1>
         <div
-          className="container1"
+          className="container1 mt-2"
           style={{background: 'linear-gradient(90deg, rgb(255 255 255) 0%, rgb(168 126 111 / 39%) 35%, rgb(255 255 255 / 5%) 100%)'}}
           id="history"
           // style={{alignItems: "left" }}
@@ -72,6 +73,14 @@ export default function About() {
           </p>
         </div>
     </Container1>
+    <div className="flex mx-20 my-6 ">
+      <div className="w-[35%] ">
+      <Avatar src='https://th.bing.com/th/id/OIP.Yj2jc7gOT84nZ3DQwckQFAHaFf?rs=1&pid=ImgDetMain' size={400} round={true} />
+      </div>
+      <div className="w-[60%] bg-gradient-to-r from-brown-100 to-gray-400 px-9">
+        <p className='text-3xl mt-20 leading-9 font-serif'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione blanditiis esse sunt laborum eos illo suscipit id voluptatibus? Quaerat consectetur, illo aliquid ipsum molestias incidunt blanditiis unde laudantium quas laboriosam.</p>
+      </div>
+    </div>
                 
       </div>
     </div>

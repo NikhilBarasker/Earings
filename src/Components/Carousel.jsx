@@ -33,7 +33,7 @@ const Carousel = () => {
         modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        <SwiperSlide className='' >
           <img
             className="img"
             src={isSmallScreen ? smallCarousel : img2}
@@ -117,13 +117,13 @@ body {
 .swiper-slide .img {
 overflow: hidden;
   width: 100%;
-  height: 79vh;
+  height: 100%;
   object-fit: cover;
   /* filter: brightness(70%); */
 }
 .mySwiper{
     width: 100%;
-    height: 79vh;
+    height: 85vh;
 }
 
 .swiper-button-prev:after, .swiper-button-next:after{
