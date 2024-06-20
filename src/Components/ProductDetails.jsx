@@ -23,7 +23,11 @@ const ProductDetails = () => {
       
   const handleIncrement = () => {
     setCartValue(cartValue + 1);
+    const updatedCartItems = [...cartItems, ShowProduct];
+    setCartItems(updatedCartItems);
+
   }
+  // console.log("fjnfkjfnerkjn",ShowProduct)
 
   const shareWebsite = async (ShowProduct) => {
     try {
@@ -32,13 +36,13 @@ const ProductDetails = () => {
         text: `${ShowProduct.description}`,
         url: window.location.href
       });
-      console.log('Shared successfully');
+      // console.log('Shared successfully');
     } catch (error) {
-      console.error('Error sharing:', error);
+      // console.error('Error sharing:', error);
     }
   };
 
-  console.log('xxxxxxxxxxxxxxx',ProductInfo)
+  // console.log('xxxxxxxxxxxxxxx',ProductInfo)
 
   return (
     <Container>

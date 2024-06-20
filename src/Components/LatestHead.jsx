@@ -61,6 +61,7 @@ const LatestHead = () => {
   }
   const handleProfileL = () => {
     setProfileDropDown(false);
+    setIsInputVisible(false);
     // setShowRes(false)
   }
 
@@ -70,6 +71,7 @@ const LatestHead = () => {
     const handleSearchClick = () => {
       setIsInputVisible(!isInputVisible);
       setShowRes(false)
+    
     };
   
 

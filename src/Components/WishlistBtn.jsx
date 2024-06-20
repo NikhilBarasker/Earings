@@ -3,10 +3,10 @@ import { useContext } from "react";
 import IconContext from "../Context/IconContext";
 
 const WishlistBtn = ({ product }) => {
-  console.log('lllllllllllllllll',product)
   const item = product.product;
-  const { likeValue, setlikeValue, setWishItems, wishItems } =
-    useContext(IconContext);
+  console.log("ITEM", product.product.productName)
+  const { likeValue, setlikeValue, setWishItems, wishItems } = useContext(IconContext);
+  
   const handleIncrement = () => {
     alert(`Product ${item.productName} added to Wishlist!`);
     const updatedWishItems = [...wishItems, product];
@@ -24,17 +24,23 @@ const WishlistBtn = ({ product }) => {
   const handleClick = () => {
     setIsOn((prevState) => !prevState);
   };
+
+  const isOpen  = wishItems.find((ab)=> ab.product.productName === product.product.productName) 
+  console.log("is", isOpen)
+
   return (
     <div>
-      <button
+      {/* {wishItems.find((product)=>{ */}
+        <button
         onClick={handleIncrement}
+        disabled={isOpen  ? true : false}
         className="text-center absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
       >
         <span className="sr-only">Wishlist</span>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill={isOn ? "red" : "none"}
+          fill={isOpen ? "red" : "none"}
           viewBox="0 0 22 22"
           stroke="currentColor"
           className="h-4 w-4 pr-[1px]"
@@ -46,6 +52,7 @@ const WishlistBtn = ({ product }) => {
           />
         </svg>
       </button>
+      {/* }) } */}
     </div>
   );
 };

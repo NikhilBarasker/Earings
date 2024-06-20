@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import IconContext from '../Context/IconContext';
 import { cart } from './data';
@@ -9,16 +9,21 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
+
   const { setCartValue, cartValue, cartItems, setCartItems, empty, setEmpty } =
     useContext(IconContext);
+    
+    // console.log( "cart itc",cartItems)
 
-  const [quantities, setQuantities] = useState({});
+  const [quantities, setQuantities] = useState({index:1});
 
 const handleIncrement = (index) => {
   setQuantities((prevQuantities) => ({
     ...prevQuantities,
     [index]: (prevQuantities[index] || 0) + 1,
   }));
+
+  
 
   // Update the quantity in the cartItems object and calculate the updated price
   const updatedCartItems = cartItems.map((item, i) => {
@@ -75,6 +80,13 @@ const handleRemoveItem = (index) => {
   const handleLinkClick = () => {
     window.scrollTo(0, 0);
   };
+
+  useEffect(()=>{
+    handleLinkClick();
+   })
+
+  console.log("iconContext",IconContext)
+  console.log("cartitems",cartItems)
 
   return (
     <div className="">
@@ -151,7 +163,7 @@ const handleRemoveItem = (index) => {
                                     type="button"
                                     className="bg-transparent px-4 py-2 font-semibold text-[#333] text-md"
                                   >
-                                    {quantities[index] || 0}
+                                    {cartItems[index].quantity || 1}
                                   </button>
                                   <button
                                     type="button"
@@ -175,7 +187,7 @@ const handleRemoveItem = (index) => {
                                 <h4 className="text-md font-bold text-[#333]">
                                   Rs.{" "}
                                   {item.product.price *
-                                    (quantities[index] || 0)}
+                                    (quantities[index]+1 || 1)}
                                 </h4>
                               </td>
                             </div>
