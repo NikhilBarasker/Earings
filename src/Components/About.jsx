@@ -8,7 +8,7 @@ export default function About() {
     <div>
       <div className="ApoutPage">
         <h1 style={{
-          color:'#fff'
+          color:'#ffffff'
         }}>About Us</h1>
         <p><Link to={'/'} >Home</Link></p>
       </div>

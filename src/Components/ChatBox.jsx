@@ -1,18 +1,25 @@
-import React from 'react'
+import React from "react";
 import { MdCancel } from "react-icons/md";
-import '../Responsive.css'
-export default function ChatBox() {
+import "../Responsive.css";
 
-  const handleClick = () => {
-    
-  }
+export default function ChatBox() {
+  const handleClick = (e) => {
+    if (e.target.id === "closeButton" || e.target.id === "overlay") {
+      console.log("Close button or overlay clicked");
+    }
+  };
+
   return (
-    <div className="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-auto h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
+    <div
+      id="overlay"
+      onClick={handleClick}
+      className="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-auto h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]"
+    >
       <div
         id="chatbox"
         className="w-[400px] max-w-lg bg-white ml-[700px] shadow-lg rounded-lg p-6 relative"
       >
-        <MdCancel onClick={handleClick} />
+        <MdCancel id="closeButton" onClick={handleClick} />
         <div className="my-6 text-center ">
           <p className="text-sm mt-4">
             Welcome to <strong>Mahesh Patang Wala!</strong> Please fill in the
@@ -22,14 +29,14 @@ export default function ChatBox() {
         <form className="space-y-4">
           <div className="relative flex items-center">
             <input
-              type="name"
+              type="text"
               placeholder="Enter Name"
               className="px-4 py-3 bg-white text-[#333] w-full text-sm border-2 outline-[#007bff] rounded-lg"
             />
           </div>
           <div className="relative flex items-center">
             <input
-              type="mobile"
+              type="text"
               placeholder="Enter Mobile"
               className="px-4 py-3 bg-white text-[#333] w-full text-sm border-2 outline-[#007bff] rounded-lg"
             />
