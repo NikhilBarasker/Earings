@@ -14,7 +14,7 @@ const ProductCard = (product) => {
     handleLinkClick();
     setShowProduct(product);
     console.clear();
-    console.log(ShowProduct);
+    // console.log("ShowProduct",ShowProduct);
   };
 
   return (

@@ -6,6 +6,8 @@ import IconContext from "../Context/IconContext";
 import AddCartBtn from "../Components/AddCartBtn"
 import { GiCancel } from "react-icons/gi";
 import { FaRupeeSign } from "react-icons/fa";
+import { wishlist } from "./data";
+import { Link } from "react-router-dom";
 
 const Wishlists = () => {
   const {
@@ -25,6 +27,10 @@ const Wishlists = () => {
   } = useContext(IconContext);
 
   console.log("wishItems", wishItems);
+  if (wishItems.length>0) {
+    setEmpty(false)
+  }
+  console.log("empty",empty)
 
   const handleRemoveItem = (index) => {
     const confirmed = window.confirm("Are you sure to remove this item?");
@@ -34,11 +40,17 @@ const Wishlists = () => {
       setWishItems(updatedWishItems);
       setWishValue(wishValue - 1);
       setlikeValue(likeValue - 1);
+      if (wishItems.length>0) {
+        setEmpty(true)
+      }
+    
+
     }
   };
 
   return (
-    <div className="font-[sans-serif] bg-gray-100 ">
+    <div className="">
+    {(!empty && (    <div className="font-[sans-serif] bg-gray-100 mt-20 ">
       <div className="p-4  wishlist">
         {wishItems.map((product, index) => (
           <div className="">
@@ -82,6 +94,21 @@ const Wishlists = () => {
           </div>
         ))}
       </div>
+    </div>
+ )) || (
+  <div className="w-full h-[60vh] flex items-center justify-center flex-col">
+    <div className="w-[100%] h-[100%] flex flex-col justify-center ">
+      <img src={wishlist} alt="" className="w-[300px] mx-auto" />
+      <h1 className=" text-4xl text-center mt-8">Your Wish list is empty !</h1>
+    </div>
+    <Link to={"/"} >
+      <button className="bg-white border-2 border-teal-400 rounded-full hover:bg-teal-400 hover:text-white px-4 py-2 ">Continue Shopping...</button>
+      </Link>
+  </div>
+)}
+      
+      {/* {!empty && } */}
+
     </div>
   );
 };

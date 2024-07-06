@@ -153,7 +153,7 @@ const Footer = () => {
                   target="_blank"
                   className="hover:underline mx-1"
                 >
-                  Chetan's Royal Webtech Pvt. Ltd.
+                  Designed by Royal Webtech Pvt. Ltd.
                 </a>
                 All Rights Reserved.
               </p>

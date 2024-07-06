@@ -9,7 +9,7 @@ import {Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/mo
 import img1 from '../Photoes/HomeBG.jpg'
 import img2 from '../Photoes/carousel1.jpg'
 
-import { smallCarousel } from "./data";
+import { smallCarousel1, smallCarousel2, smallCarousel3, smallCarousel4 } from "./data";
 
 const Carousel = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -27,40 +27,40 @@ const Carousel = () => {
         cssMode={false}
         navigation={true}
         autoplay={{
-          delay: 4000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        <SwiperSlide className='' >
           <img
             className="img"
-            src={isSmallScreen ? smallCarousel : img2}
+            src={isSmallScreen ? smallCarousel1 : img2}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="img"
-            src={isSmallScreen ? smallCarousel : img1}
+            src={isSmallScreen ? smallCarousel2 : img1}
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="img"
-            src={isSmallScreen ? smallCarousel : img2}
+            src={isSmallScreen ? smallCarousel3 : img2}
             alt=""
           />
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img
             className="img"
-            src={isSmallScreen ? smallCarousel : img1}
+            src={isSmallScreen ? smallCarousel4 : img1}
             alt=""
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </DIV>
   );
@@ -117,13 +117,13 @@ body {
 .swiper-slide .img {
 overflow: hidden;
   width: 100%;
-  height: 79vh;
+  height: 100%;
   object-fit: cover;
   /* filter: brightness(70%); */
 }
 .mySwiper{
     width: 100%;
-    height: 79vh;
+    height: 85vh;
 }
 
 .swiper-button-prev:after, .swiper-button-next:after{

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Logo } from "./data";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../App.css";
 import "../Responsive.css";
@@ -21,10 +21,14 @@ import { MdOutlineLogin } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 
 const LatestHead = () => {
+  const location = useLocation();
+  // console.log("Location : ", location.pathname)
   let navigate = useNavigate();
 
   const handleWishList = () => {
     navigate("/wishlist");
+    setShowRes(false)
+    setIsInputVisible(false)
     // alert(`It's working`)
   };
 
@@ -37,14 +41,15 @@ const LatestHead = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setShowRes(!showRes);
-  };
+    
+    };
   const { setCartValue, cartValue, likeValue, cartItems, setCartItems } =
     useContext(IconContext);
 
   const [showRes, setShowRes] = useState(false);
   const toogleRes = () => {
     setShowRes(!showRes);
+    setIsInputVisible(false)
   };
 
   const handleNavLinkClick = () => {
@@ -56,6 +61,8 @@ const LatestHead = () => {
   }
   const handleProfileL = () => {
     setProfileDropDown(false);
+    setIsInputVisible(false);
+    // setShowRes(false)
   }
 
   
@@ -63,16 +70,18 @@ const LatestHead = () => {
 
     const handleSearchClick = () => {
       setIsInputVisible(!isInputVisible);
+      setShowRes(false)
+    
     };
   
 
   return (
-    <div className="relative z-50 w-[100vw] h-[80px] navbar">
-      <header className="fixed top-0 flex bg-white border-b py-4 sm:px-10 px-6 font-[sans-serif] min-h-[80px] tracking-wide w-[100%] navbar">
+    <div className="relative z-50 w-[100vw] h-[80px] navbar" >
+      <header onMouseLeave={handleProfileL}  className="fixed top-0 flex bg-white border-b py-4 sm:px-10 px-6 font-[sans-serif] min-h-[80px] tracking-wide w-[100%] navbar">
         <div className="flex flex-wrap items-center lg:gap-y-2 gap-4 w-full">
           <span className="flex flex-row-reverse logoMenu">
             <Link to={"/"}>
-              <img src={Logo} alt="logo" className="w-16" />
+              <img src={Logo} alt="logo" className="w-16" onClick={()=>{setShowRes(false); setIsInputVisible(false)}} />
             </Link>
 
             <button
@@ -104,7 +113,8 @@ const LatestHead = () => {
             <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
               <Link
                 to={"/"}
-                className="text-[#007bff] hover:text-[#007bff] text-[15px] block font-semibold"
+                onClick={()=>{setShowRes(false) ; setIsInputVisible(false)}}
+                className={` hover:text-[#007bff] text-[15px] block font-semibold ${location.pathname === "/" ? ("text-[#007bff]") : ("text-[#333]")}`}
               >
                 Home
               </Link>
@@ -112,7 +122,8 @@ const LatestHead = () => {
             <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
               <Link
                 to={"/about"}
-                className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
+                onClick={()=>{setShowRes(false) ; setIsInputVisible(false)}}
+                className={` hover:text-[#007bff] text-[15px] block font-semibold ${location.pathname === "/about" ? ("text-[#007bff]") : ("text-[#333]")}`}
               >
                 About
               </Link>
@@ -123,8 +134,9 @@ const LatestHead = () => {
             >
               <div
                 role="button"
-                className="flex w-full items-center gap-2 rounded-lg p-3 py-2 pr-4 text-start font-medium leading-tight text-gray-900 outline-none transition-all hover:bg-opacity-80 hover:text-blue-gray-900  focus:bg-opacity-80 focus:text-blue-gray-900  active:bg-opacity-80 active:text-blue-gray-900 productNav"
+                className={`flex w-full items-center gap-2 rounded-lg p-3 py-2 pr-4 text-start font-medium leading-tight ${(location.pathname === "/Categories/Earrings" || location.pathname === "/Categories/Rings" || location.pathname === "/Categories/KeyChain"|| location.pathname === "/Categories/Wallets"|| location.pathname === "/Categories/Caps"|| location.pathname === "/Categories/Goggles"|| location.pathname === "/Categories/Bracelets"|| location.pathname === "/Categories/Watches"|| location.pathname === "/Categories/Offers") ? ("text-[#007bff]") : ("text-[#333]")} outline-none transition-all hover:bg-opacity-80 hover:text-[#007bff]  focus:bg-opacity-80 focus:text-blue-gray-900  active:bg-opacity-80 active:text-blue-gray-900 productNav`}
                 onClick={toogleRes}
+                
               >
                 Products
                 <svg
@@ -175,7 +187,7 @@ const LatestHead = () => {
                     role="menuitem"
                   >
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Earrings"
                     >
                       <button
@@ -194,7 +206,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() =>{ handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Rings"
                     >
                       <button
@@ -213,7 +225,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/KeyChain"
                     >
                       <button
@@ -232,7 +244,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Wallets"
                     >
                       <button
@@ -248,7 +260,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Caps"
                     >
                       <button
@@ -264,7 +276,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Goggles"
                     >
                       <button
@@ -280,7 +292,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Bracelets"
                     >
                       <button
@@ -296,7 +308,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Watches"
                     >
                       <button
@@ -312,7 +324,7 @@ const LatestHead = () => {
                       </button>
                     </Link>
                     <Link
-                      onClick={() => handleNavLinkClick()}
+                      onClick={() => {handleNavLinkClick(); setShowRes(false)}}
                       to="/Categories/Offers"
                     >
                       <button
@@ -334,15 +346,16 @@ const LatestHead = () => {
             <li className="max-lg:border-b max-lg:py-3 px-3 mt-[10px] mb-[10px]">
               <Link
                 to={"/contact"}
-                className="text-[#333] hover:text-[#007bff] text-[15px] block font-semibold"
+                onClick={()=>{setShowRes(false) ; setIsInputVisible(false)}}
+                className={` hover:text-[#007bff] text-[15px] block font-semibold ${location.pathname === "/contact" ? ("text-[#007bff]") : ("text-[#333]")}`}
               >
                 Contact
               </Link>
             </li>
           </ul>
 
-          <div className="ml-auto flex items-center space-x-6">
-            <div className="flex items-center space-x-8 secondNav">
+          <div className="ml-auto flex items-center space-x-6" >
+            <div className="flex items-center space-x-8 secondNav" >
               <div className="relative">
                 <button
                   className="flex items-center justify-center mr-[-10px]  mt-[-10px] w-[40px] h-[40px] rounded-full focus:outline-none "
@@ -379,7 +392,9 @@ const LatestHead = () => {
               </span>
 
               <Link to={"/cart"}>
-                <span className="relative">
+                <span className="relative"                   
+                onClick={()=>{setShowRes(false) ; setIsInputVisible(false)}}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20px"
@@ -395,13 +410,15 @@ const LatestHead = () => {
                 </span>
               </Link>
 
-              <div className="relative inline-block">
+              <div className="relative inline-block" >
                 <button
                   onMouseEnter={handleProfile}
-                  onMouseLeave={handleProfileL}
+                onClick={()=>{setShowRes(false) ; setIsInputVisible(false)}}
+                 // onMouseLeave={handleProfileL} is removed from here , and i have put it in line no 71
                 >
                   <CgProfile className=" mt-[10px] w-[22px] h-[22px]" />
                 </button>
+                
                 {profileDropDown && (
                   <ul
                     onMouseEnter={handleProfile}
@@ -409,7 +426,7 @@ const LatestHead = () => {
                     className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-[1000] ml-[-60px]"
                   >
                     <li className="flex flex-row px-4 py-2 hover:bg-gray-100">
-                      <MdOutlineLogin className="w-[25px] w-[25px] ml-[-6px] mr-[5px]" />
+                      <MdOutlineLogin className="w-[25px]  ml-[-6px] mr-[5px]" />
                       <Link to="/profile">My Profile</Link>
                     </li>
                     <li className="flex flex-row px-4 py-2 hover:bg-gray-100">

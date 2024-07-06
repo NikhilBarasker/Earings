@@ -5,23 +5,31 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddCartBtn = (product) => {
-  console.log('xxx',product)
+  // console.log('xxx',product)
     const item = product.product;
     const { setCartValue, cartValue, cartItems, setCartItems } = useContext(IconContext);
-    console.log('hi')
-  const handleIncrement = () => {
-    // e.preventdefault();
+    // console.log('hi')
+    
+    const isOpen  = cartItems.find((ab)=> ab.product.productName === product.product.productName) 
+
+
+    const handleIncrement = () => {
+      // e.preventdefault();
+      if (!isOpen) {
         setCartValue(cartValue + 1);
         alert(`Product ${item.productName} added to cart!`)
         const updatedCartItems = [...cartItems, product];
-      setCartItems(updatedCartItems);
-      console.log('zzzzzzzzzzzzzzzz',updatedCartItems);
-  }
-
-
+        setCartItems(updatedCartItems);
+        return 
+      }
+      return alert("Already added to Cart")
+      // console.log('zzzzzzzzzzzzzzzz',updatedCartItems);
+    }
+    
+    
     // const handleToast = (item) => {
-    //     toast.success(`Product ${item.productName} added to cart!`, { 
-    //         position: "top-right",
+      //     toast.success(`Product ${item.productName} added to cart!`, { 
+        //         position: "top-right",
     //         autoClose: 5000,
     //         hideProgressBar: false,
     //         closeOnClick: true,
@@ -33,16 +41,20 @@ const AddCartBtn = (product) => {
     //     });
     // }
 
-   return (
-     <>
+    
+    
+    return (
+      <>
        <div>
-         <div
-           onClick={handleIncrement}
-           className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
-           style={{ background: "#2e2d3d", color: "white" }}
-         >
-           Add to Cart
-         </div>
+           
+          <button
+          className={`flex w-full items-center justify-center rounded ${isOpen ?"bg-green-800 text-white" : "bg-[#2e2d3d] text-white"}  p-4 text-sm font-medium transition hover:scale-105`}
+          // disabled = {isOpen?true:false}
+          onClick={handleIncrement}
+          >
+            {isOpen ?"Added to Cart":"Add to Cart" }
+           
+           </button>
        </div>
 
        <ToastContainer

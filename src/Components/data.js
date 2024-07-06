@@ -18,7 +18,10 @@ import img4 from '../Photoes/shield.png'
 import img5 from '../Photoes/BG_Adv.jpg'
 import face from '../Photoes/facebook.png'
 
-import smallCarousel from '../Photoes/smallCarousel.jpg'
+import smallCarousel1 from '../Photoes/Deos-100.jpg'
+import smallCarousel2 from '../Photoes/freshners-100.jpg'
+import smallCarousel3 from '../Photoes/Perfumes-100.jpg'
+import smallCarousel4 from '../Photoes/smallCarousel.jpg'
 
 import earRing from '../Photoes/earRing.jpg'
 import fingerR from '../Photoes/fingerRing.jpg'
@@ -31,6 +34,8 @@ import SyliderGoogles from "../Photoes/SyliderGoogles.jpg";
 import Cap1 from '../Photoes/Cap1.jpg'
 
 import cart from '../Photoes/cart.png'
+import wishlist from '../Photoes/undraw_happy_music_g6wc.png'
+
 import backgroundImage from '../Photoes/bgg.jpeg'
 import backgroundImage1 from '../Photoes/wallet_bg (2).jpeg'
 import backg from '../Photoes/backg.png'
@@ -42,6 +47,7 @@ export {
   backgroundImage1,
   favi,
   cart,
+  wishlist,
   Logo,
   face,
   top1,
@@ -58,7 +64,10 @@ export {
   img4,
   Adv_back,
   AboutbackgroundImage,
-  smallCarousel,
+  smallCarousel1,
+  smallCarousel2,
+  smallCarousel3,
+  smallCarousel4,
 };
 
 export const productCard = [

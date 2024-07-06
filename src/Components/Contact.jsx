@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { addMessage } from "./BackendConnection.js";
 
 export default function Contact() {
@@ -33,6 +33,14 @@ export default function Contact() {
      await addMessage(info);
    }
  };
+
+ const scrollTop = () => {
+  window.scrollTo(0,0)
+};
+
+ useEffect(()=>{
+  scrollTop();
+ }, [])
 
   return (
     <div className='mt-[10px]'>
