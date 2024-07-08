@@ -1,3 +1,10 @@
+@media only screen and (max-width: 425px){
+.imgQuantityPrice{
+  display: flex;
+  flex-direction: column;
+}
+}
+
 @media only screen and (max-width: 767px) {
   .uperheader {
     display: flex;
@@ -15,8 +22,10 @@
     display: none; /* Initially hide the input */
   }
 
+ 
+
   .search-active .input {
-    display: block; /* Display the input when search is active */
+    display: block; 
   }
 
 

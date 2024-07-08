@@ -9,6 +9,10 @@ export default function ChatBox() {
     }
   };
 
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <div
       id="overlay"
@@ -18,8 +22,9 @@ export default function ChatBox() {
       <div
         id="chatbox"
         className="w-[400px] max-w-lg bg-white ml-[700px] shadow-lg rounded-lg p-6 relative"
+        onClick={stopPropagation}
       >
-        <MdCancel id="closeButton" onClick={handleClick} />
+        {/* <MdCancel id="closeButton" onClick={handleClick} /> */}
         <div className="my-6 text-center ">
           <p className="text-sm mt-4">
             Welcome to <strong>Mahesh Patang Wala!</strong> Please fill in the
@@ -52,7 +57,7 @@ export default function ChatBox() {
             type="button"
             className="px-6 py-2.5 !mt-8 w-full font-semibold bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-full"
           >
-            Start Chating
+            Start Chatting
           </button>
         </form>
         <hr className="my-6" />

@@ -41,7 +41,6 @@ const LatestHead = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    
     };
   const { setCartValue, cartValue, likeValue, cartItems, setCartItems } =
     useContext(IconContext);

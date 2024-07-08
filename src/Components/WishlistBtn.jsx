@@ -4,7 +4,7 @@ import IconContext from "../Context/IconContext";
 
 const WishlistBtn = ({ product }) => {
   const item = product.product;
-  console.log("ITEM", product.product.productName)
+  // console.log("ITEM", product.product.productName)
   const { likeValue, setlikeValue, setWishItems, wishItems } = useContext(IconContext);
   
   const handleIncrement = () => {
@@ -26,7 +26,7 @@ const WishlistBtn = ({ product }) => {
   };
 
   const isOpen  = wishItems.find((ab)=> ab.product.productName === product.product.productName) 
-  console.log("is", isOpen)
+  // console.log("is", isOpen)
 
   return (
     <div>

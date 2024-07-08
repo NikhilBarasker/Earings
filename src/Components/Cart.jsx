@@ -1,92 +1,83 @@
-import React, { useEffect, useState } from 'react'
-import { useContext } from 'react'
-import IconContext from '../Context/IconContext';
-import { cart } from './data';
-import '../App.css'
-import '../Responsive.css'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from "react";
+import IconContext from "../Context/IconContext";
+import { cart } from "./data";
+import "../App.css";
+import "../Responsive.css";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-
-
   const { setCartValue, cartValue, cartItems, setCartItems, empty, setEmpty } =
     useContext(IconContext);
-    
-    // console.log( "cart itc",cartItems)
 
-  const [quantities, setQuantities] = useState({index:1});
+  const [quantities, setQuantities] = useState(
+    cartItems.reduce((acc, item, index) => {
+      acc[index] = item.quantity || 1;
+      return acc;
+    }, {})
+  );
 
-const handleIncrement = (index) => {
-  setQuantities((prevQuantities) => ({
-    ...prevQuantities,
-    [index]: (prevQuantities[index] || 0) + 1,
-  }));
+  const handleIncrement = (index) => {
+    const updatedQuantities = {
+      ...quantities,
+      [index]: (quantities[index] || 1) + 1,
+    };
+    setQuantities(updatedQuantities);
 
-  
-
-  // Update the quantity in the cartItems object and calculate the updated price
-  const updatedCartItems = cartItems.map((item, i) => {
-    if (i === index) {
-      const updatedQuantity = (quantities[index] || 0) + 1;
-      return {
-        ...item,
-        quantity: updatedQuantity,
-        price: item.product.price * updatedQuantity,
-      };
-    }
-    else {
-      price : item.product.price;
-    }
-    return item;
-  });
-  setCartItems(updatedCartItems);
-};
-
-const handleDecrement = (index) => {
-  if (quantities[index] > 0) {
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [index]: prevQuantities[index] - 1,
-    }));
-
-    // Update the quantity in the cartItems object and calculate the updated price
     const updatedCartItems = cartItems.map((item, i) => {
       if (i === index) {
-        const updatedQuantity = (quantities[index] || 0) - 1;
         return {
           ...item,
-          quantity: updatedQuantity,
-          price: item.product.price * updatedQuantity,
+          quantity: updatedQuantities[index],
+          price: item.product.price * updatedQuantities[index],
         };
       }
       return item;
     });
-    setCartItems(updatedCartItems);
-  }
-};
 
-const handleRemoveItem = (index) => {
-  const confirmed = window.confirm("Are you sure to remove this item?");
-  if (confirmed) {
-    const updatedCartItems = [...cartItems];
-    updatedCartItems.splice(index, 1);
     setCartItems(updatedCartItems);
-    setCartValue(cartValue - 1);
-  }
-};
+  };
 
+  const handleDecrement = (index) => {
+    if (quantities[index] > 1) {
+      const updatedQuantities = {
+        ...quantities,
+        [index]: quantities[index] - 1,
+      };
+      setQuantities(updatedQuantities);
+
+      const updatedCartItems = cartItems.map((item, i) => {
+        if (i === index) {
+          return {
+            ...item,
+            quantity: updatedQuantities[index],
+            price: item.product.price * updatedQuantities[index],
+          };
+        }
+        return item;
+      });
+
+      setCartItems(updatedCartItems);
+    }
+  };
+
+  const handleRemoveItem = (index) => {
+    const confirmed = window.confirm("Are you sure to remove this item?");
+    if (confirmed) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems.splice(index, 1);
+      setCartItems(updatedCartItems);
+      setCartValue(cartValue - 1);
+    }
+  };
 
   const handleLinkClick = () => {
     window.scrollTo(0, 0);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     handleLinkClick();
-   })
-
-  console.log("iconContext",IconContext)
-  console.log("cartitems",cartItems)
+  }, []);
 
   return (
     <div className="">
@@ -104,21 +95,14 @@ const handleRemoveItem = (index) => {
               </div>
               <div>
                 <table className="mt-6 w-full border-collapse divide-y">
-                  {/* <thead className="whitespace-nowrap text-left">
-                    <tr>
-                      <th className="text-base text-[#333] p-4">Description</th>
-                      <th className="text-base text-[#333] p-4">Quantity</th>
-                      <th className="text-base text-[#333] p-4">Price</th>
-                    </tr>
-                  </thead> */}
                   <tbody className="whitespace-nowrap divide-y">
                     {cartItems &&
                       cartItems.map((item, index) => (
                         <tr key={index}>
-                          <div className="imgQuentityPrice">
+                          <div className="mt-[30px] imgQuantityPrice lg:flex lg:flex-row justify-evenly sm:flex sm:flex-col ">
                             <div>
                               <td className="py-6 px-4">
-                                <div className="flex  items-center gap-6 w-max">
+                                <div className="productPicName flex items-center gap-6 w-max">
                                   <div className="h-36 shrink-0">
                                     <img
                                       src={item.product.imageUrl}
@@ -140,7 +124,7 @@ const handleRemoveItem = (index) => {
                                 </div>
                               </td>
                             </div>
-                            <div className="qunatityPrice">
+                            <div className="quantityPrice mt-[-20px]">
                               <td className="py-6 px-4 quantity">
                                 <div className="flex-col divide-x mt-[45px] border w-max cartItemsInfo block">
                                   <button
@@ -163,7 +147,7 @@ const handleRemoveItem = (index) => {
                                     type="button"
                                     className="bg-transparent px-4 py-2 font-semibold text-[#333] text-md"
                                   >
-                                    {cartItems[index].quantity || 1}
+                                    {quantities[index]}
                                   </button>
                                   <button
                                     type="button"
@@ -185,9 +169,7 @@ const handleRemoveItem = (index) => {
                               </td>
                               <td className="py-6 px-4 mt-[50px]">
                                 <h4 className="text-md font-bold text-[#333]">
-                                  Rs.{" "}
-                                  {item.product.price *
-                                    (quantities[index]+1 || 1)}
+                                  Rs. {item.product.price * quantities[index]}
                                 </h4>
                               </td>
                             </div>
@@ -202,26 +184,25 @@ const handleRemoveItem = (index) => {
               <h3 className="text-xl font-extrabold text-[#333] border-b pb-4">
                 Order Summary
               </h3>
-
-              {cartItems.map((item, index) => {
-                <ul className="text-[#333] divide-y mt-6">
-                  <li className="flex flex-wrap gap-4 text-md py-4">
-                    Subtotal{" "}
+              <ul className="text-[#333] divide-y mt-6">
+                {cartItems.map((item, index) => (
+                  <li key={index} className="flex flex-wrap gap-4 text-md py-4">
+                    Subtotal
                     <span className="ml-auto font-bold">
-                      Rs. {item.product.price * (quantities[index] || 0)}
+                      Rs. {item.product.price * quantities[index]}
                     </span>
                   </li>
-                  <li className="flex flex-wrap gap-4 text-md py-4">
-                    Shipping <span className="ml-auto font-bold">$4.00</span>
-                  </li>
-                  <li className="flex flex-wrap gap-4 text-md py-4">
-                    Tax <span className="ml-auto font-bold">$4.00</span>
-                  </li>
-                  <li className="flex flex-wrap gap-4 text-md py-4 font-bold">
-                    Total <span className="ml-auto">$45.00</span>
-                  </li>
-                </ul>;
-              })}
+                ))}
+                <li className="flex flex-wrap gap-4 text-md py-4">
+                  Shipping <span className="ml-auto font-bold">$4.00</span>
+                </li>
+                <li className="flex flex-wrap gap-4 text-md py-4">
+                  Tax <span className="ml-auto font-bold">$4.00</span>
+                </li>
+                <li className="flex flex-wrap gap-4 text-md py-4 font-bold">
+                  Total <span className="ml-auto">$45.00</span>
+                </li>
+              </ul>
               <Link
                 to={{
                   pathname: "/checkout",
@@ -251,40 +232,39 @@ const handleRemoveItem = (index) => {
           </div>
         </div>
       )}
-      {/* <Cheakout cartItems={cartItems} /> */}
     </div>
   );
 };
 
-export default Cart
+export default Cart;
 
 const Butt = styled.button`
-margin: 20px 0;
-button {
-  padding: 1.3em 3em;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: 2px solid #23c483;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
+  margin: 20px 0;
+  button {
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #23c483;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
 
-button:hover {
-  background-color: #23c483;
-  border: 2px solid #23c483;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
-}
+  button:hover {
+    background-color: #23c483;
+    border: 2px solid #23c483;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
 
-button:active {
-  transform: translateY(-1px);
-}
+  button:active {
+    transform: translateY(-1px);
+  }
 `;
