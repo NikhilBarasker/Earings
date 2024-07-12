@@ -11,10 +11,11 @@ import 'swiper/css/navigation';
 
 import { Pagination, Navigation } from 'swiper/modules';
 
+
 const TopDealProducts = () => {
     const [swiperRef, setSwiperRef] = useState(null);
   return (
-    <div style={{backgroundColor:'#e3d6c5;'}}>
+    <div style={{backgroundColor:'#e3d6c5'}}>
     <Product_Container>
         <div className='container'>
             <h1>Top Fetured Products</h1>
@@ -56,7 +57,8 @@ const TopDealProducts = () => {
         initialSlide={1}
       >
         {productCard.map((product, index) => (
-            <SwiperSlide key={index} style={{backgroundColor:'#ececec'}}>
+            // <SwiperSlide key={index} style={{backgroundColor:'#ececec'}}>
+            <SwiperSlide key={index} style={{backgroundColor:'transparent'}}>
                     <ProductCard product={product} />
             </SwiperSlide>
                 ))}

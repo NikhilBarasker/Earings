@@ -101,10 +101,10 @@ export default function Testimonals() {
       >
         {obj.map((refs, index) => (
           <SwiperSlide>
-            <div class="font-[sans-serif] max-w-[350px] h-auto p-8 rounded-md mx-auto shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] bg-white relative my-12">
+            <div className="font-[sans-serif] max-w-[350px] h-auto p-8 rounded-md mx-auto shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] bg-white relative my-12">
               <img
                 src="https://readymadeui.com/profile_2.webp"
-                class="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7"
+                className="w-14 h-14 rounded-full absolute right-0 left-0 mx-auto -top-7"
               />
               <div className="mt-8 text-center">
                 <p className="text-sm text-[#333] leading-relaxed ">

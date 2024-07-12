@@ -22,6 +22,7 @@ module.exports = withMT({
       colors: {
                 customGray: 'rgb(46, 45, 61)',
       },
+      
     },
   },
   plugins: [],

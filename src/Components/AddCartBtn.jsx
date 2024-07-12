@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import IconContext from '../Context/IconContext';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 
 const AddCartBtn = (product) => {
   // console.log('xxx',product)
@@ -17,7 +18,12 @@ const AddCartBtn = (product) => {
       // e.preventdefault();
       if (!isOpen) {
         setCartValue(cartValue + 1);
-        alert(`Product ${item.productName} added to cart!`)
+        // alert(`Product ${item.productName} added to cart!`)
+        Swal.fire({
+          // title: "Good job!",
+          text: "Product ${item.productName} added to cart!",
+          icon: "success"
+        });
         const updatedCartItems = [...cartItems, product];
         setCartItems(updatedCartItems);
         return 

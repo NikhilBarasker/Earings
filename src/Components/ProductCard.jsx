@@ -3,6 +3,7 @@ import AddCartBtn from "./AddCartBtn";
 import { Link } from "react-router-dom";
 import WishlistBtn from "./WishlistBtn";
 import ProductDetail_Context from "../Context/ProductDetail_Context";
+import {motion} from "framer-motion";
 
 const ProductCard = (product) => {
   const { ShowProduct, setShowProduct } = useContext(ProductDetail_Context);
@@ -18,11 +19,24 @@ const ProductCard = (product) => {
   };
 
   return (
-    <div className='max-w-[100%] w-[350px]  border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px'}}>
+    <motion.div initial={{
+      y:50,
+      opacity:0
+               }}
+               whileInView={{
+                 y:0,
+                 opacity:1
+               }}
+               transition={{
+                 duration:1,
+                 delay:.3
+               }}  className='max-w-[100%] w-[350px]  border-[2px] border-gray-100' style={{boxShadow:'0px 5px 10px -2px rgba(0,0,0,0.5)', borderRadius:'10px'}}>
       <Link className="group relative block overflow-hidden">
         <WishlistBtn product={ product} />
 
         <Link to={"/ProductDetail"} onClick={ShowDetails}>
+
+
           <img
             src={product.product.imageUrl}
             alt=""
@@ -53,7 +67,7 @@ const ProductCard = (product) => {
           <AddCartBtn product={product.product} />
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

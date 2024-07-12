@@ -6,8 +6,40 @@ import { FaArrowUp } from "react-icons/fa";
 import { face } from './data';
 import Newslater from './Newslater';
 import Scrollup3 from './Scrollup3';
+import "../../src/App.css"
+import { BiUpArrowAlt } from "react-icons/bi";
+
 
 const Footer = () => {
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  
+
+  console.log('Rendering ScrollToTopButton, isVisible:', isVisible);
 
   return (
     <>
@@ -166,6 +198,15 @@ const Footer = () => {
           <FaArrowUp style={{ color: "red" }} />
         </div>
       )} */}
+         
+        <div className="scroll-to-top">
+      {isVisible && (
+        <div className="scroll_top" onClick={scrollToTop}>
+          <BiUpArrowAlt className='icon' />
+        </div>
+      )}
+    </div>
+
     </>
   );
 }

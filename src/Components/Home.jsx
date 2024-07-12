@@ -16,7 +16,7 @@ import Testimonals from './Testimonals.jsx'
 
 const Home = () => {
   return (
-    <div>
+    <div style={{overflowX: "hidden"}}>
       <Carousel />
       <Container>
         <TopDealProducts />

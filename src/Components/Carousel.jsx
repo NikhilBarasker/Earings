@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { motion } from 'framer-motion';
 
 import img1 from '../Photoes/HomeBG.jpg'
 import img2 from '../Photoes/carousel1.jpg'
@@ -27,14 +28,26 @@ const Carousel = () => {
         cssMode={false}
         navigation={true}
         autoplay={{
-          delay: 2000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
         <SwiperSlide className='' >
-          <img
+          <motion.img
+        initial={{
+          scale: 1.5,
+          opacity: 0,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1,
+          delay: 0.3,
+        }}
             className="img"
             src={isSmallScreen ? smallCarousel1 : img2}
             alt=""

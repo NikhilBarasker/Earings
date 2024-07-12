@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -11,13 +11,24 @@ import "swiper/css/navigation";
 import { productsCategory } from "./data";
 
 import { Pagination, Navigation,Autoplay } from 'swiper/modules';
+import {motion} from "framer-motion"
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 const Categories = () => {
+
+  // useEffect(() => {
+  //   AOS.init({ duration: 1500, once: true });
+  // }, []);
+
+
   const [swiperRef, setSwiperRef] = useState(null);
 
   let navigate = useNavigate();
   
   const handleClick = (category) => {
+
+
     switch (category) {
       case `Earrings`:
         navigate("/Categories/Earrings");
@@ -102,9 +113,24 @@ const Categories = () => {
                         {" "}
                         <img src={product.photo} />
                       </div>
-                      <div className="card_title title-white">
-                        <p>{product.category}</p>
-                      </div>
+                      
+                      <div  className="  group card_title title-white ">
+        <motion.p
+            initial={{
+   y:50,
+   opacity:0
+            }}
+            whileInView={{
+              y:0,
+              opacity:1
+            }}
+            transition={{
+              duration:1,
+              delay:.3
+            }} className="categories-name">
+          {product.category}
+        </motion.p>
+      </div>
                     </div>
                   </Card>
                 </SwiperSlide>
@@ -281,6 +307,12 @@ const Card = styled.div`
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
       -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+  }
+  .card p{
+    display:none;
+  }
+  .card:hover p{
+    display:block;
   }
 
   .title-white {

@@ -90,7 +90,7 @@ const Wishlists = () => {
                   <AddCartBtn product={product.product} />
                 </h4>
               </div>
-            </div>
+            </div> 
           </div>
         ))}
       </div>
